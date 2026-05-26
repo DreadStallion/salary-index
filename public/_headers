@@ -1,0 +1,51 @@
+# Static JS/CSS chunks — content-hashed filenames, cache forever
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images and fonts in public folder
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Favicon and static assets
+/favicon.ico
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+# Widget pages — embedded iframes, cache aggressively
+/widget/*
+  Cache-Control: public, max-age=43200
+
+# Salary and role pages — core content
+/salary/*
+  Cache-Control: public, max-age=43200
+
+/role/*
+  Cache-Control: public, max-age=43200
+
+/city/*
+  Cache-Control: public, max-age=43200
+
+/state/*
+  Cache-Control: public, max-age=43200
+
+/compare/*
+  Cache-Control: public, max-age=43200
+
+# Interactive pages — shorter cache
+/calculator
+  Cache-Control: public, max-age=3600
+
+/embed
+  Cache-Control: public, max-age=3600
+
+# Homepage
+/
+  Cache-Control: public, max-age=3600
