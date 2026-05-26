@@ -97,3 +97,77 @@ details summary::-webkit-details-marker { display: none; }
   border-left-color: var(--gold);
   background: #ede9e0;
 }
+
+/* ── Mobile responsive ── */
+@media (max-width: 768px) {
+  .site-topbar { display: none !important; }
+
+  .site-header-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    padding: 14px 16px !important;
+  }
+
+  .site-nav {
+    gap: 14px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .site-main {
+    padding: 24px 16px !important;
+  }
+
+  .site-footer-inner {
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: flex-start !important;
+  }
+
+  .site-footer-links {
+    text-align: left !important;
+  }
+
+  /* Salary page */
+  .percentile-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .salary-title-block {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .salary-amount {
+    text-align: left !important;
+  }
+
+  .job-links-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .job-links-buttons {
+    flex-wrap: wrap !important;
+  }
+
+  /* Tables scroll on mobile */
+  .table-scroll {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .data-table {
+    min-width: 420px;
+  }
+
+  /* Home page role grid */
+  .role-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Compare / developers 2-col grid */
+  .two-col-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -92,7 +92,7 @@ export default async function SalaryPage({ params }: Props) {
 
       {/* Title block */}
       <div style={{ borderBottom: '2px solid var(--navy)', paddingBottom: 20, marginBottom: 32 }}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+        <div className="salary-title-block" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
           <div>
             <h1 style={{ fontSize: 26, margin: '0 0 6px', color: 'var(--navy)' }}>
               {data.role} Salary in {data.city}, {data.state}
@@ -101,7 +101,7 @@ export default async function SalaryPage({ params }: Props) {
               Annual base compensation · {data.updatedAt} · BLS OES Survey Data
             </p>
           </div>
-          <div style={{ textAlign: 'right' }}>
+          <div className="salary-amount" style={{ textAlign: 'right' }}>
             <div style={{ fontSize: 34, fontWeight: 700, color: 'var(--navy)', fontFamily: 'Courier New, monospace', letterSpacing: '-0.02em' }}>
               {formatSalary(data.median)}
             </div>
@@ -117,7 +117,7 @@ export default async function SalaryPage({ params }: Props) {
         <div style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginBottom: 12, fontWeight: 600 }}>
           Compensation Distribution
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 2 }}>
+        <div className="percentile-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 2 }}>
           {percentiles.map(p => (
             <div key={p.label} style={{
               padding: '14px 12px',
@@ -157,7 +157,7 @@ export default async function SalaryPage({ params }: Props) {
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         gap: 12,
-      }}>
+      }} className="job-links-row">
         <div>
           <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--navy)', marginBottom: 3 }}>
             Open Positions
@@ -166,7 +166,7 @@ export default async function SalaryPage({ params }: Props) {
             Find active {data.role} roles in {data.city}
           </div>
         </div>
-        <div style={{ display: 'flex', gap: 10 }}>
+        <div className="job-links-buttons" style={{ display: 'flex', gap: 10 }}>
           {[
             { name: 'LinkedIn', color: '#0a66c2', href: `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(data.role)}&location=${encodeURIComponent(data.city)}` },
             { name: 'Indeed', color: '#003a9b', href: `https://www.indeed.com/jobs?q=${encodeURIComponent(data.role)}&l=${encodeURIComponent(data.city)}` },
@@ -245,6 +245,7 @@ export default async function SalaryPage({ params }: Props) {
           </div>
           <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
         </div>
+        <div className="table-scroll">
         <table className="data-table">
           <thead>
             <tr>
@@ -275,6 +276,7 @@ export default async function SalaryPage({ params }: Props) {
             })}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* Other roles same city */}
@@ -285,6 +287,7 @@ export default async function SalaryPage({ params }: Props) {
           </div>
           <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
         </div>
+        <div className="table-scroll">
         <table className="data-table">
           <thead>
             <tr>
@@ -313,6 +316,7 @@ export default async function SalaryPage({ params }: Props) {
             })}
           </tbody>
         </table>
+        </div>
       </div>
     </>
   )
