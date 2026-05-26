@@ -7,10 +7,13 @@ import {
 
 type Props = { params: Promise<{ role: string; city: string }> }
 
+// Generate static pages for all 113 roles × top 8 cities to stay under Cloudflare 20k file limit
+const TOP_CITIES = ['san-francisco', 'new-york', 'seattle', 'los-angeles', 'chicago', 'austin', 'washington-dc', 'boston']
+
 export async function generateStaticParams() {
   const pairs: { role: string; city: string }[] = []
   for (const role of getAllRoleSlugs()) {
-    for (const city of getAllCitySlugs()) {
+    for (const city of TOP_CITIES) {
       pairs.push({ role, city })
     }
   }
