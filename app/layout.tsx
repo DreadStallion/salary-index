@@ -46,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 { href: '/', label: 'Roles' },
                 { href: '/cities', label: 'Cities' },
                 { href: '/calculator', label: 'Calculator' },
+                { href: '/compare/software-engineer-vs-data-scientist', label: 'Compare' },
               ].map(({ href, label }) => (
                 <a key={href} href={href} style={{
                   color: '#c8d4e0',

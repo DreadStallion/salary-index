@@ -147,3 +147,75 @@ export function getCityLabel(slug: string) {
 export function formatSalary(n: number) {
   return '$' + n.toLocaleString('en-US')
 }
+
+export const STATE_META: Record<string, { name: string; slug: string }> = {
+  CA: { name: 'California',       slug: 'ca' },
+  NY: { name: 'New York',         slug: 'ny' },
+  WA: { name: 'Washington',       slug: 'wa' },
+  MA: { name: 'Massachusetts',    slug: 'ma' },
+  TX: { name: 'Texas',            slug: 'tx' },
+  CO: { name: 'Colorado',         slug: 'co' },
+  IL: { name: 'Illinois',         slug: 'il' },
+  DC: { name: 'Washington D.C.',  slug: 'dc' },
+  GA: { name: 'Georgia',          slug: 'ga' },
+  FL: { name: 'Florida',          slug: 'fl' },
+  AZ: { name: 'Arizona',          slug: 'az' },
+  MN: { name: 'Minnesota',        slug: 'mn' },
+  OR: { name: 'Oregon',           slug: 'or' },
+  TN: { name: 'Tennessee',        slug: 'tn' },
+  NC: { name: 'North Carolina',   slug: 'nc' },
+  UT: { name: 'Utah',             slug: 'ut' },
+  MI: { name: 'Michigan',         slug: 'mi' },
+}
+
+export function getUniqueStates() {
+  return [...new Set(CITIES.map(c => c.state))]
+}
+
+export function getCitiesForState(stateCode: string) {
+  return CITIES.filter(c => c.state === stateCode)
+}
+
+export function getStateSalaryRanking(stateCode: string) {
+  const cities = getCitiesForState(stateCode)
+  if (!cities.length) return []
+  return ROLES.map(role => {
+    const salaries = cities
+      .map(city => getSalaryData(role.slug, city.slug))
+      .filter(Boolean) as SalaryData[]
+    const avg = (arr: number[]) => Math.round(arr.reduce((a, b) => a + b, 0) / arr.length / 5000) * 5000
+    return {
+      role: role.label,
+      slug: role.slug,
+      median: avg(salaries.map(s => s.median)),
+      p25:    avg(salaries.map(s => s.p25)),
+      p75:    avg(salaries.map(s => s.p75)),
+      p90:    avg(salaries.map(s => s.p90)),
+      yoyChange: salaries[0]?.yoyChange ?? 0,
+      nationalMedian: BASE_SALARIES[role.slug]?.median ?? 0,
+    }
+  }).sort((a, b) => b.median - a.median)
+}
+
+export function getAllCompareSlugs() {
+  const slugs: string[] = []
+  for (let i = 0; i < ROLES.length; i++) {
+    for (let j = i + 1; j < ROLES.length; j++) {
+      slugs.push(`${ROLES[i].slug}-vs-${ROLES[j].slug}`)
+    }
+  }
+  return slugs
+}
+
+export function parseCompareSlug(slug: string) {
+  const vsIndex = slug.indexOf('-vs-')
+  if (vsIndex === -1) return null
+  const role1Slug = slug.slice(0, vsIndex)
+  const role2Slug = slug.slice(vsIndex + 4)
+  const role1 = ROLES.find(r => r.slug === role1Slug)
+  const role2 = ROLES.find(r => r.slug === role2Slug)
+  if (!role1 || !role2) return null
+  return { role1, role2 }
+}
+
+export { BASE_SALARIES }
