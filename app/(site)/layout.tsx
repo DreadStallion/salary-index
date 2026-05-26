@@ -31,6 +31,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               { href: '/calculator', label: 'Calculator' },
               { href: '/compare/software-engineer-vs-data-scientist', label: 'Compare' },
               { href: '/embed', label: 'Embed' },
+              { href: '/developers', label: 'API' },
             ].map(({ href, label }) => (
               <a key={href} href={href} style={{
                 color: '#c8d4e0',
@@ -64,6 +65,8 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
           </div>
           <div style={{ color: '#7a90a8', fontSize: 11, textAlign: 'right', lineHeight: 1.8 }}>
             <a href="/embed" style={{ color: '#8a9bb5', textDecoration: 'none' }}>Embed widget</a>
+            <br />
+            <a href="/developers" style={{ color: '#8a9bb5', textDecoration: 'none' }}>API for developers</a>
             <br />
             <a href="/methodology" style={{ color: '#8a9bb5', textDecoration: 'none' }}>Methodology</a>
             <br />Data updated monthly
