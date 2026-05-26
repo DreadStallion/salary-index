@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const [, meta] = entry
   return {
     title: `Highest Paying Jobs in ${meta.name} — 2026 Salary Rankings`,
-    description: `See the top 30 highest paying jobs in ${meta.name} ranked by median salary. Official BLS data, updated May 2026.`,
+    description: `See the top paying jobs in ${meta.name} ranked by median salary across 113 roles. Official BLS data, updated May 2026.`,
   }
 }
 

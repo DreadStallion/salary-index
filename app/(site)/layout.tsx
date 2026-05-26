@@ -8,7 +8,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             U.S. COMPENSATION DATA · UPDATED MAY 2026 · SOURCE: BLS OES
           </span>
           <span style={{ color: '#8a9bb5', fontSize: 11, letterSpacing: '0.05em' }}>
-            30 ROLES · 20 MARKETS
+            113 ROLES · 30 MARKETS
           </span>
         </div>
       </div>

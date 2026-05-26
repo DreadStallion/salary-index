@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cityData) return {}
   return {
     title: `Salaries in ${cityData.label}, ${cityData.state} — 2026 Guide`,
-    description: `Compare salaries for 30 roles in ${cityData.label}. Updated May 2026 with BLS OES data.`,
+    description: `Compare salaries for 113 roles in ${cityData.label}. Updated May 2026 with BLS OES data.`,
   }
 }
 

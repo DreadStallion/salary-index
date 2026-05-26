@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     default: 'SalaryIndex — U.S. Compensation Data',
     template: '%s | SalaryIndex',
   },
-  description: 'Institutional-grade salary benchmarks for 30 roles across 20 U.S. markets. Updated monthly from BLS OES and verified sources.',
+  description: 'Institutional-grade salary benchmarks for 113 roles across 30 U.S. markets. Updated monthly from BLS OES and verified sources.',
   metadataBase: new URL('https://ussalaryindex.com'),
   openGraph: { type: 'website', siteName: 'SalaryIndex' },
 }
