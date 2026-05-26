@@ -14,6 +14,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775316191683171" crossOrigin="anonymous"></script>
+      </head>
       <body>
         {/* Top bar */}
         <div style={{ background: 'var(--navy-dark)', borderBottom: '1px solid #1e3a5f' }}>
@@ -42,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {[
                 { href: '/', label: 'Roles' },
                 { href: '/cities', label: 'Cities' },
+                { href: '/calculator', label: 'Calculator' },
               ].map(({ href, label }) => (
                 <a key={href} href={href} style={{
                   color: '#c8d4e0',

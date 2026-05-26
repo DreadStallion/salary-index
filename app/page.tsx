@@ -66,6 +66,27 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Calculator CTA */}
+      <div style={{ marginTop: 40, background: 'var(--navy)', padding: '24px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
+        <div>
+          <div style={{ color: 'var(--gold-lt)', fontSize: 16, fontWeight: 700, marginBottom: 4 }}>
+            How much will you actually take home?
+          </div>
+          <p style={{ color: '#8a9bb5', fontSize: 13, margin: 0 }}>
+            Calculate your net salary after federal taxes, state taxes, and FICA — across all 50 states.
+          </p>
+        </div>
+        <a href="/calculator" style={{
+          display: 'inline-block', padding: '10px 24px',
+          background: 'var(--gold)', color: 'var(--navy-dark)',
+          fontWeight: 700, fontSize: 13, letterSpacing: '0.06em',
+          textDecoration: 'none', fontFamily: 'Georgia, serif',
+          textTransform: 'uppercase', whiteSpace: 'nowrap',
+        }}>
+          Open Calculator →
+        </a>
+      </div>
+
       {/* Data note */}
       <div style={{
         marginTop: 48,
