@@ -1,0 +1,30 @@
+name: Monthly BLS Data Update
+
+on:
+  schedule:
+    - cron: '0 8 1 * *'  # Day 1 of every month at 8am UTC
+  workflow_dispatch:       # Manual trigger from GitHub UI
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch BLS data
+        run: python scripts/update_bls.py
+
+      - name: Apply update and rebuild
+        run: python scripts/apply_bls_update.py
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
