@@ -13,6 +13,17 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         </div>
       </div>
 
+      {/* Dataset promo banner */}
+      <div style={{ background: '#0a1628', borderBottom: '1px solid #c9a22733', textAlign: 'center', padding: '8px 24px' }}>
+        <span style={{ color: '#8a9bb5', fontSize: 12 }}>
+          Need the raw data?{' '}
+          <a href="https://dreadstallion.gumroad.com/l/tvhsz" target="_blank" rel="noopener noreferrer"
+            style={{ color: 'var(--gold-lt)', fontWeight: 700, textDecoration: 'none', borderBottom: '1px solid #c9a22766' }}>
+            Download the full dataset — 3,360 data points · $19 →
+          </a>
+        </span>
+      </div>
+
       {/* Main header */}
       <header style={{ background: 'var(--navy)', borderBottom: '3px solid var(--gold)' }}>
         <div className="site-header-inner" style={{ maxWidth: 1100, margin: '0 auto', padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -72,6 +83,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             <br />
             <a href="/privacy-policy" style={{ color: '#8a9bb5', textDecoration: 'none' }}>Privacy Policy</a>
             <br />Data updated monthly
+            <br /><a href="https://dreadstallion.gumroad.com/l/tvhsz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold-lt)', textDecoration: 'none', fontWeight: 600 }}>Download Dataset →</a>
           </div>
         </div>
       </footer>
