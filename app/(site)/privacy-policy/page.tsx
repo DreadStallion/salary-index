@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 style={{ fontSize: 16, color: 'var(--navy)', marginBottom: 10 }}>1. Who We Are</h2>
           <p style={{ margin: 0 }}>
-            SalaryIndex (ussalaryindex.com) is operated by Dread Stallion, based in the Netherlands. We provide free U.S. salary data derived from Bureau of Labor Statistics sources. Contact: <a href="mailto:worldmineralassosiation@gmail.com" style={{ color: 'var(--navy)' }}>worldmineralassosiation@gmail.com</a>
+            SalaryIndex (ussalaryindex.com) is operated by Dread Stallion, based in the Netherlands. We provide free U.S. salary data derived from Bureau of Labor Statistics sources. Contact: <a href="mailto:dreadstalliondev@gmail.com" style={{ color: 'var(--navy)' }}>dreadstalliondev@gmail.com</a>
           </p>
         </section>
 
@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
             <li>Request data portability</li>
             <li>Lodge a complaint with your local data protection authority</li>
           </ul>
-          <p style={{ margin: '8px 0 0' }}>To exercise these rights, contact: <a href="mailto:worldmineralassosiation@gmail.com" style={{ color: 'var(--navy)' }}>worldmineralassosiation@gmail.com</a></p>
+          <p style={{ margin: '8px 0 0' }}>To exercise these rights, contact: <a href="mailto:dreadstalliondev@gmail.com" style={{ color: 'var(--navy)' }}>dreadstalliondev@gmail.com</a></p>
         </section>
 
         <section>
