@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const roleData = ROLES.find(r => r.slug === role)
   if (!roleData) return {}
   return {
-    title: `${roleData.label} Salary by City — 2026 Compensation Data`,
-    description: `Compare ${roleData.label} salaries across 20 U.S. markets. Median, 25th, 75th, and 90th percentile data. Updated May 2026.`,
+    title: `${roleData.label} Salary by City — 2026 U.S. Data`,
+    description: `Compare ${roleData.label} salaries across 30 U.S. markets. Median, p25, p75, p90 percentile data from BLS OES. Updated May 2026.`,
   }
 }
 
@@ -49,7 +49,7 @@ export default async function RolePage({ params }: Props) {
             {roleData.label} Salary — U.S. Market Overview
           </h1>
           <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-muted)' }}>
-            20 metropolitan markets · May 2026 · BLS OES
+            30 metropolitan markets · May 2026 · BLS OES
           </p>
         </div>
         <div style={{ textAlign: 'right' }}>

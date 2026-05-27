@@ -5,13 +5,16 @@ import { getAllRoleSlugs, getAllCitySlugs } from '@/data/salaries'
 
 const BASE = 'https://ussalaryindex.com'
 
+// Must match TOP_CITIES in salary/[role]/[city]/page.tsx
+const SALARY_CITIES = ['san-francisco', 'new-york', 'seattle', 'los-angeles', 'chicago', 'austin', 'washington-dc', 'boston']
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const roles = getAllRoleSlugs()
   const cities = getAllCitySlugs()
   const now = new Date().toISOString()
 
   const salaryPages = roles.flatMap(role =>
-    cities.map(city => ({
+    SALARY_CITIES.map(city => ({
       url: `${BASE}/salary/${role}/${city}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,

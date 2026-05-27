@@ -69,6 +69,8 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             <a href="/developers" style={{ color: '#8a9bb5', textDecoration: 'none' }}>API for developers</a>
             <br />
             <a href="/methodology" style={{ color: '#8a9bb5', textDecoration: 'none' }}>Methodology</a>
+            <br />
+            <a href="/privacy-policy" style={{ color: '#8a9bb5', textDecoration: 'none' }}>Privacy Policy</a>
             <br />Data updated monthly
           </div>
         </div>
