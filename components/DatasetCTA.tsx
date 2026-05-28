@@ -1,4 +1,5 @@
 const GUMROAD_URL = 'https://dreadstallion.gumroad.com/l/tvhsz'
+const SAMPLE_URL = 'https://dreadstallion.gumroad.com/l/jqrbti'
 
 const PREVIEW_ROWS = [
   { role: 'Software Engineer',    city: 'San Francisco', median: '$190,000', p25: '$140,000', p75: '$240,000', p90: '$305,000' },
@@ -62,7 +63,7 @@ export default function DatasetCTA({ role, city }: { role?: string; city?: strin
           }}>
             GET FULL DATASET — $19 →
           </a>
-          <a href={GUMROAD_URL} target="_blank" rel="noopener noreferrer" style={{
+          <a href={SAMPLE_URL} target="_blank" rel="noopener noreferrer" style={{
             background: 'transparent',
             color: '#8a9bb5',
             fontWeight: 600,
@@ -74,7 +75,7 @@ export default function DatasetCTA({ role, city }: { role?: string; city?: strin
             borderRadius: 3,
             display: 'block',
           }}>
-            Preview free sample on Gumroad →
+            Download free sample (25 rows) →
           </a>
         </div>
       </div>
