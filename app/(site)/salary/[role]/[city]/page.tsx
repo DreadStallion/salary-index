@@ -1,9 +1,10 @@
-﻿import { notFound } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import {
   getSalaryData, getAllRoleSlugs, getAllCitySlugs,
   formatSalary, ROLES, CITIES,
 } from '@/data/salaries'
+import DatasetCTA from '@/components/DatasetCTA'
 
 type Props = { params: Promise<{ role: string; city: string }> }
 
@@ -63,6 +64,14 @@ export default async function SalaryPage({ params }: Props) {
           },
         ],
       },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ussalaryindex.com' },
+          { '@type': 'ListItem', position: 2, name: `${data.role} Salary`, item: `https://ussalaryindex.com/role/${role}` },
+          { '@type': 'ListItem', position: 3, name: `${data.role} Salary in ${data.city}`, item: `https://ussalaryindex.com/salary/${role}/${city}` },
+        ],
+      },
     ],
   }
 
@@ -91,7 +100,7 @@ export default async function SalaryPage({ params }: Props) {
       </div>
 
       {/* Title block */}
-      <div style={{ borderBottom: '2px solid var(--navy)', paddingBottom: 20, marginBottom: 32 }}>
+      <div style={{ borderBottom: '2px solid var(--navy)', paddingBottom: 20, marginBottom: 24 }}>
         <div className="salary-title-block" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
           <div>
             <h1 style={{ fontSize: 26, margin: '0 0 6px', color: 'var(--navy)' }}>
@@ -112,11 +121,33 @@ export default async function SalaryPage({ params }: Props) {
         </div>
       </div>
 
+      {/* Factual answer block — helps AI systems extract the core answer */}
+      <div style={{
+        padding: '16px 20px',
+        background: 'white',
+        border: '1px solid var(--border)',
+        borderLeft: '4px solid var(--gold)',
+        marginBottom: 32,
+      }}>
+        <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)', lineHeight: 1.8 }}>
+          The median salary for <strong>{data.role}</strong> in <strong>{data.city}, {data.state}</strong> is{' '}
+          <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(data.median)}</strong> per year as of {data.updatedAt}.
+          {' '}Most {data.role}s in {data.city} earn between{' '}
+          <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(data.p25)}</strong> and{' '}
+          <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(data.p75)}</strong>.
+          {' '}Year-over-year compensation growth is <strong>{data.yoyChange}%</strong>.
+        </p>
+      </div>
+
       {/* Compensation distribution */}
       <div style={{ marginBottom: 36 }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginBottom: 12, fontWeight: 600 }}>
-          Compensation Distribution
-        </div>
+        <h2 style={{
+          fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase',
+          color: 'var(--ink-muted)', marginBottom: 12, fontWeight: 600,
+          fontFamily: 'Georgia, serif', margin: '0 0 12px',
+        }}>
+          Salary Percentiles
+        </h2>
         <div className="percentile-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 2 }}>
           {percentiles.map(p => (
             <div key={p.label} style={{
@@ -189,12 +220,14 @@ export default async function SalaryPage({ params }: Props) {
 
       {/* FAQ */}
       <div style={{ marginBottom: 40 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-muted)', fontWeight: 600 }}>
-            Frequently Asked Questions
-          </div>
-          <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
-        </div>
+        <h2 style={{
+          fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase',
+          color: 'var(--ink-muted)', fontWeight: 600, margin: '0 0 16px',
+          fontFamily: 'Georgia, serif', display: 'flex', alignItems: 'center', gap: 12,
+        }}>
+          Frequently Asked Questions
+          <span style={{ flex: 1, height: 1, background: 'var(--border)', display: 'inline-block' }} />
+        </h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
           {[
             {
@@ -237,86 +270,102 @@ export default async function SalaryPage({ params }: Props) {
         </div>
       </div>
 
+      <DatasetCTA role={data.role} city={data.city} />
+
       {/* Same role, other cities */}
       <div style={{ marginBottom: 40 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-muted)', fontWeight: 600, whiteSpace: 'nowrap' }}>
-            {data.role} — Other Markets
-          </div>
-          <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
-        </div>
+        <h2 style={{
+          fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase',
+          color: 'var(--ink-muted)', fontWeight: 600, margin: '0 0 14px',
+          fontFamily: 'Georgia, serif', display: 'flex', alignItems: 'center', gap: 12, whiteSpace: 'nowrap',
+        }}>
+          {data.role} — Other Markets
+          <span style={{ flex: 1, height: 1, background: 'var(--border)', display: 'inline-block', minWidth: 20 }} />
+        </h2>
         <div className="table-scroll">
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Market</th>
-              <th>25th Pct.</th>
-              <th>Median</th>
-              <th>75th Pct.</th>
-              <th>YoY</th>
-            </tr>
-          </thead>
-          <tbody>
-            {otherCities.map(c => {
-              const d = getSalaryData(role, c.slug)
-              if (!d) return null
-              return (
-                <tr key={c.slug}>
-                  <td>
-                    <a href={`/salary/${role}/${c.slug}`} style={{ color: 'var(--navy)', fontWeight: 600, textDecoration: 'none' }}>
-                      {c.label}, {c.state}
-                    </a>
-                  </td>
-                  <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(d.p25)}</td>
-                  <td className="median">{formatSalary(d.median)}</td>
-                  <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(d.p75)}</td>
-                  <td style={{ color: 'var(--green)', fontWeight: 600, fontSize: 12 }}>+{d.yoyChange}%</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Market</th>
+                <th>25th Pct.</th>
+                <th>Median</th>
+                <th>75th Pct.</th>
+                <th>YoY</th>
+              </tr>
+            </thead>
+            <tbody>
+              {otherCities.map(c => {
+                const d = getSalaryData(role, c.slug)
+                if (!d) return null
+                return (
+                  <tr key={c.slug}>
+                    <td>
+                      <a href={`/salary/${role}/${c.slug}`} style={{ color: 'var(--navy)', fontWeight: 600, textDecoration: 'none' }}>
+                        {c.label}, {c.state}
+                      </a>
+                    </td>
+                    <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(d.p25)}</td>
+                    <td className="median">{formatSalary(d.median)}</td>
+                    <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(d.p75)}</td>
+                    <td style={{ color: 'var(--green)', fontWeight: 600, fontSize: 12 }}>+{d.yoyChange}%</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
 
       {/* Other roles same city */}
-      <div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-muted)', fontWeight: 600, whiteSpace: 'nowrap' }}>
-            {data.city} — Other Roles
-          </div>
-          <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
-        </div>
+      <div style={{ marginBottom: 40 }}>
+        <h2 style={{
+          fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase',
+          color: 'var(--ink-muted)', fontWeight: 600, margin: '0 0 14px',
+          fontFamily: 'Georgia, serif', display: 'flex', alignItems: 'center', gap: 12, whiteSpace: 'nowrap',
+        }}>
+          {data.city} — Other Roles
+          <span style={{ flex: 1, height: 1, background: 'var(--border)', display: 'inline-block', minWidth: 20 }} />
+        </h2>
         <div className="table-scroll">
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Role</th>
-              <th>25th Pct.</th>
-              <th>Median</th>
-              <th>75th Pct.</th>
-            </tr>
-          </thead>
-          <tbody>
-            {otherRoles.map(r => {
-              const d = getSalaryData(r.slug, city)
-              if (!d) return null
-              return (
-                <tr key={r.slug}>
-                  <td>
-                    <a href={`/salary/${r.slug}/${city}`} style={{ color: 'var(--navy)', fontWeight: 600, textDecoration: 'none' }}>
-                      {r.label}
-                    </a>
-                  </td>
-                  <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(d.p25)}</td>
-                  <td className="median">{formatSalary(d.median)}</td>
-                  <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(d.p75)}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Role</th>
+                <th>25th Pct.</th>
+                <th>Median</th>
+                <th>75th Pct.</th>
+              </tr>
+            </thead>
+            <tbody>
+              {otherRoles.map(r => {
+                const d = getSalaryData(r.slug, city)
+                if (!d) return null
+                return (
+                  <tr key={r.slug}>
+                    <td>
+                      <a href={`/salary/${r.slug}/${city}`} style={{ color: 'var(--navy)', fontWeight: 600, textDecoration: 'none' }}>
+                        {r.label}
+                      </a>
+                    </td>
+                    <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(d.p25)}</td>
+                    <td className="median">{formatSalary(d.median)}</td>
+                    <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(d.p75)}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
         </div>
+      </div>
+
+      {/* Source citation box */}
+      <div className="source-box">
+        <p style={{ margin: 0, fontSize: 12, color: 'var(--ink-muted)', lineHeight: 1.7 }}>
+          <strong style={{ color: 'var(--navy)' }}>Source:</strong> Bureau of Labor Statistics Occupational Employment and Wage Statistics (OES) Program.
+          SalaryIndex structures and normalizes this public data by role and metropolitan area for research and comparison purposes.
+          Data reflects {data.updatedAt} wage surveys.{' '}
+          <a href="/methodology" style={{ color: 'var(--navy)', textDecoration: 'underline' }}>ussalaryindex.com/methodology</a>
+        </p>
       </div>
     </>
   )
