@@ -75,6 +75,10 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
           <div className="site-footer-links" style={{ color: '#7a90a8', fontSize: 11, textAlign: 'right', lineHeight: 1.8 }}>
+            <a href="https://www.producthunt.com/posts/us-salary-dataset-113-roles-x-30-cities" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginBottom: 8 }}>
+              <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=us-salary-dataset-113-roles-x-30-cities&theme=dark" alt="Featured on Product Hunt" style={{ height: 36 }} />
+            </a>
+            <br />
             <a href="/embed" style={{ color: '#8a9bb5', textDecoration: 'none' }}>Embed widget</a>
             <br />
             <a href="/developers" style={{ color: '#8a9bb5', textDecoration: 'none' }}>API for developers</a>
