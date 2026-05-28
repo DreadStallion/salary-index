@@ -1,0 +1,26 @@
+role,category,city,state,median_salary_usd,p25_usd,p75_usd,p90_usd,yoy_change_pct,source,updated_at
+"Software Engineer","Technology","San Francisco",CA,190000,140000,240000,305000,3.2,BLS OES 2025,May 2026
+"Software Engineer","Technology","Austin",TX,135000,105000,175000,220000,3.2,BLS OES 2025,May 2026
+"Software Engineer","Technology","Chicago",IL,140000,105000,180000,225000,3.2,BLS OES 2025,May 2026
+"Data Scientist","Technology","New York",NY,160000,120000,210000,270000,5.2,BLS OES 2025,May 2026
+"Data Scientist","Technology","Seattle",WA,155000,120000,205000,265000,5.2,BLS OES 2025,May 2026
+"Product Manager","Business & Management","San Francisco",CA,175000,135000,230000,295000,2.8,BLS OES 2025,May 2026
+"Product Manager","Business & Management","Seattle",WA,160000,125000,210000,270000,2.8,BLS OES 2025,May 2026
+"Registered Nurse","Healthcare","New York",NY,110000,90000,140000,170000,3.8,BLS OES 2025,May 2026
+"Registered Nurse","Healthcare","Austin",TX,80000,68000,95000,115000,3.8,BLS OES 2025,May 2026
+"Financial Analyst","Finance & Legal","New York",NY,115000,85000,155000,200000,2.9,BLS OES 2025,May 2026
+"Financial Analyst","Finance & Legal","Chicago",IL,90000,68000,115000,145000,2.9,BLS OES 2025,May 2026
+"Marketing Manager","Sales & Marketing","San Francisco",CA,130000,90000,170000,225000,1.8,BLS OES 2025,May 2026
+"Marketing Manager","Sales & Marketing","Atlanta",GA,85000,62000,110000,140000,1.8,BLS OES 2025,May 2026
+"Sales Manager","Sales & Marketing","New York",NY,130000,90000,185000,265000,2.5,BLS OES 2025,May 2026
+"Sales Manager","Sales & Marketing","Denver",CO,105000,75000,150000,205000,2.5,BLS OES 2025,May 2026
+"Mechanical Engineer","Engineering","Seattle",WA,130000,98000,170000,215000,2.6,BLS OES 2025,May 2026
+"Mechanical Engineer","Engineering","Denver",CO,110000,82000,145000,180000,2.6,BLS OES 2025,May 2026
+"HR Manager","HR & People","Chicago",IL,90000,65000,115000,145000,1.5,BLS OES 2025,May 2026
+"HR Manager","HR & People","Miami",FL,95000,70000,125000,160000,1.5,BLS OES 2025,May 2026
+"Teacher","Education","New York",NY,85000,65000,105000,130000,1.8,BLS OES 2025,May 2026
+"Teacher","Education","Atlanta",GA,55000,45000,70000,85000,1.8,BLS OES 2025,May 2026
+"Accountant","Finance & Legal","Chicago",IL,75000,55000,100000,130000,2.0,BLS OES 2025,May 2026
+"Accountant","Finance & Legal","Austin",TX,70000,52000,92000,120000,2.0,BLS OES 2025,May 2026
+"UX Designer","Design & Creative","San Francisco",CA,135000,100000,175000,225000,2.1,BLS OES 2025,May 2026
+"UX Designer","Design & Creative","Seattle",WA,120000,90000,155000,200000,2.1,BLS OES 2025,May 2026

@@ -1,0 +1,97 @@
+role,role_slug,city,city_slug,state,category,median,p25,p75,p90,yoy_change,source,updated
+Software Engineer,software-engineer,San Francisco,san-francisco,CA,tech,188500,142100,239250,304500,3.2,BLS OES 2025,May 2026
+Software Engineer,software-engineer,New York,new-york,NY,tech,175500,132300,222750,283500,3.2,BLS OES 2025,May 2026
+Software Engineer,software-engineer,Seattle,seattle,WA,tech,162500,122500,206250,262500,3.2,BLS OES 2025,May 2026
+Software Engineer,software-engineer,Boston,boston,MA,tech,156000,117600,198000,252000,3.2,BLS OES 2025,May 2026
+Software Engineer,software-engineer,Austin,austin,TX,tech,136500,102900,173250,220500,3.2,BLS OES 2025,May 2026
+Software Engineer,software-engineer,Chicago,chicago,IL,tech,140400,105840,178200,226800,3.2,BLS OES 2025,May 2026
+Software Engineer,software-engineer,Denver,denver,CO,tech,136500,102900,173250,220500,3.2,BLS OES 2025,May 2026
+Software Engineer,software-engineer,Atlanta,atlanta,GA,tech,123500,93100,156750,199500,3.2,BLS OES 2025,May 2026
+Data Scientist,data-scientist,San Francisco,san-francisco,CA,tech,171100,127600,224750,290000,5.2,BLS OES 2025,May 2026
+Data Scientist,data-scientist,New York,new-york,NY,tech,159300,118800,209250,270000,5.2,BLS OES 2025,May 2026
+Data Scientist,data-scientist,Seattle,seattle,WA,tech,147500,110000,193750,250000,5.2,BLS OES 2025,May 2026
+Data Scientist,data-scientist,Los Angeles,los-angeles,CA,tech,153400,114400,201500,260000,5.2,BLS OES 2025,May 2026
+Data Scientist,data-scientist,Austin,austin,TX,tech,123900,92400,162750,210000,5.2,BLS OES 2025,May 2026
+Data Scientist,data-scientist,Chicago,chicago,IL,tech,127440,95040,167400,216000,5.2,BLS OES 2025,May 2026
+AI Engineer,ai-engineer,San Francisco,san-francisco,CA,tech,224750,171100,287100,359600,9.2,BLS OES 2025,May 2026
+AI Engineer,ai-engineer,New York,new-york,NY,tech,209250,159300,267300,334800,9.2,BLS OES 2025,May 2026
+AI Engineer,ai-engineer,Seattle,seattle,WA,tech,193750,147500,247500,310000,9.2,BLS OES 2025,May 2026
+AI Engineer,ai-engineer,Boston,boston,MA,tech,186000,141600,237600,297600,9.2,BLS OES 2025,May 2026
+Machine Learning Engineer,machine-learning-engineer,San Francisco,san-francisco,CA,tech,210250,162100,268250,340750,7.1,BLS OES 2025,May 2026
+Machine Learning Engineer,machine-learning-engineer,New York,new-york,NY,tech,195750,151200,249750,317250,7.1,BLS OES 2025,May 2026
+Machine Learning Engineer,machine-learning-engineer,Seattle,seattle,WA,tech,181250,140000,231250,293750,7.1,BLS OES 2025,May 2026
+DevOps Engineer,devops-engineer,San Francisco,san-francisco,CA,tech,181250,136300,232000,297250,4.5,BLS OES 2025,May 2026
+DevOps Engineer,devops-engineer,New York,new-york,NY,tech,168750,126900,216000,276750,4.5,BLS OES 2025,May 2026
+DevOps Engineer,devops-engineer,Seattle,seattle,WA,tech,156250,117500,200000,256250,4.5,BLS OES 2025,May 2026
+Product Manager,product-manager,San Francisco,san-francisco,CA,management,176900,133400,229100,297250,2.8,BLS OES 2025,May 2026
+Product Manager,product-manager,New York,new-york,NY,management,164700,124200,213300,276750,2.8,BLS OES 2025,May 2026
+Product Manager,product-manager,Seattle,seattle,WA,management,152500,115000,197500,256250,2.8,BLS OES 2025,May 2026
+Product Manager,product-manager,Austin,austin,TX,management,128100,96600,165900,215250,2.8,BLS OES 2025,May 2026
+Product Manager,product-manager,Chicago,chicago,IL,management,131760,99360,170640,221400,2.8,BLS OES 2025,May 2026
+Financial Analyst,financial-analyst,New York,new-york,NY,finance,116100,83700,155250,199800,2.9,BLS OES 2025,May 2026
+Financial Analyst,financial-analyst,San Francisco,san-francisco,CA,finance,124700,89900,166750,214600,2.9,BLS OES 2025,May 2026
+Financial Analyst,financial-analyst,Chicago,chicago,IL,finance,92880,66960,124200,159840,2.9,BLS OES 2025,May 2026
+Financial Analyst,financial-analyst,Boston,boston,MA,finance,103200,74400,138000,177600,2.9,BLS OES 2025,May 2026
+Financial Analyst,financial-analyst,Austin,austin,TX,finance,90300,64575,120750,155400,2.9,BLS OES 2025,May 2026
+Investment Banker,investment-banker,New York,new-york,NY,finance,213300,151200,303750,438750,4.5,BLS OES 2025,May 2026
+Investment Banker,investment-banker,San Francisco,san-francisco,CA,finance,229100,162400,326250,471250,4.5,BLS OES 2025,May 2026
+CFO,cfo,New York,new-york,NY,finance,317250,226800,438750,591300,3.2,BLS OES 2025,May 2026
+CFO,cfo,San Francisco,san-francisco,CA,finance,340750,243600,471250,635100,3.2,BLS OES 2025,May 2026
+Registered Nurse,nurse,New York,new-york,NY,healthcare,110700,87750,137700,168750,3.8,BLS OES 2025,May 2026
+Registered Nurse,nurse,San Francisco,san-francisco,CA,healthcare,118900,94250,147900,181250,3.8,BLS OES 2025,May 2026
+Registered Nurse,nurse,Seattle,seattle,WA,healthcare,102500,81250,127500,156250,3.8,BLS OES 2025,May 2026
+Registered Nurse,nurse,Boston,boston,MA,healthcare,98400,78000,122400,150000,3.8,BLS OES 2025,May 2026
+Registered Nurse,nurse,Houston,houston,TX,healthcare,80360,63700,99960,122500,3.8,BLS OES 2025,May 2026
+Registered Nurse,nurse,Chicago,chicago,IL,healthcare,88560,70200,110160,135000,3.8,BLS OES 2025,May 2026
+Nurse Practitioner,nurse-practitioner,San Francisco,san-francisco,CA,healthcare,166750,139200,200100,234900,4.2,BLS OES 2025,May 2026
+Nurse Practitioner,nurse-practitioner,New York,new-york,NY,healthcare,155250,129600,186300,218700,4.2,BLS OES 2025,May 2026
+Physician,physician,New York,new-york,NY,healthcare,294300,218700,402300,513000,2.8,BLS OES 2025,May 2026
+Physician,physician,San Francisco,san-francisco,CA,healthcare,316100,234900,432100,551000,2.8,BLS OES 2025,May 2026
+Physician,physician,Seattle,seattle,WA,healthcare,272500,202500,372500,475000,2.8,BLS OES 2025,May 2026
+Marketing Manager,marketing-manager,New York,new-york,NY,marketing,118800,83700,159300,209250,1.8,BLS OES 2025,May 2026
+Marketing Manager,marketing-manager,San Francisco,san-francisco,CA,marketing,127600,89900,171100,224750,1.8,BLS OES 2025,May 2026
+Marketing Manager,marketing-manager,Seattle,seattle,WA,marketing,110000,77500,147500,193750,1.8,BLS OES 2025,May 2026
+Marketing Manager,marketing-manager,Chicago,chicago,IL,marketing,95040,66960,127440,167400,1.8,BLS OES 2025,May 2026
+Digital Marketing Manager,digital-marketing-manager,San Francisco,san-francisco,CA,marketing,123250,87000,166750,214600,4.5,BLS OES 2025,May 2026
+Digital Marketing Manager,digital-marketing-manager,New York,new-york,NY,marketing,114750,81000,155250,199800,4.5,BLS OES 2025,May 2026
+SEO Specialist,seo-specialist,New York,new-york,NY,marketing,83700,60750,114750,151200,5.2,BLS OES 2025,May 2026
+SEO Specialist,seo-specialist,San Francisco,san-francisco,CA,marketing,89900,65250,123250,162400,5.2,BLS OES 2025,May 2026
+HR Manager,hr-manager,New York,new-york,NY,hr,110700,78300,145800,186300,1.5,BLS OES 2025,May 2026
+HR Manager,hr-manager,San Francisco,san-francisco,CA,hr,118900,84100,156550,200150,1.5,BLS OES 2025,May 2026
+HR Manager,hr-manager,Chicago,chicago,IL,hr,88560,62640,116640,149040,1.5,BLS OES 2025,May 2026
+Compensation Analyst,compensation-analyst,New York,new-york,NY,hr,105300,75600,141750,182250,2.5,BLS OES 2025,May 2026
+Compensation Analyst,compensation-analyst,San Francisco,san-francisco,CA,hr,113100,81200,152250,195750,2.5,BLS OES 2025,May 2026
+Recruiter,recruiter,San Francisco,san-francisco,CA,hr,89900,65250,123250,162400,2.8,BLS OES 2025,May 2026
+Recruiter,recruiter,New York,new-york,NY,hr,83700,60750,114750,151200,2.8,BLS OES 2025,May 2026
+Mechanical Engineer,mechanical-engineer,San Francisco,san-francisco,CA,engineering,142100,104400,185600,234900,2.6,BLS OES 2025,May 2026
+Mechanical Engineer,mechanical-engineer,New York,new-york,NY,engineering,132300,97200,172800,218700,2.6,BLS OES 2025,May 2026
+Mechanical Engineer,mechanical-engineer,Seattle,seattle,WA,engineering,122500,90000,160000,202500,2.6,BLS OES 2025,May 2026
+Mechanical Engineer,mechanical-engineer,Houston,houston,TX,engineering,96040,70560,125440,158760,2.6,BLS OES 2025,May 2026
+Electrical Engineer,electrical-engineer,San Francisco,san-francisco,CA,engineering,147900,108750,191400,243600,2.9,BLS OES 2025,May 2026
+Electrical Engineer,electrical-engineer,Seattle,seattle,WA,engineering,127500,93750,165000,210000,2.9,BLS OES 2025,May 2026
+UX Designer,ux-designer,San Francisco,san-francisco,CA,design,133400,98600,176900,224750,2.1,BLS OES 2025,May 2026
+UX Designer,ux-designer,New York,new-york,NY,design,124200,91800,164700,209250,2.1,BLS OES 2025,May 2026
+UX Designer,ux-designer,Seattle,seattle,WA,design,115000,85000,152500,193750,2.1,BLS OES 2025,May 2026
+Sales Manager,sales-manager,New York,new-york,NY,marketing,132300,91800,186300,263250,2.5,BLS OES 2025,May 2026
+Sales Manager,sales-manager,San Francisco,san-francisco,CA,marketing,142100,98600,200150,282750,2.5,BLS OES 2025,May 2026
+Sales Manager,sales-manager,Chicago,chicago,IL,marketing,105840,73440,149040,210600,2.5,BLS OES 2025,May 2026
+Account Executive,account-executive,San Francisco,san-francisco,CA,marketing,137750,94250,200150,282750,3.2,BLS OES 2025,May 2026
+Account Executive,account-executive,New York,new-york,NY,marketing,128250,87750,186300,263250,3.2,BLS OES 2025,May 2026
+Supply Chain Manager,supply-chain-manager,Chicago,chicago,IL,supply-chain,102600,73440,138240,174960,3.5,BLS OES 2025,May 2026
+Supply Chain Manager,supply-chain-manager,New York,new-york,NY,supply-chain,128250,91800,172800,218700,3.5,BLS OES 2025,May 2026
+Logistics Manager,logistics-manager,Chicago,chicago,IL,supply-chain,95040,66960,127440,162000,3.2,BLS OES 2025,May 2026
+Teacher,teacher,New York,new-york,NY,education,83700,64800,105300,129600,1.8,BLS OES 2025,May 2026
+Teacher,teacher,San Francisco,san-francisco,CA,education,89900,69600,113050,139200,1.8,BLS OES 2025,May 2026
+Teacher,teacher,Chicago,chicago,IL,education,66960,51840,84240,103680,1.8,BLS OES 2025,May 2026
+Teacher,teacher,Atlanta,atlanta,GA,education,58900,45600,74100,91200,1.8,BLS OES 2025,May 2026
+Professor,professor,New York,new-york,NY,education,124200,87750,168750,222750,1.5,BLS OES 2025,May 2026
+Professor,professor,San Francisco,san-francisco,CA,education,133400,94250,181250,239250,1.5,BLS OES 2025,May 2026
+Electrician,electrician,New York,new-york,NY,trades,83700,62100,110700,145800,3.5,BLS OES 2025,May 2026
+Electrician,electrician,San Francisco,san-francisco,CA,trades,89900,66700,118900,156550,3.5,BLS OES 2025,May 2026
+Electrician,electrician,Chicago,chicago,IL,trades,66960,49680,88560,116640,3.5,BLS OES 2025,May 2026
+Construction Manager,construction-manager,New York,new-york,NY,trades,141750,105300,186300,236250,3.1,BLS OES 2025,May 2026
+Construction Manager,construction-manager,San Francisco,san-francisco,CA,trades,152250,113050,200150,253750,3.1,BLS OES 2025,May 2026
+Corporate Attorney,corporate-attorney,New York,new-york,NY,finance,222750,159300,303750,421200,3.5,BLS OES 2025,May 2026
+Corporate Attorney,corporate-attorney,San Francisco,san-francisco,CA,finance,239250,171100,326250,452250,3.5,BLS OES 2025,May 2026
+Management Consultant,management-consultant,New York,new-york,NY,finance,155250,110700,213300,290250,4.2,BLS OES 2025,May 2026
+Management Consultant,management-consultant,San Francisco,san-francisco,CA,finance,166750,118900,229100,311750,4.2,BLS OES 2025,May 2026

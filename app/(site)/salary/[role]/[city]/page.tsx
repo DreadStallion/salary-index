@@ -5,6 +5,8 @@ import {
   formatSalary, ROLES, CITIES,
 } from '@/data/salaries'
 import DatasetCTA from '@/components/DatasetCTA'
+import EmailCapture from '@/components/EmailCapture'
+import AffiliateLinks from '@/components/AffiliateLinks'
 
 type Props = { params: Promise<{ role: string; city: string }> }
 
@@ -139,6 +141,8 @@ export default async function SalaryPage({ params }: Props) {
         </p>
       </div>
 
+      <EmailCapture role={data.role} city={data.city} />
+
       {/* Compensation distribution */}
       <div style={{ marginBottom: 36 }}>
         <h2 style={{
@@ -217,6 +221,8 @@ export default async function SalaryPage({ params }: Props) {
           ))}
         </div>
       </div>
+
+      <AffiliateLinks role={data.role} city={data.city} />
 
       {/* FAQ */}
       <div style={{ marginBottom: 40 }}>
@@ -366,6 +372,23 @@ export default async function SalaryPage({ params }: Props) {
           Data reflects {data.updatedAt} wage surveys.{' '}
           <a href="/methodology" style={{ color: 'var(--navy)', textDecoration: 'underline' }}>ussalaryindex.com/methodology</a>
         </p>
+      </div>
+
+      {/* Cite this page */}
+      <div style={{
+        marginTop: 24,
+        padding: '14px 20px',
+        background: 'var(--paper-alt)',
+        border: '1px solid var(--border)',
+        fontSize: 12,
+        color: 'var(--ink-muted)',
+        lineHeight: 1.7,
+      }}>
+        <strong style={{ color: 'var(--navy)', display: 'block', marginBottom: 4, fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          Cite this page
+        </strong>
+        ussalaryindex.com. ({new Date().getFullYear()}). <em>{data.role} Salary in {data.city}, {data.state} ({data.updatedAt})</em>.
+        {' '}Retrieved from https://ussalaryindex.com/salary/{role}/{city}. Source: BLS OES.
       </div>
     </>
   )

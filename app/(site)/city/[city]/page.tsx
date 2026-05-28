@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { ROLES, CITIES, getSalaryData, formatSalary, getAllCitySlugs } from '@/data/salaries'
 import DatasetCTA from '@/components/DatasetCTA'
+import EmailCapture from '@/components/EmailCapture'
 
 type Props = { params: Promise<{ city: string }> }
 
@@ -109,6 +110,8 @@ export default async function CityPage({ params }: Props) {
           All figures are sourced from the Bureau of Labor Statistics OES program.
         </p>
       </div>
+
+      <EmailCapture city={cityData.label} />
 
       <h2 style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-muted)', fontWeight: 600, marginBottom: 12, display: 'flex', alignItems: 'center', gap: 12 }}>
         All Roles in {cityData.label}

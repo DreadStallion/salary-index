@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { ROLES, CITIES, getSalaryData, formatSalary, getAllRoleSlugs } from '@/data/salaries'
 import DatasetCTA from '@/components/DatasetCTA'
+import EmailCapture from '@/components/EmailCapture'
+import AffiliateLinks from '@/components/AffiliateLinks'
 
 type Props = { params: Promise<{ role: string }> }
 
@@ -108,6 +110,8 @@ export default async function RolePage({ params }: Props) {
         ))}
       </div>
 
+      <EmailCapture role={roleData.label} />
+
       <h2 style={{
         fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase',
         color: 'var(--ink-muted)', fontWeight: 600, margin: '0 0 12px',
@@ -147,6 +151,8 @@ export default async function RolePage({ params }: Props) {
           </tbody>
         </table>
       </div>
+
+      <AffiliateLinks role={roleData.label} city="United States" />
 
       <DatasetCTA role={roleData!.label} />
     </>
