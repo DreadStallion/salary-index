@@ -13,12 +13,6 @@ const ENDPOINTS = [
   { method: 'GET',  path: '/v1/usage', auth: true, desc: 'Check your usage and plan' },
 ]
 
-const PLANS = [
-  { name: 'Free', price: '$0', limit: '100 req / month', color: 'var(--border)', highlight: false },
-  { name: 'Starter', price: '$29/mo', limit: '5,000 req / month', color: 'var(--gold)', highlight: false },
-  { name: 'Pro', price: '$99/mo', limit: '50,000 req / month', color: 'var(--navy)', highlight: true },
-  { name: 'Enterprise', price: '$499/mo', limit: 'Unlimited', color: '#1a6640', highlight: false },
-]
 
 const EXAMPLE_RESPONSE = `{
   "role": "Software Engineer",
@@ -164,25 +158,6 @@ print(r.json()['median'])  # 188500`
                 </div>
               </form>
             )}
-          </div>
-
-          {/* Pricing */}
-          <div style={box}>
-            <div style={{ ...label10, color: 'var(--gold)', marginBottom: 16, borderBottom: '1px solid var(--border)', paddingBottom: 12 }}>
-              Plans
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-              {PLANS.map(p => (
-                <div key={p.name} style={{ padding: '14px 16px', border: `1px solid ${p.highlight ? 'var(--navy)' : 'var(--border)'}`, background: p.highlight ? 'var(--navy)' : 'white' }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: p.highlight ? '#f0ead8' : 'var(--navy)', marginBottom: 4 }}>{p.name}</div>
-                  <div style={{ fontSize: 18, fontWeight: 700, color: p.highlight ? 'var(--gold-lt)' : 'var(--navy)', fontFamily: 'Courier New, monospace', marginBottom: 4 }}>{p.price}</div>
-                  <div style={{ fontSize: 11, color: p.highlight ? '#8a9bb5' : 'var(--ink-muted)' }}>{p.limit}</div>
-                </div>
-              ))}
-            </div>
-            <p style={{ fontSize: 11, color: 'var(--ink-muted)', margin: '12px 0 0' }}>
-              Starter, Pro and Enterprise plans — contact <a href="mailto:worldmineralassosiation@gmail.com" style={{ color: 'var(--navy)' }}>worldmineralassosiation@gmail.com</a>
-            </p>
           </div>
 
           {/* Endpoints */}
