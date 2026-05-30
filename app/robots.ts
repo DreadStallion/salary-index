@@ -7,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: '/widget/',
     },
     sitemap: 'https://ussalaryindex.com/sitemap.xml',
   }

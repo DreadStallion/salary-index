@@ -36,13 +36,57 @@ export default async function CityPage({ params }: Props) {
     roleData.reduce((sum, x) => sum + x.salary!.median, 0) / roleData.length / 5000
   ) * 5000
 
+  const TOP_SALARY_CITIES = ['san-francisco', 'new-york', 'seattle', 'los-angeles', 'chicago', 'austin', 'washington-dc', 'boston']
+  const isTopCity = TOP_SALARY_CITIES.includes(city)
+
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ussalaryindex.com' },
-      { '@type': 'ListItem', position: 2, name: 'Cities', item: 'https://ussalaryindex.com/cities' },
-      { '@type': 'ListItem', position: 3, name: `${cityData.label} Salaries`, item: `https://ussalaryindex.com/city/${city}` },
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ussalaryindex.com' },
+          { '@type': 'ListItem', position: 2, name: 'Cities', item: 'https://ussalaryindex.com/cities' },
+          { '@type': 'ListItem', position: 3, name: `${cityData.label} Salaries`, item: `https://ussalaryindex.com/city/${city}` },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: `What is the average salary in ${cityData.label}, ${cityData.state}?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `The median salary across ${roleData.length} tracked roles in ${cityData.label}, ${cityData.state} is ${formatSalary(cityMedian)} per year as of May 2026, based on BLS OES data.`,
+            },
+          },
+          {
+            '@type': 'Question',
+            name: `What is the highest-paying job in ${cityData.label}?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `${topRole?.role.label} is among the highest-paying roles in ${cityData.label} with a median salary of ${formatSalary(topRole?.salary?.median ?? 0)} per year.`,
+            },
+          },
+          {
+            '@type': 'Question',
+            name: `What is the median income in ${cityData.label}?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `Based on ${roleData.length} professional occupations tracked in ${cityData.label}, the median annual salary is ${formatSalary(cityMedian)}. This covers roles from technology, healthcare, finance, engineering, and more. Source: BLS OES May 2026.`,
+            },
+          },
+          {
+            '@type': 'Question',
+            name: `Is ${cityData.label} a good city for salary growth?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `${cityData.label} offers competitive salaries across professional roles, with a tracked median of ${formatSalary(cityMedian)} per year. Top-paying roles like ${topRole?.role.label} and ${roleData[1]?.role.label} command significantly higher compensation in this market.`,
+            },
+          },
+        ],
+      },
     ],
   }
 
@@ -135,7 +179,7 @@ export default async function CityPage({ params }: Props) {
               <tr key={role.slug}>
                 <td>
                   <a
-                    href={`/salary/${role.slug}/${city}`}
+                    href={isTopCity ? `/salary/${role.slug}/${city}` : `/role/${role.slug}`}
                     style={{ color: 'var(--navy)', fontWeight: 600, textDecoration: 'none' }}
                   >
                     {role.label}

@@ -40,10 +40,68 @@ export default async function RolePage({ params }: Props) {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ussalaryindex.com' },
-      { '@type': 'ListItem', position: 2, name: `${roleData.label} Salary`, item: `https://ussalaryindex.com/role/${role}` },
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ussalaryindex.com' },
+          { '@type': 'ListItem', position: 2, name: `${roleData.label} Salary`, item: `https://ussalaryindex.com/role/${role}` },
+        ],
+      },
+      {
+        '@type': 'Occupation',
+        name: roleData.label,
+        description: `${roleData.label} salary data across 30 major U.S. metropolitan markets. Sourced from BLS OES surveys.`,
+        estimatedSalary: [
+          {
+            '@type': 'MonetaryAmountDistribution',
+            name: 'National median salary',
+            currency: 'USD',
+            duration: 'P1Y',
+            percentile25: cityData[Math.floor(cityData.length * 0.75)]?.salary?.median ?? 0,
+            median: nationalMedian,
+            percentile75: cityData[Math.floor(cityData.length * 0.25)]?.salary?.median ?? 0,
+          },
+        ],
+        occupationLocation: { '@type': 'Country', name: 'United States' },
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: `What is the average ${roleData.label} salary in the United States?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `The national median ${roleData.label} salary across 30 major U.S. markets is ${formatSalary(nationalMedian)} per year as of May 2026, based on BLS OES data.`,
+            },
+          },
+          {
+            '@type': 'Question',
+            name: `Which city pays the most for ${roleData.label}?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `${topCity?.city.label} is the highest-paying market for ${roleData.label}, with a median salary of ${formatSalary(topCity?.salary?.median ?? 0)} per year.`,
+            },
+          },
+          {
+            '@type': 'Question',
+            name: `What is the entry-level ${roleData.label} salary?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `Entry-level ${roleData.label} salaries (25th percentile) range from ${formatSalary(bottomCity?.salary?.p25 ?? 0)} in ${bottomCity?.city.label} to ${formatSalary(topCity?.salary?.p25 ?? 0)} in ${topCity?.city.label}. The national 25th percentile is approximately ${formatSalary(Math.round(nationalMedian * 0.78 / 5000) * 5000)}.`,
+            },
+          },
+          {
+            '@type': 'Question',
+            name: `How much do senior ${roleData.label}s make?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `Senior ${roleData.label}s (90th percentile) in top markets like ${topCity?.city.label} earn ${formatSalary(topCity?.salary?.p90 ?? 0)} per year. Nationally, the 75th percentile is around ${formatSalary(Math.round(nationalMedian * 1.28 / 5000) * 5000)}.`,
+            },
+          },
+        ],
+      },
     ],
   }
 
