@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const [, meta] = entry
   return {
     title: `Highest Paying Jobs in ${meta.name} — 2026 Salary Rankings`,
-    description: `See the top paying jobs in ${meta.name} ranked by median salary across 113 roles. Official BLS data, updated May 2026.`,
+    description: `See the top paying jobs in ${meta.name} ranked by median salary across 113 roles. Metro-based rankings include official and modelled estimates.`,
   }
 }
 
@@ -61,7 +61,7 @@ export default async function StatePage({ params }: Props) {
             <span className="tag">2026</span>
           </div>
           <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-muted)' }}>
-            {cities.length} {cities.length === 1 ? 'market' : 'markets'} · {ROLES.length} roles ranked by median salary · BLS OES
+            {cities.length} {cities.length === 1 ? 'market' : 'markets'} · {ROLES.length} roles ranked by median salary · Metro-based estimates
           </p>
         </div>
         <div style={{ textAlign: 'right' }}>
@@ -98,7 +98,6 @@ export default async function StatePage({ params }: Props) {
             <th>75th Pct.</th>
             <th>90th Pct.</th>
             <th>vs National</th>
-            <th>YoY</th>
           </tr>
         </thead>
         <tbody>
@@ -120,7 +119,6 @@ export default async function StatePage({ params }: Props) {
                 <td style={{ fontWeight: 600, fontSize: 12, color: diff >= 0 ? 'var(--green)' : 'var(--red)' }}>
                   {diff >= 0 ? '+' : ''}{diffPct}%
                 </td>
-                <td style={{ color: 'var(--green)', fontWeight: 600, fontSize: 12 }}>+{r.yoyChange}%</td>
               </tr>
             )
           })}

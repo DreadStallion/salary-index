@@ -1,0 +1,2446 @@
+{
+  "financial-analyst": {
+    "code": "13-2051",
+    "occupation": "Financial and Investment Analysts",
+    "markets": [
+      {
+        "area": "41860",
+        "market": "San Francisco-Oakland-Fremont, CA",
+        "p25": 97490,
+        "median": 130520,
+        "p75": 166350,
+        "p90": 217160
+      },
+      {
+        "area": "35620",
+        "market": "New York-Newark-Jersey City, NY-NJ",
+        "p25": 103140,
+        "median": 128930,
+        "p75": 174990,
+        "p90": 225390
+      },
+      {
+        "area": "42660",
+        "market": "Seattle-Tacoma-Bellevue, WA",
+        "p25": 98850,
+        "median": 124790,
+        "p75": 161180,
+        "p90": 177940
+      },
+      {
+        "area": "14460",
+        "market": "Boston-Cambridge-Newton, MA-NH",
+        "p25": 92060,
+        "median": 117520,
+        "p75": 163600,
+        "p90": 207010
+      },
+      {
+        "area": "38900",
+        "market": "Portland-Vancouver-Hillsboro, OR-WA",
+        "p25": 95850,
+        "median": 117280,
+        "p75": 154990,
+        "p90": 214610
+      },
+      {
+        "area": "47900",
+        "market": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "p25": 86470,
+        "median": 108330,
+        "p75": 142350,
+        "p90": 195190
+      },
+      {
+        "area": "16740",
+        "market": "Charlotte-Concord-Gastonia, NC-SC",
+        "p25": 83450,
+        "median": 106510,
+        "p75": 136090,
+        "p90": 172310
+      },
+      {
+        "area": "41740",
+        "market": "San Diego-Chula Vista-Carlsbad, CA",
+        "p25": 81400,
+        "median": 106040,
+        "p75": 131860,
+        "p90": 173670
+      },
+      {
+        "area": "33100",
+        "market": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "p25": 79260,
+        "median": 105160,
+        "p75": 128640,
+        "p90": 168770
+      },
+      {
+        "area": "19740",
+        "market": "Denver-Aurora-Centennial, CO",
+        "p25": 82970,
+        "median": 104480,
+        "p75": 132170,
+        "p90": 176020
+      },
+      {
+        "area": "40900",
+        "market": "Sacramento-Roseville-Folsom, CA",
+        "p25": 83310,
+        "median": 103980,
+        "p75": 131290,
+        "p90": 177470
+      },
+      {
+        "area": "33460",
+        "market": "Minneapolis-St. Paul-Bloomington, MN-WI",
+        "p25": 79030,
+        "median": 103350,
+        "p75": 128680,
+        "p90": 165510
+      },
+      {
+        "area": "31080",
+        "market": "Los Angeles-Long Beach-Anaheim, CA",
+        "p25": 82990,
+        "median": 102260,
+        "p75": 134150,
+        "p90": 181190
+      },
+      {
+        "area": "16980",
+        "market": "Chicago-Naperville-Elgin, IL-IN",
+        "p25": 79330,
+        "median": 101750,
+        "p75": 129950,
+        "p90": 167300
+      },
+      {
+        "area": "26420",
+        "market": "Houston-Pasadena-The Woodlands, TX",
+        "p25": 79990,
+        "median": 101660,
+        "p75": 129260,
+        "p90": 174220
+      },
+      {
+        "area": "19820",
+        "market": "Detroit-Warren-Dearborn, MI",
+        "p25": 77990,
+        "median": 101550,
+        "p75": 127340,
+        "p90": 160350
+      },
+      {
+        "area": "12420",
+        "market": "Austin-Round Rock-San Marcos, TX",
+        "p25": 80040,
+        "median": 101530,
+        "p75": 132060,
+        "p90": 189180
+      },
+      {
+        "area": "12060",
+        "market": "Atlanta-Sandy Springs-Roswell, GA",
+        "p25": 79940,
+        "median": 100830,
+        "p75": 131200,
+        "p90": 169540
+      },
+      {
+        "area": "19100",
+        "market": "Dallas-Fort Worth-Arlington, TX",
+        "p25": 77930,
+        "median": 100350,
+        "p75": 127970,
+        "p90": 186510
+      },
+      {
+        "area": "39580",
+        "market": "Raleigh-Cary, NC",
+        "p25": 75230,
+        "median": 99200,
+        "p75": 124640,
+        "p90": 160710
+      },
+      {
+        "area": "12580",
+        "market": "Baltimore-Columbia-Towson, MD",
+        "p25": 80120,
+        "median": 98880,
+        "p75": 135570,
+        "p90": 192950
+      },
+      {
+        "area": "18140",
+        "market": "Columbus, OH",
+        "p25": 75730,
+        "median": 97920,
+        "p75": 118380,
+        "p90": 145000
+      },
+      {
+        "area": "28140",
+        "market": "Kansas City, MO-KS",
+        "p25": 76810,
+        "median": 97680,
+        "p75": 120840,
+        "p90": 141130
+      },
+      {
+        "area": "34980",
+        "market": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+        "p25": 78080,
+        "median": 97490,
+        "p75": 101430,
+        "p90": 131960
+      },
+      {
+        "area": "37980",
+        "market": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+        "p25": 77730,
+        "median": 95400,
+        "p75": 130760,
+        "p90": 165600
+      },
+      {
+        "area": "38060",
+        "market": "Phoenix-Mesa-Chandler, AZ",
+        "p25": 76000,
+        "median": 94700,
+        "p75": 122650,
+        "p90": 161650
+      },
+      {
+        "area": "41620",
+        "market": "Salt Lake City-Murray, UT",
+        "p25": 68210,
+        "median": 91100,
+        "p75": 119200,
+        "p90": 160220
+      },
+      {
+        "area": "29820",
+        "market": "Las Vegas-Henderson-North Las Vegas, NV",
+        "p25": 70730,
+        "median": 84800,
+        "p75": 106530,
+        "p90": 124560
+      },
+      {
+        "area": "38300",
+        "market": "Pittsburgh, PA",
+        "p25": 71010,
+        "median": 82530,
+        "p75": 109990,
+        "p90": 133530
+      },
+      {
+        "area": "45300",
+        "market": "Tampa-St. Petersburg-Clearwater, FL",
+        "p25": 65110,
+        "median": 79910,
+        "p75": 106460,
+        "p90": 132030
+      }
+    ]
+  },
+  "software-engineer": {
+    "code": "15-1252",
+    "occupation": "Software Developers",
+    "markets": [
+      {
+        "area": "41860",
+        "market": "San Francisco-Oakland-Fremont, CA",
+        "p25": 163500,
+        "median": 186640,
+        "p75": 219670,
+        "p90": 273400
+      },
+      {
+        "area": "42660",
+        "market": "Seattle-Tacoma-Bellevue, WA",
+        "p25": 132800,
+        "median": 167280,
+        "p75": 211860,
+        "p90": 257960
+      },
+      {
+        "area": "35620",
+        "market": "New York-Newark-Jersey City, NY-NJ",
+        "p25": 130650,
+        "median": 166830,
+        "p75": 205970,
+        "p90": 224590
+      },
+      {
+        "area": "14460",
+        "market": "Boston-Cambridge-Newton, MA-NH",
+        "p25": 131880,
+        "median": 166090,
+        "p75": 183740,
+        "p90": 214100
+      },
+      {
+        "area": "41740",
+        "market": "San Diego-Chula Vista-Carlsbad, CA",
+        "p25": 128590,
+        "median": 163270,
+        "p75": 193980,
+        "p90": 223260
+      },
+      {
+        "area": "31080",
+        "market": "Los Angeles-Long Beach-Anaheim, CA",
+        "p25": 127530,
+        "median": 160920,
+        "p75": 191540,
+        "p90": 223150
+      },
+      {
+        "area": "38900",
+        "market": "Portland-Vancouver-Hillsboro, OR-WA",
+        "p25": 126220,
+        "median": 156000,
+        "p75": 174050,
+        "p90": 213540
+      },
+      {
+        "area": "47900",
+        "market": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "p25": 123720,
+        "median": 154930,
+        "p75": 176230,
+        "p90": 213660
+      },
+      {
+        "area": "40900",
+        "market": "Sacramento-Roseville-Folsom, CA",
+        "p25": 126650,
+        "median": 139640,
+        "p75": 170240,
+        "p90": 209140
+      },
+      {
+        "area": "12580",
+        "market": "Baltimore-Columbia-Towson, MD",
+        "p25": 105670,
+        "median": 138900,
+        "p75": 200910,
+        "p90": 223550
+      },
+      {
+        "area": "19740",
+        "market": "Denver-Aurora-Centennial, CO",
+        "p25": 123640,
+        "median": 137610,
+        "p75": 171350,
+        "p90": 209300
+      },
+      {
+        "area": "16740",
+        "market": "Charlotte-Concord-Gastonia, NC-SC",
+        "p25": 107680,
+        "median": 135920,
+        "p75": 165050,
+        "p90": 172360
+      },
+      {
+        "area": "16980",
+        "market": "Chicago-Naperville-Elgin, IL-IN",
+        "p25": 104530,
+        "median": 134380,
+        "p75": 167650,
+        "p90": 203410
+      },
+      {
+        "area": "12420",
+        "market": "Austin-Round Rock-San Marcos, TX",
+        "p25": 104000,
+        "median": 134120,
+        "p75": 168730,
+        "p90": 209890
+      },
+      {
+        "area": "19100",
+        "market": "Dallas-Fort Worth-Arlington, TX",
+        "p25": 105660,
+        "median": 133290,
+        "p75": 164100,
+        "p90": 179400
+      },
+      {
+        "area": "37980",
+        "market": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+        "p25": 103920,
+        "median": 133040,
+        "p75": 165140,
+        "p90": 190180
+      },
+      {
+        "area": "12060",
+        "market": "Atlanta-Sandy Springs-Roswell, GA",
+        "p25": 104640,
+        "median": 132960,
+        "p75": 164200,
+        "p90": 178330
+      },
+      {
+        "area": "39580",
+        "market": "Raleigh-Cary, NC",
+        "p25": 103480,
+        "median": 132770,
+        "p75": 166650,
+        "p90": 185110
+      },
+      {
+        "area": "33100",
+        "market": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "p25": 102710,
+        "median": 132650,
+        "p75": 165710,
+        "p90": 199280
+      },
+      {
+        "area": "38060",
+        "market": "Phoenix-Mesa-Chandler, AZ",
+        "p25": 104230,
+        "median": 131750,
+        "p75": 163370,
+        "p90": 180460
+      },
+      {
+        "area": "33460",
+        "market": "Minneapolis-St. Paul-Bloomington, MN-WI",
+        "p25": 103040,
+        "median": 130920,
+        "p75": 161610,
+        "p90": 170060
+      },
+      {
+        "area": "19820",
+        "market": "Detroit-Warren-Dearborn, MI",
+        "p25": 101850,
+        "median": 130760,
+        "p75": 153270,
+        "p90": 167490
+      },
+      {
+        "area": "45300",
+        "market": "Tampa-St. Petersburg-Clearwater, FL",
+        "p25": 100450,
+        "median": 130450,
+        "p75": 165430,
+        "p90": 207330
+      },
+      {
+        "area": "29820",
+        "market": "Las Vegas-Henderson-North Las Vegas, NV",
+        "p25": 99250,
+        "median": 129940,
+        "p75": 169000,
+        "p90": 198610
+      },
+      {
+        "area": "41620",
+        "market": "Salt Lake City-Murray, UT",
+        "p25": 102560,
+        "median": 129600,
+        "p75": 160740,
+        "p90": 177090
+      },
+      {
+        "area": "26420",
+        "market": "Houston-Pasadena-The Woodlands, TX",
+        "p25": 101190,
+        "median": 129440,
+        "p75": 159450,
+        "p90": 181770
+      },
+      {
+        "area": "34980",
+        "market": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+        "p25": 99030,
+        "median": 126610,
+        "p75": 140170,
+        "p90": 169070
+      },
+      {
+        "area": "28140",
+        "market": "Kansas City, MO-KS",
+        "p25": 97560,
+        "median": 124990,
+        "p75": 139820,
+        "p90": 169440
+      },
+      {
+        "area": "38300",
+        "market": "Pittsburgh, PA",
+        "p25": 95560,
+        "median": 124500,
+        "p75": 155770,
+        "p90": 191710
+      },
+      {
+        "area": "18140",
+        "market": "Columbus, OH",
+        "p25": 100010,
+        "median": 122340,
+        "p75": 140260,
+        "p90": 170000
+      }
+    ]
+  },
+  "data-scientist": {
+    "code": "15-2051",
+    "occupation": "Data Scientists",
+    "markets": [
+      {
+        "area": "41860",
+        "market": "San Francisco-Oakland-Fremont, CA",
+        "p25": 130430,
+        "median": 170110,
+        "p75": 212970,
+        "p90": 272430
+      },
+      {
+        "area": "42660",
+        "market": "Seattle-Tacoma-Bellevue, WA",
+        "p25": 108740,
+        "median": 164740,
+        "p75": 210370,
+        "p90": 230980
+      },
+      {
+        "area": "35620",
+        "market": "New York-Newark-Jersey City, NY-NJ",
+        "p25": 101320,
+        "median": 135980,
+        "p75": 173160,
+        "p90": 216030
+      },
+      {
+        "area": "12580",
+        "market": "Baltimore-Columbia-Towson, MD",
+        "p25": 102800,
+        "median": 134320,
+        "p75": 167140,
+        "p90": 227250
+      },
+      {
+        "area": "16740",
+        "market": "Charlotte-Concord-Gastonia, NC-SC",
+        "p25": 97310,
+        "median": 132460,
+        "p75": 165470,
+        "p90": 171200
+      },
+      {
+        "area": "47900",
+        "market": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "p25": 105700,
+        "median": 132200,
+        "p75": 172960,
+        "p90": 212320
+      },
+      {
+        "area": "14460",
+        "market": "Boston-Cambridge-Newton, MA-NH",
+        "p25": 102720,
+        "median": 132040,
+        "p75": 166120,
+        "p90": 206220
+      },
+      {
+        "area": "41740",
+        "market": "San Diego-Chula Vista-Carlsbad, CA",
+        "p25": 93420,
+        "median": 130990,
+        "p75": 164160,
+        "p90": 201190
+      },
+      {
+        "area": "33460",
+        "market": "Minneapolis-St. Paul-Bloomington, MN-WI",
+        "p25": 94750,
+        "median": 129780,
+        "p75": 162950,
+        "p90": 195530
+      },
+      {
+        "area": "31080",
+        "market": "Los Angeles-Long Beach-Anaheim, CA",
+        "p25": 91350,
+        "median": 129740,
+        "p75": 168420,
+        "p90": 208280
+      },
+      {
+        "area": "38900",
+        "market": "Portland-Vancouver-Hillsboro, OR-WA",
+        "p25": 98340,
+        "median": 129600,
+        "p75": 167540,
+        "p90": 208110
+      },
+      {
+        "area": "19100",
+        "market": "Dallas-Fort Worth-Arlington, TX",
+        "p25": 90510,
+        "median": 127750,
+        "p75": 146750,
+        "p90": 173340
+      },
+      {
+        "area": "33100",
+        "market": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "p25": 85840,
+        "median": 127450,
+        "p75": 154890,
+        "p90": 199130
+      },
+      {
+        "area": "12420",
+        "market": "Austin-Round Rock-San Marcos, TX",
+        "p25": 85780,
+        "median": 127360,
+        "p75": 161560,
+        "p90": 186010
+      },
+      {
+        "area": "39580",
+        "market": "Raleigh-Cary, NC",
+        "p25": 85220,
+        "median": 120710,
+        "p75": 145500,
+        "p90": 180850
+      },
+      {
+        "area": "41620",
+        "market": "Salt Lake City-Murray, UT",
+        "p25": 81260,
+        "median": 114990,
+        "p75": 146160,
+        "p90": 159820
+      },
+      {
+        "area": "38060",
+        "market": "Phoenix-Mesa-Chandler, AZ",
+        "p25": 85530,
+        "median": 114540,
+        "p75": 136710,
+        "p90": 165520
+      },
+      {
+        "area": "19740",
+        "market": "Denver-Aurora-Centennial, CO",
+        "p25": 97180,
+        "median": 112520,
+        "p75": 147950,
+        "p90": 178700
+      },
+      {
+        "area": "45300",
+        "market": "Tampa-St. Petersburg-Clearwater, FL",
+        "p25": 85410,
+        "median": 109990,
+        "p75": 136120,
+        "p90": 161480
+      },
+      {
+        "area": "37980",
+        "market": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+        "p25": 83010,
+        "median": 109910,
+        "p75": 152700,
+        "p90": 181560
+      },
+      {
+        "area": "12060",
+        "market": "Atlanta-Sandy Springs-Roswell, GA",
+        "p25": 90510,
+        "median": 108940,
+        "p75": 144670,
+        "p90": 172130
+      },
+      {
+        "area": "18140",
+        "market": "Columbus, OH",
+        "p25": 83090,
+        "median": 107950,
+        "p75": 143450,
+        "p90": 169380
+      },
+      {
+        "area": "16980",
+        "market": "Chicago-Naperville-Elgin, IL-IN",
+        "p25": 84600,
+        "median": 107640,
+        "p75": 138210,
+        "p90": 168880
+      },
+      {
+        "area": "26420",
+        "market": "Houston-Pasadena-The Woodlands, TX",
+        "p25": 81300,
+        "median": 106750,
+        "p75": 141290,
+        "p90": 167230
+      },
+      {
+        "area": "40900",
+        "market": "Sacramento-Roseville-Folsom, CA",
+        "p25": 88990,
+        "median": 103700,
+        "p75": 124800,
+        "p90": 160740
+      },
+      {
+        "area": "19820",
+        "market": "Detroit-Warren-Dearborn, MI",
+        "p25": 81080,
+        "median": 103330,
+        "p75": 134720,
+        "p90": 168510
+      },
+      {
+        "area": "34980",
+        "market": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+        "p25": 81070,
+        "median": 103020,
+        "p75": 133610,
+        "p90": 165660
+      },
+      {
+        "area": "28140",
+        "market": "Kansas City, MO-KS",
+        "p25": 75960,
+        "median": 99870,
+        "p75": 128540,
+        "p90": 149060
+      },
+      {
+        "area": "29820",
+        "market": "Las Vegas-Henderson-North Las Vegas, NV",
+        "p25": 76320,
+        "median": 98930,
+        "p75": 129990,
+        "p90": 158710
+      },
+      {
+        "area": "38300",
+        "market": "Pittsburgh, PA",
+        "p25": 72800,
+        "median": 96670,
+        "p75": 127250,
+        "p90": 157600
+      }
+    ]
+  },
+  "cybersecurity-analyst": {
+    "code": "15-1212",
+    "occupation": "Information Security Analysts",
+    "markets": [
+      {
+        "area": "41860",
+        "market": "San Francisco-Oakland-Fremont, CA",
+        "p25": 115000,
+        "median": 162310,
+        "p75": 201690,
+        "p90": 246070
+      },
+      {
+        "area": "42660",
+        "market": "Seattle-Tacoma-Bellevue, WA",
+        "p25": 129760,
+        "median": 161780,
+        "p75": 186530,
+        "p90": 213750
+      },
+      {
+        "area": "47900",
+        "market": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "p25": 122590,
+        "median": 148950,
+        "p75": 173850,
+        "p90": 209290
+      },
+      {
+        "area": "39580",
+        "market": "Raleigh-Cary, NC",
+        "p25": 103320,
+        "median": 143640,
+        "p75": 153310,
+        "p90": 168050
+      },
+      {
+        "area": "35620",
+        "market": "New York-Newark-Jersey City, NY-NJ",
+        "p25": 107810,
+        "median": 140470,
+        "p75": 175710,
+        "p90": 216280
+      },
+      {
+        "area": "12580",
+        "market": "Baltimore-Columbia-Towson, MD",
+        "p25": 104500,
+        "median": 138170,
+        "p75": 190320,
+        "p90": 218620
+      },
+      {
+        "area": "19740",
+        "market": "Denver-Aurora-Centennial, CO",
+        "p25": 107650,
+        "median": 136670,
+        "p75": 170920,
+        "p90": 209990
+      },
+      {
+        "area": "14460",
+        "market": "Boston-Cambridge-Newton, MA-NH",
+        "p25": 108530,
+        "median": 136550,
+        "p75": 176450,
+        "p90": 225300
+      },
+      {
+        "area": "12420",
+        "market": "Austin-Round Rock-San Marcos, TX",
+        "p25": 102860,
+        "median": 134100,
+        "p75": 162800,
+        "p90": 186680
+      },
+      {
+        "area": "19100",
+        "market": "Dallas-Fort Worth-Arlington, TX",
+        "p25": 103440,
+        "median": 133610,
+        "p75": 162270,
+        "p90": 178000
+      },
+      {
+        "area": "40900",
+        "market": "Sacramento-Roseville-Folsom, CA",
+        "p25": 101170,
+        "median": 133570,
+        "p75": 169490,
+        "p90": 210600
+      },
+      {
+        "area": "37980",
+        "market": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+        "p25": 99290,
+        "median": 132560,
+        "p75": 163090,
+        "p90": 186530
+      },
+      {
+        "area": "41740",
+        "market": "San Diego-Chula Vista-Carlsbad, CA",
+        "p25": 102320,
+        "median": 132120,
+        "p75": 167480,
+        "p90": 206510
+      },
+      {
+        "area": "12060",
+        "market": "Atlanta-Sandy Springs-Roswell, GA",
+        "p25": 102070,
+        "median": 131490,
+        "p75": 164680,
+        "p90": 186180
+      },
+      {
+        "area": "16740",
+        "market": "Charlotte-Concord-Gastonia, NC-SC",
+        "p25": 103120,
+        "median": 131440,
+        "p75": 165740,
+        "p90": 192300
+      },
+      {
+        "area": "33460",
+        "market": "Minneapolis-St. Paul-Bloomington, MN-WI",
+        "p25": 103290,
+        "median": 130710,
+        "p75": 158270,
+        "p90": 167890
+      },
+      {
+        "area": "38060",
+        "market": "Phoenix-Mesa-Chandler, AZ",
+        "p25": 98040,
+        "median": 130360,
+        "p75": 160440,
+        "p90": 178000
+      },
+      {
+        "area": "31080",
+        "market": "Los Angeles-Long Beach-Anaheim, CA",
+        "p25": 94830,
+        "median": 129630,
+        "p75": 166780,
+        "p90": 195820
+      },
+      {
+        "area": "26420",
+        "market": "Houston-Pasadena-The Woodlands, TX",
+        "p25": 98990,
+        "median": 126370,
+        "p75": 155670,
+        "p90": 178560
+      },
+      {
+        "area": "16980",
+        "market": "Chicago-Naperville-Elgin, IL-IN",
+        "p25": 99760,
+        "median": 125310,
+        "p75": 158210,
+        "p90": 174450
+      },
+      {
+        "area": "33100",
+        "market": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "p25": 91270,
+        "median": 125310,
+        "p75": 149490,
+        "p90": 170690
+      },
+      {
+        "area": "18140",
+        "market": "Columbus, OH",
+        "p25": 97990,
+        "median": 122600,
+        "p75": 154270,
+        "p90": 174670
+      },
+      {
+        "area": "45300",
+        "market": "Tampa-St. Petersburg-Clearwater, FL",
+        "p25": 87120,
+        "median": 118970,
+        "p75": 151040,
+        "p90": 171390
+      },
+      {
+        "area": "19820",
+        "market": "Detroit-Warren-Dearborn, MI",
+        "p25": 85500,
+        "median": 108990,
+        "p75": 136560,
+        "p90": 167580
+      },
+      {
+        "area": "28140",
+        "market": "Kansas City, MO-KS",
+        "p25": 81390,
+        "median": 104010,
+        "p75": 131340,
+        "p90": 158410
+      },
+      {
+        "area": "29820",
+        "market": "Las Vegas-Henderson-North Las Vegas, NV",
+        "p25": 86330,
+        "median": 103670,
+        "p75": 142940,
+        "p90": 178440
+      },
+      {
+        "area": "38300",
+        "market": "Pittsburgh, PA",
+        "p25": 81280,
+        "median": 103630,
+        "p75": 130050,
+        "p90": 158140
+      },
+      {
+        "area": "41620",
+        "market": "Salt Lake City-Murray, UT",
+        "p25": 78180,
+        "median": 102830,
+        "p75": 131510,
+        "p90": 170320
+      }
+    ]
+  },
+  "physical-therapist": {
+    "code": "29-1123",
+    "occupation": "Physical Therapists",
+    "markets": [
+      {
+        "area": "41860",
+        "market": "San Francisco-Oakland-Fremont, CA",
+        "p25": 123470,
+        "median": 141980,
+        "p75": 160770,
+        "p90": 188070
+      },
+      {
+        "area": "40900",
+        "market": "Sacramento-Roseville-Folsom, CA",
+        "p25": 106230,
+        "median": 131430,
+        "p75": 143580,
+        "p90": 159250
+      },
+      {
+        "area": "29820",
+        "market": "Las Vegas-Henderson-North Las Vegas, NV",
+        "p25": 97790,
+        "median": 116480,
+        "p75": 136630,
+        "p90": 190700
+      },
+      {
+        "area": "41740",
+        "market": "San Diego-Chula Vista-Carlsbad, CA",
+        "p25": 96820,
+        "median": 113850,
+        "p75": 133860,
+        "p90": 158700
+      },
+      {
+        "area": "31080",
+        "market": "Los Angeles-Long Beach-Anaheim, CA",
+        "p25": 97850,
+        "median": 108170,
+        "p75": 134160,
+        "p90": 160070
+      },
+      {
+        "area": "19100",
+        "market": "Dallas-Fort Worth-Arlington, TX",
+        "p25": 88250,
+        "median": 107780,
+        "p75": 127670,
+        "p90": 144740
+      },
+      {
+        "area": "26420",
+        "market": "Houston-Pasadena-The Woodlands, TX",
+        "p25": 94430,
+        "median": 107700,
+        "p75": 127640,
+        "p90": 142570
+      },
+      {
+        "area": "35620",
+        "market": "New York-Newark-Jersey City, NY-NJ",
+        "p25": 95500,
+        "median": 107650,
+        "p75": 129360,
+        "p90": 141870
+      },
+      {
+        "area": "42660",
+        "market": "Seattle-Tacoma-Bellevue, WA",
+        "p25": 95060,
+        "median": 107290,
+        "p75": 133070,
+        "p90": 144960
+      },
+      {
+        "area": "38900",
+        "market": "Portland-Vancouver-Hillsboro, OR-WA",
+        "p25": 93140,
+        "median": 106250,
+        "p75": 129260,
+        "p90": 134610
+      },
+      {
+        "area": "12580",
+        "market": "Baltimore-Columbia-Towson, MD",
+        "p25": 94760,
+        "median": 105810,
+        "p75": 123400,
+        "p90": 138630
+      },
+      {
+        "area": "37980",
+        "market": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+        "p25": 95700,
+        "median": 105790,
+        "p75": 120550,
+        "p90": 131760
+      },
+      {
+        "area": "16980",
+        "market": "Chicago-Naperville-Elgin, IL-IN",
+        "p25": 98120,
+        "median": 105720,
+        "p75": 123720,
+        "p90": 142320
+      },
+      {
+        "area": "18140",
+        "market": "Columbus, OH",
+        "p25": 83110,
+        "median": 105130,
+        "p75": 113370,
+        "p90": 124110
+      },
+      {
+        "area": "41620",
+        "market": "Salt Lake City-Murray, UT",
+        "p25": 82720,
+        "median": 103840,
+        "p75": 112970,
+        "p90": 135960
+      },
+      {
+        "area": "12420",
+        "market": "Austin-Round Rock-San Marcos, TX",
+        "p25": 97080,
+        "median": 103630,
+        "p75": 130880,
+        "p90": 135320
+      },
+      {
+        "area": "14460",
+        "market": "Boston-Cambridge-Newton, MA-NH",
+        "p25": 94750,
+        "median": 103550,
+        "p75": 122380,
+        "p90": 130220
+      },
+      {
+        "area": "12060",
+        "market": "Atlanta-Sandy Springs-Roswell, GA",
+        "p25": 84290,
+        "median": 103440,
+        "p75": 120660,
+        "p90": 132100
+      },
+      {
+        "area": "34980",
+        "market": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+        "p25": 84690,
+        "median": 103380,
+        "p75": 108990,
+        "p90": 129430
+      },
+      {
+        "area": "38060",
+        "market": "Phoenix-Mesa-Chandler, AZ",
+        "p25": 90180,
+        "median": 103220,
+        "p75": 122360,
+        "p90": 134410
+      },
+      {
+        "area": "47900",
+        "market": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "p25": 94680,
+        "median": 102980,
+        "p75": 127020,
+        "p90": 137070
+      },
+      {
+        "area": "19820",
+        "market": "Detroit-Warren-Dearborn, MI",
+        "p25": 88190,
+        "median": 102970,
+        "p75": 112120,
+        "p90": 131140
+      },
+      {
+        "area": "33460",
+        "market": "Minneapolis-St. Paul-Bloomington, MN-WI",
+        "p25": 97410,
+        "median": 102450,
+        "p75": 107710,
+        "p90": 121340
+      },
+      {
+        "area": "45300",
+        "market": "Tampa-St. Petersburg-Clearwater, FL",
+        "p25": 87010,
+        "median": 102430,
+        "p75": 106740,
+        "p90": 120690
+      },
+      {
+        "area": "19740",
+        "market": "Denver-Aurora-Centennial, CO",
+        "p25": 83840,
+        "median": 102340,
+        "p75": 121290,
+        "p90": 134640
+      },
+      {
+        "area": "28140",
+        "market": "Kansas City, MO-KS",
+        "p25": 81010,
+        "median": 101270,
+        "p75": 111640,
+        "p90": 125790
+      },
+      {
+        "area": "16740",
+        "market": "Charlotte-Concord-Gastonia, NC-SC",
+        "p25": 94070,
+        "median": 101060,
+        "p75": 115370,
+        "p90": 126180
+      },
+      {
+        "area": "33100",
+        "market": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "p25": 82100,
+        "median": 100870,
+        "p75": 107700,
+        "p90": 125360
+      },
+      {
+        "area": "39580",
+        "market": "Raleigh-Cary, NC",
+        "p25": 85320,
+        "median": 99900,
+        "p75": 110740,
+        "p90": 127530
+      },
+      {
+        "area": "38300",
+        "market": "Pittsburgh, PA",
+        "p25": 78190,
+        "median": 97750,
+        "p75": 104020,
+        "p90": 118220
+      }
+    ]
+  },
+  "nurse": {
+    "code": "29-1141",
+    "occupation": "Registered Nurses",
+    "markets": [
+      {
+        "area": "41860",
+        "market": "San Francisco-Oakland-Fremont, CA",
+        "p25": 137120,
+        "median": 186610,
+        "p75": 215630,
+        "p90": 223770
+      },
+      {
+        "area": "40900",
+        "market": "Sacramento-Roseville-Folsom, CA",
+        "p25": 131830,
+        "median": 171460,
+        "p75": 198580,
+        "p90": 218780
+      },
+      {
+        "area": "41740",
+        "market": "San Diego-Chula Vista-Carlsbad, CA",
+        "p25": 128380,
+        "median": 139520,
+        "p75": 169920,
+        "p90": 175210
+      },
+      {
+        "area": "31080",
+        "market": "Los Angeles-Long Beach-Anaheim, CA",
+        "p25": 112070,
+        "median": 135560,
+        "p75": 167800,
+        "p90": 174200
+      },
+      {
+        "area": "38900",
+        "market": "Portland-Vancouver-Hillsboro, OR-WA",
+        "p25": 108280,
+        "median": 130310,
+        "p75": 136460,
+        "p90": 155650
+      },
+      {
+        "area": "42660",
+        "market": "Seattle-Tacoma-Bellevue, WA",
+        "p25": 104540,
+        "median": 128260,
+        "p75": 136780,
+        "p90": 163890
+      },
+      {
+        "area": "35620",
+        "market": "New York-Newark-Jersey City, NY-NJ",
+        "p25": 103970,
+        "median": 119720,
+        "p75": 133230,
+        "p90": 159240
+      },
+      {
+        "area": "14460",
+        "market": "Boston-Cambridge-Newton, MA-NH",
+        "p25": 94870,
+        "median": 106180,
+        "p75": 153380,
+        "p90": 188670
+      },
+      {
+        "area": "29820",
+        "market": "Las Vegas-Henderson-North Las Vegas, NV",
+        "p25": 88680,
+        "median": 103940,
+        "p75": 124000,
+        "p90": 133270
+      },
+      {
+        "area": "33460",
+        "market": "Minneapolis-St. Paul-Bloomington, MN-WI",
+        "p25": 94170,
+        "median": 103040,
+        "p75": 123900,
+        "p90": 133450
+      },
+      {
+        "area": "47900",
+        "market": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "p25": 84610,
+        "median": 102710,
+        "p75": 119620,
+        "p90": 132900
+      },
+      {
+        "area": "19100",
+        "market": "Dallas-Fort Worth-Arlington, TX",
+        "p25": 81640,
+        "median": 101420,
+        "p75": 110630,
+        "p90": 129710
+      },
+      {
+        "area": "37980",
+        "market": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+        "p25": 90190,
+        "median": 101180,
+        "p75": 112970,
+        "p90": 121900
+      },
+      {
+        "area": "19740",
+        "market": "Denver-Aurora-Centennial, CO",
+        "p25": 85390,
+        "median": 101130,
+        "p75": 109760,
+        "p90": 125870
+      },
+      {
+        "area": "38060",
+        "market": "Phoenix-Mesa-Chandler, AZ",
+        "p25": 82320,
+        "median": 100830,
+        "p75": 108840,
+        "p90": 130930
+      },
+      {
+        "area": "12060",
+        "market": "Atlanta-Sandy Springs-Roswell, GA",
+        "p25": 82500,
+        "median": 100490,
+        "p75": 108680,
+        "p90": 132230
+      },
+      {
+        "area": "16980",
+        "market": "Chicago-Naperville-Elgin, IL-IN",
+        "p25": 82640,
+        "median": 100490,
+        "p75": 108430,
+        "p90": 119260
+      },
+      {
+        "area": "26420",
+        "market": "Houston-Pasadena-The Woodlands, TX",
+        "p25": 81890,
+        "median": 99830,
+        "p75": 116000,
+        "p90": 130440
+      },
+      {
+        "area": "12580",
+        "market": "Baltimore-Columbia-Towson, MD",
+        "p25": 83690,
+        "median": 99550,
+        "p75": 108030,
+        "p90": 125020
+      },
+      {
+        "area": "12420",
+        "market": "Austin-Round Rock-San Marcos, TX",
+        "p25": 81540,
+        "median": 97890,
+        "p75": 106450,
+        "p90": 127510
+      },
+      {
+        "area": "19820",
+        "market": "Detroit-Warren-Dearborn, MI",
+        "p25": 82470,
+        "median": 97280,
+        "p75": 104150,
+        "p90": 110650
+      },
+      {
+        "area": "33100",
+        "market": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "p25": 80510,
+        "median": 91380,
+        "p75": 104320,
+        "p90": 129150
+      },
+      {
+        "area": "16740",
+        "market": "Charlotte-Concord-Gastonia, NC-SC",
+        "p25": 81160,
+        "median": 90620,
+        "p75": 103660,
+        "p90": 110020
+      },
+      {
+        "area": "41620",
+        "market": "Salt Lake City-Murray, UT",
+        "p25": 80900,
+        "median": 85890,
+        "p75": 105550,
+        "p90": 115460
+      },
+      {
+        "area": "45300",
+        "market": "Tampa-St. Petersburg-Clearwater, FL",
+        "p25": 79250,
+        "median": 85470,
+        "p75": 102180,
+        "p90": 124470
+      },
+      {
+        "area": "39580",
+        "market": "Raleigh-Cary, NC",
+        "p25": 78430,
+        "median": 84830,
+        "p75": 104040,
+        "p90": 110220
+      },
+      {
+        "area": "34980",
+        "market": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+        "p25": 81630,
+        "median": 84040,
+        "p75": 103550,
+        "p90": 112030
+      },
+      {
+        "area": "18140",
+        "market": "Columbus, OH",
+        "p25": 80070,
+        "median": 83900,
+        "p75": 101360,
+        "p90": 105770
+      },
+      {
+        "area": "28140",
+        "market": "Kansas City, MO-KS",
+        "p25": 77910,
+        "median": 83040,
+        "p75": 98700,
+        "p90": 103540
+      },
+      {
+        "area": "38300",
+        "market": "Pittsburgh, PA",
+        "p25": 78700,
+        "median": 82370,
+        "p75": 101010,
+        "p90": 111790
+      }
+    ]
+  },
+  "accountant": {
+    "code": "13-2011",
+    "occupation": "Accountants and Auditors",
+    "markets": [
+      {
+        "area": "41860",
+        "market": "San Francisco-Oakland-Fremont, CA",
+        "p25": 88820,
+        "median": 110730,
+        "p75": 143590,
+        "p90": 180060
+      },
+      {
+        "area": "35620",
+        "market": "New York-Newark-Jersey City, NY-NJ",
+        "p25": 82830,
+        "median": 105650,
+        "p75": 137490,
+        "p90": 174750
+      },
+      {
+        "area": "47900",
+        "market": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "p25": 79990,
+        "median": 102140,
+        "p75": 133430,
+        "p90": 170980
+      },
+      {
+        "area": "14460",
+        "market": "Boston-Cambridge-Newton, MA-NH",
+        "p25": 79990,
+        "median": 100150,
+        "p75": 129490,
+        "p90": 161450
+      },
+      {
+        "area": "19740",
+        "market": "Denver-Aurora-Centennial, CO",
+        "p25": 78130,
+        "median": 100020,
+        "p75": 130870,
+        "p90": 165010
+      },
+      {
+        "area": "42660",
+        "market": "Seattle-Tacoma-Bellevue, WA",
+        "p25": 80880,
+        "median": 99370,
+        "p75": 126800,
+        "p90": 160640
+      },
+      {
+        "area": "41740",
+        "market": "San Diego-Chula Vista-Carlsbad, CA",
+        "p25": 76690,
+        "median": 96340,
+        "p75": 125190,
+        "p90": 157720
+      },
+      {
+        "area": "31080",
+        "market": "Los Angeles-Long Beach-Anaheim, CA",
+        "p25": 74060,
+        "median": 94360,
+        "p75": 122290,
+        "p90": 154630
+      },
+      {
+        "area": "16740",
+        "market": "Charlotte-Concord-Gastonia, NC-SC",
+        "p25": 72420,
+        "median": 92910,
+        "p75": 129000,
+        "p90": 167330
+      },
+      {
+        "area": "38900",
+        "market": "Portland-Vancouver-Hillsboro, OR-WA",
+        "p25": 76900,
+        "median": 92200,
+        "p75": 109870,
+        "p90": 136730
+      },
+      {
+        "area": "40900",
+        "market": "Sacramento-Roseville-Folsom, CA",
+        "p25": 74550,
+        "median": 92110,
+        "p75": 108950,
+        "p90": 131840
+      },
+      {
+        "area": "33460",
+        "market": "Minneapolis-St. Paul-Bloomington, MN-WI",
+        "p25": 73900,
+        "median": 86500,
+        "p75": 110290,
+        "p90": 145710
+      },
+      {
+        "area": "37980",
+        "market": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+        "p25": 73370,
+        "median": 85990,
+        "p75": 110420,
+        "p90": 139420
+      },
+      {
+        "area": "12060",
+        "market": "Atlanta-Sandy Springs-Roswell, GA",
+        "p25": 68510,
+        "median": 85820,
+        "p75": 116090,
+        "p90": 153010
+      },
+      {
+        "area": "12580",
+        "market": "Baltimore-Columbia-Towson, MD",
+        "p25": 71100,
+        "median": 85160,
+        "p75": 108640,
+        "p90": 146650
+      },
+      {
+        "area": "26420",
+        "market": "Houston-Pasadena-The Woodlands, TX",
+        "p25": 72470,
+        "median": 85090,
+        "p75": 109670,
+        "p90": 144190
+      },
+      {
+        "area": "12420",
+        "market": "Austin-Round Rock-San Marcos, TX",
+        "p25": 68250,
+        "median": 83120,
+        "p75": 103820,
+        "p90": 130130
+      },
+      {
+        "area": "19100",
+        "market": "Dallas-Fort Worth-Arlington, TX",
+        "p25": 71100,
+        "median": 82620,
+        "p75": 104150,
+        "p90": 133540
+      },
+      {
+        "area": "16980",
+        "market": "Chicago-Naperville-Elgin, IL-IN",
+        "p25": 72280,
+        "median": 82360,
+        "p75": 103120,
+        "p90": 134100
+      },
+      {
+        "area": "41620",
+        "market": "Salt Lake City-Murray, UT",
+        "p25": 64950,
+        "median": 82100,
+        "p75": 107790,
+        "p90": 131730
+      },
+      {
+        "area": "39580",
+        "market": "Raleigh-Cary, NC",
+        "p25": 67050,
+        "median": 81950,
+        "p75": 105160,
+        "p90": 134220
+      },
+      {
+        "area": "18140",
+        "market": "Columbus, OH",
+        "p25": 65170,
+        "median": 81700,
+        "p75": 104790,
+        "p90": 132330
+      },
+      {
+        "area": "33100",
+        "market": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "p25": 63700,
+        "median": 80920,
+        "p75": 105500,
+        "p90": 132540
+      },
+      {
+        "area": "38060",
+        "market": "Phoenix-Mesa-Chandler, AZ",
+        "p25": 66340,
+        "median": 80820,
+        "p75": 105640,
+        "p90": 129170
+      },
+      {
+        "area": "19820",
+        "market": "Detroit-Warren-Dearborn, MI",
+        "p25": 65490,
+        "median": 80650,
+        "p75": 104170,
+        "p90": 133870
+      },
+      {
+        "area": "29820",
+        "market": "Las Vegas-Henderson-North Las Vegas, NV",
+        "p25": 66940,
+        "median": 80530,
+        "p75": 102960,
+        "p90": 128110
+      },
+      {
+        "area": "28140",
+        "market": "Kansas City, MO-KS",
+        "p25": 63910,
+        "median": 80040,
+        "p75": 102950,
+        "p90": 130320
+      },
+      {
+        "area": "45300",
+        "market": "Tampa-St. Petersburg-Clearwater, FL",
+        "p25": 62570,
+        "median": 78990,
+        "p75": 102490,
+        "p90": 132430
+      },
+      {
+        "area": "34980",
+        "market": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+        "p25": 65300,
+        "median": 78080,
+        "p75": 97420,
+        "p90": 125740
+      },
+      {
+        "area": "38300",
+        "market": "Pittsburgh, PA",
+        "p25": 60550,
+        "median": 76940,
+        "p75": 97760,
+        "p90": 124880
+      }
+    ]
+  },
+  "mechanical-engineer": {
+    "code": "17-2141",
+    "occupation": "Mechanical Engineers",
+    "markets": [
+      {
+        "area": "41860",
+        "market": "San Francisco-Oakland-Fremont, CA",
+        "p25": 128330,
+        "median": 161370,
+        "p75": 183990,
+        "p90": 212380
+      },
+      {
+        "area": "19740",
+        "market": "Denver-Aurora-Centennial, CO",
+        "p25": 98600,
+        "median": 128180,
+        "p75": 149790,
+        "p90": 168850
+      },
+      {
+        "area": "47900",
+        "market": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "p25": 100800,
+        "median": 126990,
+        "p75": 160230,
+        "p90": 195190
+      },
+      {
+        "area": "42660",
+        "market": "Seattle-Tacoma-Bellevue, WA",
+        "p25": 98940,
+        "median": 126590,
+        "p75": 155290,
+        "p90": 172490
+      },
+      {
+        "area": "26420",
+        "market": "Houston-Pasadena-The Woodlands, TX",
+        "p25": 99080,
+        "median": 125350,
+        "p75": 164640,
+        "p90": 198730
+      },
+      {
+        "area": "31080",
+        "market": "Los Angeles-Long Beach-Anaheim, CA",
+        "p25": 96010,
+        "median": 123900,
+        "p75": 146850,
+        "p90": 173340
+      },
+      {
+        "area": "41740",
+        "market": "San Diego-Chula Vista-Carlsbad, CA",
+        "p25": 96860,
+        "median": 121750,
+        "p75": 151920,
+        "p90": 172760
+      },
+      {
+        "area": "40900",
+        "market": "Sacramento-Roseville-Folsom, CA",
+        "p25": 100410,
+        "median": 120970,
+        "p75": 141560,
+        "p90": 170600
+      },
+      {
+        "area": "14460",
+        "market": "Boston-Cambridge-Newton, MA-NH",
+        "p25": 97660,
+        "median": 119300,
+        "p75": 140870,
+        "p90": 166900
+      },
+      {
+        "area": "12580",
+        "market": "Baltimore-Columbia-Towson, MD",
+        "p25": 95070,
+        "median": 116700,
+        "p75": 154980,
+        "p90": 174920
+      },
+      {
+        "area": "35620",
+        "market": "New York-Newark-Jersey City, NY-NJ",
+        "p25": 92180,
+        "median": 109990,
+        "p75": 137060,
+        "p90": 165010
+      },
+      {
+        "area": "19820",
+        "market": "Detroit-Warren-Dearborn, MI",
+        "p25": 98770,
+        "median": 109470,
+        "p75": 133410,
+        "p90": 161030
+      },
+      {
+        "area": "29820",
+        "market": "Las Vegas-Henderson-North Las Vegas, NV",
+        "p25": 93540,
+        "median": 107600,
+        "p75": 133730,
+        "p90": 162280
+      },
+      {
+        "area": "12420",
+        "market": "Austin-Round Rock-San Marcos, TX",
+        "p25": 92130,
+        "median": 106690,
+        "p75": 145090,
+        "p90": 173210
+      },
+      {
+        "area": "19100",
+        "market": "Dallas-Fort Worth-Arlington, TX",
+        "p25": 87200,
+        "median": 105420,
+        "p75": 132840,
+        "p90": 167140
+      },
+      {
+        "area": "38900",
+        "market": "Portland-Vancouver-Hillsboro, OR-WA",
+        "p25": 95630,
+        "median": 105020,
+        "p75": 130680,
+        "p90": 165040
+      },
+      {
+        "area": "37980",
+        "market": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+        "p25": 84960,
+        "median": 104410,
+        "p75": 129800,
+        "p90": 157920
+      },
+      {
+        "area": "16980",
+        "market": "Chicago-Naperville-Elgin, IL-IN",
+        "p25": 83140,
+        "median": 102070,
+        "p75": 130310,
+        "p90": 157720
+      },
+      {
+        "area": "12060",
+        "market": "Atlanta-Sandy Springs-Roswell, GA",
+        "p25": 80360,
+        "median": 102020,
+        "p75": 133770,
+        "p90": 165990
+      },
+      {
+        "area": "16740",
+        "market": "Charlotte-Concord-Gastonia, NC-SC",
+        "p25": 85180,
+        "median": 101950,
+        "p75": 126180,
+        "p90": 157120
+      },
+      {
+        "area": "41620",
+        "market": "Salt Lake City-Murray, UT",
+        "p25": 82890,
+        "median": 101500,
+        "p75": 129150,
+        "p90": 160140
+      },
+      {
+        "area": "33460",
+        "market": "Minneapolis-St. Paul-Bloomington, MN-WI",
+        "p25": 83940,
+        "median": 101180,
+        "p75": 130030,
+        "p90": 156540
+      },
+      {
+        "area": "38060",
+        "market": "Phoenix-Mesa-Chandler, AZ",
+        "p25": 82410,
+        "median": 100980,
+        "p75": 129390,
+        "p90": 159920
+      },
+      {
+        "area": "18140",
+        "market": "Columbus, OH",
+        "p25": 79230,
+        "median": 100730,
+        "p75": 106960,
+        "p90": 131390
+      },
+      {
+        "area": "45300",
+        "market": "Tampa-St. Petersburg-Clearwater, FL",
+        "p25": 85340,
+        "median": 100290,
+        "p75": 127330,
+        "p90": 159050
+      },
+      {
+        "area": "39580",
+        "market": "Raleigh-Cary, NC",
+        "p25": 81420,
+        "median": 100000,
+        "p75": 124360,
+        "p90": 160170
+      },
+      {
+        "area": "33100",
+        "market": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "p25": 78490,
+        "median": 99660,
+        "p75": 127810,
+        "p90": 160510
+      },
+      {
+        "area": "28140",
+        "market": "Kansas City, MO-KS",
+        "p25": 83320,
+        "median": 99630,
+        "p75": 120990,
+        "p90": 136650
+      },
+      {
+        "area": "34980",
+        "market": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+        "p25": 80410,
+        "median": 99440,
+        "p75": 130420,
+        "p90": 145990
+      },
+      {
+        "area": "38300",
+        "market": "Pittsburgh, PA",
+        "p25": 80030,
+        "median": 98050,
+        "p75": 123720,
+        "p90": 143000
+      }
+    ]
+  },
+  "civil-engineer": {
+    "code": "17-2051",
+    "occupation": "Civil Engineers",
+    "markets": [
+      {
+        "area": "41860",
+        "market": "San Francisco-Oakland-Fremont, CA",
+        "p25": 103030,
+        "median": 130160,
+        "p75": 163150,
+        "p90": 202730
+      },
+      {
+        "area": "40900",
+        "market": "Sacramento-Roseville-Folsom, CA",
+        "p25": 100270,
+        "median": 130150,
+        "p75": 159360,
+        "p90": 175940
+      },
+      {
+        "area": "42660",
+        "market": "Seattle-Tacoma-Bellevue, WA",
+        "p25": 100290,
+        "median": 116480,
+        "p75": 134500,
+        "p90": 161760
+      },
+      {
+        "area": "41740",
+        "market": "San Diego-Chula Vista-Carlsbad, CA",
+        "p25": 93650,
+        "median": 108900,
+        "p75": 133450,
+        "p90": 166430
+      },
+      {
+        "area": "31080",
+        "market": "Los Angeles-Long Beach-Anaheim, CA",
+        "p25": 84480,
+        "median": 108640,
+        "p75": 141560,
+        "p90": 170670
+      },
+      {
+        "area": "14460",
+        "market": "Boston-Cambridge-Newton, MA-NH",
+        "p25": 85690,
+        "median": 107670,
+        "p75": 135290,
+        "p90": 167360
+      },
+      {
+        "area": "35620",
+        "market": "New York-Newark-Jersey City, NY-NJ",
+        "p25": 88710,
+        "median": 107330,
+        "p75": 143310,
+        "p90": 176400
+      },
+      {
+        "area": "38900",
+        "market": "Portland-Vancouver-Hillsboro, OR-WA",
+        "p25": 82580,
+        "median": 106280,
+        "p75": 135870,
+        "p90": 166060
+      },
+      {
+        "area": "29820",
+        "market": "Las Vegas-Henderson-North Las Vegas, NV",
+        "p25": 85000,
+        "median": 106110,
+        "p75": 148150,
+        "p90": 159720
+      },
+      {
+        "area": "33460",
+        "market": "Minneapolis-St. Paul-Bloomington, MN-WI",
+        "p25": 83330,
+        "median": 104740,
+        "p75": 132860,
+        "p90": 159670
+      },
+      {
+        "area": "19740",
+        "market": "Denver-Aurora-Centennial, CO",
+        "p25": 84410,
+        "median": 104710,
+        "p75": 135030,
+        "p90": 167090
+      },
+      {
+        "area": "16740",
+        "market": "Charlotte-Concord-Gastonia, NC-SC",
+        "p25": 79280,
+        "median": 102370,
+        "p75": 129680,
+        "p90": 164990
+      },
+      {
+        "area": "47900",
+        "market": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "p25": 84590,
+        "median": 101780,
+        "p75": 129830,
+        "p90": 159990
+      },
+      {
+        "area": "39580",
+        "market": "Raleigh-Cary, NC",
+        "p25": 79840,
+        "median": 101440,
+        "p75": 127280,
+        "p90": 163710
+      },
+      {
+        "area": "26420",
+        "market": "Houston-Pasadena-The Woodlands, TX",
+        "p25": 80010,
+        "median": 100950,
+        "p75": 130990,
+        "p90": 168240
+      },
+      {
+        "area": "38300",
+        "market": "Pittsburgh, PA",
+        "p25": 77640,
+        "median": 100680,
+        "p75": 124850,
+        "p90": 141310
+      },
+      {
+        "area": "45300",
+        "market": "Tampa-St. Petersburg-Clearwater, FL",
+        "p25": 75440,
+        "median": 100570,
+        "p75": 130910,
+        "p90": 170110
+      },
+      {
+        "area": "12580",
+        "market": "Baltimore-Columbia-Towson, MD",
+        "p25": 83090,
+        "median": 100500,
+        "p75": 126110,
+        "p90": 144680
+      },
+      {
+        "area": "12420",
+        "market": "Austin-Round Rock-San Marcos, TX",
+        "p25": 80070,
+        "median": 100470,
+        "p75": 128890,
+        "p90": 162770
+      },
+      {
+        "area": "16980",
+        "market": "Chicago-Naperville-Elgin, IL-IN",
+        "p25": 80020,
+        "median": 100160,
+        "p75": 126570,
+        "p90": 159940
+      },
+      {
+        "area": "37980",
+        "market": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+        "p25": 81430,
+        "median": 99410,
+        "p75": 127410,
+        "p90": 147960
+      },
+      {
+        "area": "18140",
+        "market": "Columbus, OH",
+        "p25": 78620,
+        "median": 99010,
+        "p75": 127940,
+        "p90": 169390
+      },
+      {
+        "area": "28140",
+        "market": "Kansas City, MO-KS",
+        "p25": 78780,
+        "median": 98860,
+        "p75": 127270,
+        "p90": 155110
+      },
+      {
+        "area": "41620",
+        "market": "Salt Lake City-Murray, UT",
+        "p25": 81000,
+        "median": 98800,
+        "p75": 125790,
+        "p90": 150100
+      },
+      {
+        "area": "34980",
+        "market": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+        "p25": 78580,
+        "median": 98650,
+        "p75": 124190,
+        "p90": 160800
+      },
+      {
+        "area": "19100",
+        "market": "Dallas-Fort Worth-Arlington, TX",
+        "p25": 77710,
+        "median": 96920,
+        "p75": 124870,
+        "p90": 158170
+      },
+      {
+        "area": "19820",
+        "market": "Detroit-Warren-Dearborn, MI",
+        "p25": 76300,
+        "median": 92550,
+        "p75": 106970,
+        "p90": 129700
+      },
+      {
+        "area": "38060",
+        "market": "Phoenix-Mesa-Chandler, AZ",
+        "p25": 77750,
+        "median": 90330,
+        "p75": 108510,
+        "p90": 139240
+      },
+      {
+        "area": "12060",
+        "market": "Atlanta-Sandy Springs-Roswell, GA",
+        "p25": 78130,
+        "median": 88000,
+        "p75": 116430,
+        "p90": 160150
+      },
+      {
+        "area": "33100",
+        "market": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "p25": 64350,
+        "median": 83750,
+        "p75": 127700,
+        "p90": 165880
+      }
+    ]
+  },
+  "marketing-manager": {
+    "code": "11-2021",
+    "occupation": "Marketing Managers",
+    "markets": [
+      {
+        "area": "41860",
+        "market": "San Francisco-Oakland-Fremont, CA",
+        "p25": 174750,
+        "median": 220480,
+        "p75": 309110,
+        "p90": 333430
+      },
+      {
+        "area": "14460",
+        "market": "Boston-Cambridge-Newton, MA-NH",
+        "p25": 169070,
+        "median": 213910,
+        "p75": 269300,
+        "p90": 312910
+      },
+      {
+        "area": "35620",
+        "market": "New York-Newark-Jersey City, NY-NJ",
+        "p25": 156020,
+        "median": 192840,
+        "p75": 246000,
+        "p90": 324990
+      },
+      {
+        "area": "19740",
+        "market": "Denver-Aurora-Centennial, CO",
+        "p25": 150860,
+        "median": 182470,
+        "p75": 223040,
+        "p90": 290850
+      },
+      {
+        "area": "47900",
+        "market": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "p25": 141220,
+        "median": 181260,
+        "p75": 233290,
+        "p90": 296500
+      },
+      {
+        "area": "42660",
+        "market": "Seattle-Tacoma-Bellevue, WA",
+        "p25": 129990,
+        "median": 175850,
+        "p75": 230740,
+        "p90": 296680
+      },
+      {
+        "area": "41740",
+        "market": "San Diego-Chula Vista-Carlsbad, CA",
+        "p25": 132130,
+        "median": 174840,
+        "p75": 228110,
+        "p90": 305740
+      },
+      {
+        "area": "33460",
+        "market": "Minneapolis-St. Paul-Bloomington, MN-WI",
+        "p25": 131270,
+        "median": 173040,
+        "p75": 215390,
+        "p90": 281830
+      },
+      {
+        "area": "38900",
+        "market": "Portland-Vancouver-Hillsboro, OR-WA",
+        "p25": 126470,
+        "median": 172610,
+        "p75": 215250,
+        "p90": 286640
+      },
+      {
+        "area": "31080",
+        "market": "Los Angeles-Long Beach-Anaheim, CA",
+        "p25": 130560,
+        "median": 171900,
+        "p75": 221920,
+        "p90": 318960
+      },
+      {
+        "area": "39580",
+        "market": "Raleigh-Cary, NC",
+        "p25": 129860,
+        "median": 167640,
+        "p75": 213930,
+        "p90": 277320
+      },
+      {
+        "area": "37980",
+        "market": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+        "p25": 121320,
+        "median": 166310,
+        "p75": 213550,
+        "p90": 284450
+      },
+      {
+        "area": "16740",
+        "market": "Charlotte-Concord-Gastonia, NC-SC",
+        "p25": 129070,
+        "median": 166200,
+        "p75": 206250,
+        "p90": 268360
+      },
+      {
+        "area": "16980",
+        "market": "Chicago-Naperville-Elgin, IL-IN",
+        "p25": 127450,
+        "median": 165340,
+        "p75": 213290,
+        "p90": 277220
+      },
+      {
+        "area": "12420",
+        "market": "Austin-Round Rock-San Marcos, TX",
+        "p25": 121130,
+        "median": 164920,
+        "p75": 212050,
+        "p90": 274700
+      },
+      {
+        "area": "40900",
+        "market": "Sacramento-Roseville-Folsom, CA",
+        "p25": 129810,
+        "median": 164270,
+        "p75": 216310,
+        "p90": 303070
+      },
+      {
+        "area": "12060",
+        "market": "Atlanta-Sandy Springs-Roswell, GA",
+        "p25": 126300,
+        "median": 163500,
+        "p75": 207160,
+        "p90": 279520
+      },
+      {
+        "area": "45300",
+        "market": "Tampa-St. Petersburg-Clearwater, FL",
+        "p25": 112750,
+        "median": 159990,
+        "p75": 229740,
+        "p90": 320140
+      },
+      {
+        "area": "19100",
+        "market": "Dallas-Fort Worth-Arlington, TX",
+        "p25": 110040,
+        "median": 155460,
+        "p75": 207790,
+        "p90": 268640
+      },
+      {
+        "area": "26420",
+        "market": "Houston-Pasadena-The Woodlands, TX",
+        "p25": 109990,
+        "median": 153030,
+        "p75": 200950,
+        "p90": 259100
+      },
+      {
+        "area": "19820",
+        "market": "Detroit-Warren-Dearborn, MI",
+        "p25": 111160,
+        "median": 149310,
+        "p75": 195460,
+        "p90": 236670
+      },
+      {
+        "area": "12580",
+        "market": "Baltimore-Columbia-Towson, MD",
+        "p25": 104350,
+        "median": 140180,
+        "p75": 193180,
+        "p90": 241500
+      },
+      {
+        "area": "41620",
+        "market": "Salt Lake City-Murray, UT",
+        "p25": 105600,
+        "median": 139830,
+        "p75": 184950,
+        "p90": 232020
+      },
+      {
+        "area": "28140",
+        "market": "Kansas City, MO-KS",
+        "p25": 107280,
+        "median": 139240,
+        "p75": 176450,
+        "p90": 227820
+      },
+      {
+        "area": "33100",
+        "market": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "p25": 103220,
+        "median": 135870,
+        "p75": 194660,
+        "p90": 258950
+      },
+      {
+        "area": "34980",
+        "market": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+        "p25": 104840,
+        "median": 135370,
+        "p75": 174880,
+        "p90": 223640
+      },
+      {
+        "area": "18140",
+        "market": "Columbus, OH",
+        "p25": 105770,
+        "median": 134420,
+        "p75": 177650,
+        "p90": 224440
+      },
+      {
+        "area": "38060",
+        "market": "Phoenix-Mesa-Chandler, AZ",
+        "p25": 122660,
+        "median": 132580,
+        "p75": 172000,
+        "p90": 224700
+      },
+      {
+        "area": "38300",
+        "market": "Pittsburgh, PA",
+        "p25": 93870,
+        "median": 127590,
+        "p75": 169510,
+        "p90": 217110
+      },
+      {
+        "area": "29820",
+        "market": "Las Vegas-Henderson-North Las Vegas, NV",
+        "p25": 83090,
+        "median": 106090,
+        "p75": 165710,
+        "p90": 228100
+      }
+    ]
+  }
+}

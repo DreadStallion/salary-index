@@ -23,7 +23,7 @@ export default function HomePage() {
             { value: '113', label: 'Roles' },
             { value: '30', label: 'Markets' },
             { value: '3,360', label: 'Data Points' },
-            { value: 'May 2026', label: 'Updated' },
+            { value: 'May 2025', label: 'BLS reference period' },
             { value: 'BLS OES', label: 'Source' },
           ].map(stat => (
             <div key={stat.label} style={{
@@ -123,7 +123,7 @@ export default function HomePage() {
           <strong style={{ color: 'var(--navy)' }}>Data Methodology:</strong> Salary figures represent
           annual base compensation in USD. Percentiles are derived from BLS Occupational Employment
           and Wage Statistics (OES) surveys, adjusted for metropolitan cost-of-labor indices.
-          Data is refreshed monthly. Figures reflect May 2026 market conditions.{' '}
+          Official wage estimates use the May 2025 BLS release. Modelled figures are identified separately.{' '}
           <a href="/methodology" style={{ color: 'var(--navy)', textDecoration: 'underline' }}>Read full methodology →</a>
         </p>
       </div>

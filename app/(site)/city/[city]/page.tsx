@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cityData) return {}
   return {
     title: `Salaries in ${cityData.label}, ${cityData.state} — 2026 Guide`,
-    description: `Compare salaries for 113 roles in ${cityData.label}. Median, P25, P75, P90 compensation data. Updated May 2026 with BLS OES data.`,
+    description: `Compare salaries for 113 roles in ${cityData.label}. Median, P25, P75, P90 compensation data. Includes official OEWS figures and legacy estimates.`,
   }
 }
 
@@ -58,7 +58,7 @@ export default async function CityPage({ params }: Props) {
             name: `What is the average salary in ${cityData.label}, ${cityData.state}?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `The median salary across ${roleData.length} tracked roles in ${cityData.label}, ${cityData.state} is ${formatSalary(cityMedian)} per year as of May 2026, based on BLS OES data.`,
+              text: `The median salary across ${roleData.length} tracked roles in ${cityData.label}, ${cityData.state} is ${formatSalary(cityMedian)} per year using the SalaryIndex comparison figures.`,
             },
           },
           {
@@ -74,7 +74,7 @@ export default async function CityPage({ params }: Props) {
             name: `What is the median income in ${cityData.label}?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `Based on ${roleData.length} professional occupations tracked in ${cityData.label}, the median annual salary is ${formatSalary(cityMedian)}. This covers roles from technology, healthcare, finance, engineering, and more. Source: BLS OES May 2026.`,
+              text: `Based on ${roleData.length} professional occupations tracked in ${cityData.label}, the median annual salary is ${formatSalary(cityMedian)}. This covers roles from technology, healthcare, finance, engineering, and more. Includes BLS OEWS and legacy model estimates.`,
             },
           },
           {
@@ -110,7 +110,7 @@ export default async function CityPage({ params }: Props) {
             Salaries in {cityData.label}, {cityData.state}
           </h1>
           <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-muted)' }}>
-            {roleData.length} roles tracked · May 2026 · BLS OES
+            {roleData.length} roles tracked · Official figures and legacy estimates
           </p>
         </div>
         <div style={{ textAlign: 'right' }}>
@@ -149,9 +149,9 @@ export default async function CityPage({ params }: Props) {
         marginBottom: 28,
       }}>
         <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)', lineHeight: 1.75 }}>
-          The median salary across all tracked roles in <strong>{cityData.label}, {cityData.state}</strong> is <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(cityMedian)}</strong> per year as of May 2026.
+          The median salary across all tracked roles in <strong>{cityData.label}, {cityData.state}</strong> is <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(cityMedian)}</strong> per year for the tracked markets.
           The highest-paying tracked role is <strong>{topRole?.role.label}</strong> at a median of <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(topRole?.salary?.median ?? 0)}</strong>.
-          All figures are sourced from the Bureau of Labor Statistics OES program.
+          The tables identify official BLS figures and SalaryIndex model estimates.
         </p>
       </div>
 
@@ -171,7 +171,7 @@ export default async function CityPage({ params }: Props) {
               <th>Median</th>
               <th>75th Pct.</th>
               <th>90th Pct.</th>
-              <th>YoY</th>
+              <th>Source</th>
             </tr>
           </thead>
           <tbody>
@@ -189,7 +189,7 @@ export default async function CityPage({ params }: Props) {
                 <td className="median">{formatSalary(s!.median)}</td>
                 <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(s!.p75)}</td>
                 <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(s!.p90)}</td>
-                <td style={{ color: 'var(--green)', fontWeight: 600, fontSize: 12 }}>+{s!.yoyChange}%</td>
+                <td>{s!.source}</td>
               </tr>
             ))}
           </tbody>

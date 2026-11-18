@@ -2,7 +2,7 @@
 import type { Metadata } from 'next'
 import {
   getAllCompareSlugs, parseCompareSlug,
-  getSalaryData, CITIES, BASE_SALARIES, formatSalary,
+  getSalaryData, CITIES, getNationalBenchmark, formatSalary,
 } from '@/data/salaries'
 
 type Props = { params: Promise<{ slug: string }> }
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { role1, role2 } = parsed
   return {
     title: `${role1.label} vs ${role2.label} Salary — 2026 Comparison`,
-    description: `Compare ${role1.label} and ${role2.label} salaries across 20 U.S. markets. Median, percentiles, and growth rates side by side. Updated May 2026.`,
+    description: `Compare ${role1.label} and ${role2.label} salaries across 30 U.S. markets. Median, percentiles side by side.`,
   }
 }
 
@@ -28,8 +28,8 @@ export default async function ComparePage({ params }: Props) {
   if (!parsed) notFound()
 
   const { role1, role2 } = parsed
-  const base1 = BASE_SALARIES[role1.slug]
-  const base2 = BASE_SALARIES[role2.slug]
+  const base1 = getNationalBenchmark(role1.slug)
+  const base2 = getNationalBenchmark(role2.slug)
 
   const cityData = CITIES.map(city => {
     const s1 = getSalaryData(role1.slug, city.slug)
@@ -64,7 +64,7 @@ export default async function ComparePage({ params }: Props) {
           <span className="tag">2026</span>
         </div>
         <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-muted)' }}>
-          20 U.S. markets · May 2026 · BLS OES data
+          30 U.S. markets · Official figures and legacy estimates
         </p>
       </div>
 
@@ -75,10 +75,7 @@ export default async function ComparePage({ params }: Props) {
           <a href={`/role/${role1.slug}`} style={{ textDecoration: 'none' }}>
             <div style={{ fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8a9bb5', marginBottom: 8 }}>{role1.label}</div>
             <div style={{ fontSize: 36, fontWeight: 700, color: '#f0ead8', fontFamily: 'Courier New, monospace' }}>{formatSalary(base1.median)}</div>
-            <div style={{ fontSize: 12, color: '#8a9bb5', marginTop: 4 }}>national median</div>
-            <div style={{ fontSize: 11, color: base1.yoy >= base2.yoy ? '#4ade80' : '#8a9bb5', marginTop: 8 }}>
-              +{base1.yoy}% YoY growth
-            </div>
+            <div style={{ fontSize: 12, color: '#8a9bb5', marginTop: 4 }}>U.S. benchmark · {base1.source}</div>
           </a>
         </div>
 
@@ -101,10 +98,7 @@ export default async function ComparePage({ params }: Props) {
           <a href={`/role/${role2.slug}`} style={{ textDecoration: 'none' }}>
             <div style={{ fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#f0ead8', marginBottom: 8 }}>{role2.label}</div>
             <div style={{ fontSize: 36, fontWeight: 700, color: '#0b1f3a', fontFamily: 'Courier New, monospace' }}>{formatSalary(base2.median)}</div>
-            <div style={{ fontSize: 12, color: '#5a3e10', marginTop: 4 }}>national median</div>
-            <div style={{ fontSize: 11, color: base2.yoy >= base1.yoy ? '#166534' : '#5a3e10', marginTop: 8 }}>
-              +{base2.yoy}% YoY growth
-            </div>
+            <div style={{ fontSize: 12, color: '#5a3e10', marginTop: 4 }}>U.S. benchmark · {base2.source}</div>
           </a>
         </div>
       </div>

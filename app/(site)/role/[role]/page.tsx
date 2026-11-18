@@ -1,6 +1,7 @@
+import { getBenchmark } from '@/data/benchmarks'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { ROLES, CITIES, getSalaryData, formatSalary, getAllRoleSlugs } from '@/data/salaries'
+import { ROLES, CITIES, getSalaryData, formatSalary, getAllRoleSlugs, getOewsOccupation, getNationalBenchmark, OEWS_SOURCE } from '@/data/salaries'
 import DatasetCTA from '@/components/DatasetCTA'
 import EmailCapture from '@/components/EmailCapture'
 import AffiliateLinks from '@/components/AffiliateLinks'
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!roleData) return {}
   return {
     title: `${roleData.label} Salary by City — 2026 U.S. Data`,
-    description: `Compare ${roleData.label} salaries across 30 U.S. markets. Median, p25, p75, p90 percentile data from BLS OES. Updated May 2026.`,
+    description: `Compare ${roleData.label} salaries across 30 U.S. markets. Median, p25, p75, p90 percentile data from official OEWS tables and legacy estimates.`,
   }
 }
 
@@ -31,9 +32,12 @@ export default async function RolePage({ params }: Props) {
     salary: getSalaryData(role, city.slug),
   })).filter(x => x.salary !== null).sort((a, b) => b.salary!.median - a.salary!.median)
 
-  const nationalMedian = Math.round(
-    cityData.reduce((sum, x) => sum + x.salary!.median, 0) / cityData.length / 5000
-  ) * 5000
+  const marketAverage = Math.round(
+    cityData.reduce((sum, x) => sum + x.salary!.median, 0) / cityData.length
+  )
+
+  const occupation = getOewsOccupation(role)
+  const benchmark = getNationalBenchmark(role)
 
   const topCity = cityData[0]
   const bottomCity = cityData[cityData.length - 1]
@@ -51,15 +55,15 @@ export default async function RolePage({ params }: Props) {
       {
         '@type': 'Occupation',
         name: roleData.label,
-        description: `${roleData.label} salary data across 30 major U.S. metropolitan markets. Sourced from BLS OES surveys.`,
+        description: `${roleData.label} salary data across 30 major U.S. metropolitan markets. Includes official BLS OEWS figures and legacy estimates.`,
         estimatedSalary: [
           {
             '@type': 'MonetaryAmountDistribution',
-            name: 'National median salary',
+            name: 'Average of market medians',
             currency: 'USD',
             duration: 'P1Y',
             percentile25: cityData[Math.floor(cityData.length * 0.75)]?.salary?.median ?? 0,
-            median: nationalMedian,
+            median: marketAverage,
             percentile75: cityData[Math.floor(cityData.length * 0.25)]?.salary?.median ?? 0,
           },
         ],
@@ -73,7 +77,7 @@ export default async function RolePage({ params }: Props) {
             name: `What is the average ${roleData.label} salary in the United States?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `The national median ${roleData.label} salary across 30 major U.S. markets is ${formatSalary(nationalMedian)} per year as of May 2026, based on BLS OES data.`,
+              text: `The average of the market medians for ${roleData.label} across 30 major U.S. markets is ${formatSalary(marketAverage)} per year using the SalaryIndex comparison figures.`,
             },
           },
           {
@@ -89,7 +93,7 @@ export default async function RolePage({ params }: Props) {
             name: `What is the entry-level ${roleData.label} salary?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `Entry-level ${roleData.label} salaries (25th percentile) range from ${formatSalary(bottomCity?.salary?.p25 ?? 0)} in ${bottomCity?.city.label} to ${formatSalary(topCity?.salary?.p25 ?? 0)} in ${topCity?.city.label}. The national 25th percentile is approximately ${formatSalary(Math.round(nationalMedian * 0.78 / 5000) * 5000)}.`,
+              text: `Entry-level ${roleData.label} salaries (25th percentile) range from ${formatSalary(bottomCity?.salary?.p25 ?? 0)} in ${bottomCity?.city.label} to ${formatSalary(topCity?.salary?.p25 ?? 0)} in ${topCity?.city.label}.`,
             },
           },
           {
@@ -97,7 +101,7 @@ export default async function RolePage({ params }: Props) {
             name: `How much do senior ${roleData.label}s make?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `Senior ${roleData.label}s (90th percentile) in top markets like ${topCity?.city.label} earn ${formatSalary(topCity?.salary?.p90 ?? 0)} per year. Nationally, the 75th percentile is around ${formatSalary(Math.round(nationalMedian * 1.28 / 5000) * 5000)}.`,
+              text: `Senior ${roleData.label}s (90th percentile) in top markets like ${topCity?.city.label} earn ${formatSalary(topCity?.salary?.p90 ?? 0)} per year.`,
             },
           },
         ],
@@ -121,13 +125,13 @@ export default async function RolePage({ params }: Props) {
             {roleData.label} Salary — U.S. Market Overview
           </h1>
           <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-muted)' }}>
-            30 metropolitan markets · May 2026 · BLS OES
+            30 metropolitan markets · Official figures and legacy estimates
           </p>
         </div>
         <div style={{ textAlign: 'right' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginBottom: 4 }}>National Median</div>
+          <div style={{ fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginBottom: 4 }}>Average of Market Medians</div>
           <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--navy)', fontFamily: 'Courier New, monospace' }}>
-            {formatSalary(nationalMedian)}
+            {formatSalary(marketAverage)}
           </div>
         </div>
       </div>
@@ -141,19 +145,27 @@ export default async function RolePage({ params }: Props) {
         marginBottom: 28,
       }}>
         <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)', lineHeight: 1.8 }}>
-          The national median salary for <strong>{roleData.label}</strong> across 30 major U.S. markets is{' '}
-          <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(nationalMedian)}</strong> per year as of May 2026.
+          The average of the market medians for <strong>{roleData.label}</strong> across 30 major U.S. markets is{' '}
+          <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(marketAverage)}</strong> per year for the tracked markets.
           {' '}The highest-paying market is <strong>{topCity?.city.label}</strong> at{' '}
           <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(topCity?.salary?.median ?? 0)}</strong>.
-          {' '}All figures are sourced from the Bureau of Labor Statistics OES program.
+          {' '}The tables identify official BLS figures and SalaryIndex model estimates.
+          {occupation && benchmark.source === 'BLS OEWS' && (
+            <> The <a href={OEWS_SOURCE}>official U.S. median</a> for {occupation.occupation} (SOC {occupation.code}) is{' '}
+              <strong>{formatSalary(benchmark.median)}</strong> for May 2025.</>
+          )}
         </p>
       </div>
+
+      {getBenchmark(role) && (
+        <p style={{ marginBottom: 24 }}><a className="verified-benchmark-link" href={`/benchmarks/${role}`}>See the BLS-only metropolitan comparison →</a></p>
+      )}
 
       {/* Summary row */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, marginBottom: 28 }}>
         {[
           { label: 'Highest Market', value: topCity?.city.label, sub: formatSalary(topCity?.salary?.median ?? 0) },
-          { label: 'National Median', value: formatSalary(nationalMedian), sub: '30-market average' },
+          { label: 'Average of Market Medians', value: formatSalary(marketAverage), sub: '30-market average' },
           { label: 'Lowest Market', value: bottomCity?.city.label, sub: formatSalary(bottomCity?.salary?.median ?? 0) },
         ].map(item => (
           <div key={item.label} style={{ background: 'white', border: '1px solid var(--border)', padding: '14px 18px' }}>
@@ -188,7 +200,7 @@ export default async function RolePage({ params }: Props) {
               <th>Median</th>
               <th>75th Pct.</th>
               <th>90th Pct.</th>
-              <th>YoY</th>
+              <th>Source</th>
             </tr>
           </thead>
           <tbody>
@@ -203,7 +215,7 @@ export default async function RolePage({ params }: Props) {
                 <td className="median">{formatSalary(s!.median)}</td>
                 <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(s!.p75)}</td>
                 <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(s!.p90)}</td>
-                <td style={{ color: 'var(--green)', fontWeight: 600, fontSize: 12 }}>+{s!.yoyChange}%</td>
+                <td>{s!.source}</td>
               </tr>
             ))}
           </tbody>

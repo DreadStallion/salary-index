@@ -110,7 +110,7 @@ export default function EmbedPage() {
             <p style={{ margin: 0, fontSize: 12, color: 'var(--ink-muted)', lineHeight: 1.7 }}>
               <strong style={{ color: 'var(--navy)' }}>Free to use.</strong> Embed on any site — blog, job board, HR portal, career guide.
               The only requirement is keeping the "Powered by SalaryIndex" link.
-              Data updates automatically every month from BLS OES.
+              See the public widget for its current data and source information.
             </p>
           </div>
         </div>

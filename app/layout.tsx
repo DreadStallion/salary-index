@@ -6,13 +6,13 @@ export const metadata: Metadata = {
     default: 'SalaryIndex — U.S. Salary Data for 113 Roles & 30 Cities',
     template: '%s | SalaryIndex',
   },
-  description: 'Free U.S. salary benchmarks for 113 roles across 30 major cities. BLS OES 2025 data — median, p25, p75, p90 percentiles. Updated monthly.',
+  description: 'Free U.S. salary benchmarks for 113 roles across 30 major cities. May 2025 BLS OEWS figures and legacy estimates.',
   metadataBase: new URL('https://ussalaryindex.com'),
   openGraph: {
     type: 'website',
     siteName: 'SalaryIndex',
     title: 'SalaryIndex — U.S. Salary Data for 113 Roles & 30 Cities',
-    description: 'Free U.S. salary benchmarks for 113 roles across 30 major cities. BLS OES 2025 data.',
+    description: 'Free U.S. salary benchmarks for 113 roles across 30 major cities. May 2025 BLS OEWS figures and legacy estimates.',
     url: 'https://ussalaryindex.com',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'SalaryIndex — U.S. Compensation Data' }],
   },
@@ -33,7 +33,7 @@ const orgSchema = {
       '@id': 'https://ussalaryindex.com/#organization',
       name: 'SalaryIndex',
       url: 'https://ussalaryindex.com',
-      description: 'Institutional-grade U.S. salary benchmarks for 113 roles across 30 markets, sourced from BLS OES surveys.',
+      description: 'Institutional-grade U.S. salary benchmarks for 113 roles across 30 markets, including BLS OEWS figures and legacy estimates.',
       sameAs: [],
     },
     {
@@ -80,9 +80,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MC7PJSWDN"></script>
-        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MC7PJSWDN');` }} />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775316191683171" crossOrigin="anonymous"></script>
+        {process.env.NEXT_PUBLIC_SALARYINDEX_PREVIEW !== 'true' && (<>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MC7PJSWDN"></script>
+          <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MC7PJSWDN');` }} />
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775316191683171" crossOrigin="anonymous"></script>
+        </>)}
       </head>
       <body>{children}</body>
     </html>

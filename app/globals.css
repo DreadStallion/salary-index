@@ -203,3 +203,15 @@ details[open] summary {
     grid-template-columns: 1fr !important;
   }
 }
+
+.benchmark { max-width: 920px; margin: 0 auto; }
+.benchmark h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.15; margin: 16px 0; }
+.benchmark p { max-width: 76ch; margin: 16px 0; }
+.benchmark a, .verified-benchmark-link { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+.benchmark-summary { background: white; border-left: 4px solid var(--gold); padding: 16px; }
+.benchmark-scroll { overflow-x: auto; margin: 22px 0; }
+.benchmark-scroll table { min-width: 680px; }
+.benchmark-scroll caption { padding: 8px 0; text-align: left; font-weight: 700; }
+.benchmark-list { list-style: none; padding: 0; margin-top: 24px; }
+.benchmark-list li { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 20px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.benchmark-list span { color: var(--ink-muted); font-size: 13px; }

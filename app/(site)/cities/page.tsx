@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Salary Data by City — 30 US Cities',
-  description: 'Browse salary data for 113 roles across 30 major US cities. Updated monthly.',
+  description: 'Browse salary data for 113 roles across 30 major US cities. ',
 }
 
 export default function CitiesPage() {

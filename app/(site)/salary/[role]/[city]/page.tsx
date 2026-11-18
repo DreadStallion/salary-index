@@ -28,6 +28,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = getSalaryData(role, city)
   if (!data) return {}
   return {
+    alternates: { canonical: `https://ussalaryindex.com/salary/${role}/${city}` },
+    ...(data.source === 'SalaryIndex model' ? { robots: { index: false, follow: true } } : {}),
     title: `${data.role} Salary in ${data.city}, ${data.state} (${data.updatedAt})`,
     description: `The median ${data.role} salary in ${data.city} is ${formatSalary(data.median)}/year. Full compensation distribution: 25th percentile ${formatSalary(data.p25)}, 75th ${formatSalary(data.p75)}, 90th ${formatSalary(data.p90)}.`,
   }
@@ -47,7 +49,7 @@ export default async function SalaryPage({ params }: Props) {
           {
             '@type': 'Question',
             name: `What is the average ${data.role} salary in ${data.city}?`,
-            acceptedAnswer: { '@type': 'Answer', text: `The median ${data.role} salary in ${data.city}, ${data.state} is ${formatSalary(data.median)} per year as of ${data.updatedAt}. The middle 50% earn between ${formatSalary(data.p25)} and ${formatSalary(data.p75)}.` },
+            acceptedAnswer: { '@type': 'Answer', text: `The median ${data.role} salary in ${data.city}, ${data.state} is ${formatSalary(data.median)} per year (${data.source}, ${data.updatedAt}). The middle 50% earn between ${formatSalary(data.p25)} and ${formatSalary(data.p75)}.` },
           },
           {
             '@type': 'Question',
@@ -58,11 +60,6 @@ export default async function SalaryPage({ params }: Props) {
             '@type': 'Question',
             name: `What do senior ${data.role}s earn in ${data.city}?`,
             acceptedAnswer: { '@type': 'Answer', text: `Senior ${data.role}s in ${data.city} earn ${formatSalary(data.p75)} at the 75th percentile and up to ${formatSalary(data.p90)} at the 90th percentile.` },
-          },
-          {
-            '@type': 'Question',
-            name: `How has the ${data.role} salary changed in ${data.city}?`,
-            acceptedAnswer: { '@type': 'Answer', text: `${data.role} salaries in ${data.city} grew by ${data.yoyChange}% year-over-year as of ${data.updatedAt}.` },
           },
         ],
       },
@@ -109,15 +106,12 @@ export default async function SalaryPage({ params }: Props) {
               {data.role} Salary in {data.city}, {data.state}
             </h1>
             <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-muted)' }}>
-              Annual base compensation · {data.updatedAt} · BLS OES Survey Data
+              Annual wages · {data.updatedAt} · {data.source}
             </p>
           </div>
           <div className="salary-amount" style={{ textAlign: 'right' }}>
             <div style={{ fontSize: 34, fontWeight: 700, color: 'var(--navy)', fontFamily: 'Courier New, monospace', letterSpacing: '-0.02em' }}>
               {formatSalary(data.median)}
-            </div>
-            <div style={{ fontSize: 11, color: 'var(--green)', fontWeight: 600, letterSpacing: '0.05em', marginTop: 2 }}>
-              ▲ {data.yoyChange}% YOY
             </div>
           </div>
         </div>
@@ -133,11 +127,10 @@ export default async function SalaryPage({ params }: Props) {
       }}>
         <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)', lineHeight: 1.8 }}>
           The median salary for <strong>{data.role}</strong> in <strong>{data.city}, {data.state}</strong> is{' '}
-          <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(data.median)}</strong> per year as of {data.updatedAt}.
+          <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(data.median)}</strong> per year ({data.source}, {data.updatedAt}).
           {' '}Most {data.role}s in {data.city} earn between{' '}
           <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(data.p25)}</strong> and{' '}
           <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(data.p75)}</strong>.
-          {' '}Year-over-year compensation growth is <strong>{data.yoyChange}%</strong>.
         </p>
       </div>
 
@@ -238,7 +231,7 @@ export default async function SalaryPage({ params }: Props) {
           {[
             {
               q: `What is the average ${data.role} salary in ${data.city}?`,
-              a: `The median ${data.role} salary in ${data.city}, ${data.state} is ${formatSalary(data.median)} per year as of ${data.updatedAt}. The middle 50% of earners fall between ${formatSalary(data.p25)} and ${formatSalary(data.p75)}.`,
+              a: `The median ${data.role} salary in ${data.city}, ${data.state} is ${formatSalary(data.median)} per year (${data.source}, ${data.updatedAt}). The middle 50% of earners fall between ${formatSalary(data.p25)} and ${formatSalary(data.p75)}.`,
             },
             {
               q: `What is the entry-level ${data.role} salary in ${data.city}?`,
@@ -247,10 +240,6 @@ export default async function SalaryPage({ params }: Props) {
             {
               q: `What do senior ${data.role}s earn in ${data.city}?`,
               a: `Senior ${data.role}s in ${data.city} earn ${formatSalary(data.p75)} at the 75th percentile and up to ${formatSalary(data.p90)} at the 90th percentile, reflecting 6+ years of experience and management responsibilities.`,
-            },
-            {
-              q: `How has the ${data.role} market changed in ${data.city}?`,
-              a: `Year-over-year salary growth for ${data.role}s in ${data.city} stands at ${data.yoyChange}% as of ${data.updatedAt}, indicating ${data.yoyChange > 4 ? 'strong' : 'moderate'} demand in the local market.`,
             },
           ].map(({ q, a }, i) => (
             <details key={q} style={{ background: i % 2 === 0 ? 'white' : 'var(--paper-alt)', borderBottom: '1px solid var(--border)' }}>
@@ -296,7 +285,7 @@ export default async function SalaryPage({ params }: Props) {
                 <th>25th Pct.</th>
                 <th>Median</th>
                 <th>75th Pct.</th>
-                <th>YoY</th>
+                <th>Source</th>
               </tr>
             </thead>
             <tbody>
@@ -313,7 +302,7 @@ export default async function SalaryPage({ params }: Props) {
                     <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(d.p25)}</td>
                     <td className="median">{formatSalary(d.median)}</td>
                     <td style={{ fontFamily: 'Courier New, monospace', fontSize: 13 }}>{formatSalary(d.p75)}</td>
-                    <td style={{ color: 'var(--green)', fontWeight: 600, fontSize: 12 }}>+{d.yoyChange}%</td>
+                    <td>{d.source}</td>
                   </tr>
                 )
               })}
@@ -367,9 +356,7 @@ export default async function SalaryPage({ params }: Props) {
       {/* Source citation box */}
       <div className="source-box">
         <p style={{ margin: 0, fontSize: 12, color: 'var(--ink-muted)', lineHeight: 1.7 }}>
-          <strong style={{ color: 'var(--navy)' }}>Source:</strong> Bureau of Labor Statistics Occupational Employment and Wage Statistics (OES) Program.
-          SalaryIndex structures and normalizes this public data by role and metropolitan area for research and comparison purposes.
-          Data reflects {data.updatedAt} wage surveys.{' '}
+          <strong style={{ color: 'var(--navy)' }}>Source:</strong> {data.source} · {data.updatedAt}.{' '}
           <a href="/methodology" style={{ color: 'var(--navy)', textDecoration: 'underline' }}>ussalaryindex.com/methodology</a>
         </p>
       </div>
@@ -388,7 +375,7 @@ export default async function SalaryPage({ params }: Props) {
           Cite this page
         </strong>
         ussalaryindex.com. ({new Date().getFullYear()}). <em>{data.role} Salary in {data.city}, {data.state} ({data.updatedAt})</em>.
-        {' '}Retrieved from https://ussalaryindex.com/salary/{role}/{city}. Source: BLS OES.
+        {' '}Retrieved from https://ussalaryindex.com/salary/{role}/{city}. Source: {data.source}.
       </div>
     </>
   )

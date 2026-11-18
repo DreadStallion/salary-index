@@ -49,10 +49,10 @@ export default function MethodologyPage() {
             </thead>
             <tbody>
               {[
-                ['25th', 'Entry-level', '25% of workers in this role/market earn less than this amount'],
-                ['50th (Median)', 'Mid-level', 'Half of workers earn less, half earn more — the market reference point'],
-                ['75th', 'Senior', '75% of workers earn less; reflects 6–10 years of experience'],
-                ['90th', 'Top earner', 'Top 10% of earners; reflects principal/lead/staff-level roles'],
+                ['25th', 'Lower quartile', '25% of workers in this role/market earn less than this amount'],
+                ['50th (Median)', 'Median', 'Half of workers earn less, half earn more — the market reference point'],
+                ['75th', 'Upper quartile', '75% of workers earn less'],
+                ['90th', 'Top earner', 'Top 10% of earners'],
               ].map(([pct, label, desc], i) => (
                 <tr key={pct} style={{ background: i % 2 === 0 ? 'white' : 'var(--paper-alt)', borderBottom: '1px solid var(--border)' }}>
                   <td style={{ padding: '10px 14px', fontSize: 13, fontFamily: 'Courier New, monospace', fontWeight: 700, color: 'var(--navy)' }}>{pct}</td>
@@ -67,17 +67,17 @@ export default function MethodologyPage() {
         <section>
           <h2 style={{ fontSize: 16, color: 'var(--navy)', marginBottom: 12 }}>Geographic Adjustment</h2>
           <p style={{ fontSize: 14, color: 'var(--ink-muted)', lineHeight: 1.8, margin: 0 }}>
-            National salary figures are adjusted to reflect local labor market conditions using <strong>metropolitan area cost-of-labor indices</strong>. These indices account for differences in employer costs, local demand, and competitive compensation pressures across U.S. metropolitan areas.
+            Rows marked BLS OEWS use published annual wage percentiles for the metropolitan area and matched occupation. The occupation category may cover more jobs than the SalaryIndex label. Where a complete match is unavailable, legacy estimates use a national base adjusted by a city index and rounded to $5,000.
           </p>
           <p style={{ fontSize: 14, color: 'var(--ink-muted)', lineHeight: 1.8, margin: '12px 0 0' }}>
-            This is different from cost-of-living adjustments. Labor cost indices reflect what employers actually pay in a given market, not what goods and services cost. A Software Engineer in San Francisco earns more because San Francisco employers compete at a higher wage level, not only because the city is expensive.
+            See the <a href="https://www.bls.gov/oes/tables.htm">BLS OEWS tables</a> for original national and metropolitan estimates. A category without complete published percentiles remains labelled SalaryIndex model.
           </p>
         </section>
 
         <section>
           <h2 style={{ fontSize: 16, color: 'var(--navy)', marginBottom: 12 }}>Update Frequency</h2>
           <p style={{ fontSize: 14, color: 'var(--ink-muted)', lineHeight: 1.8, margin: 0 }}>
-            SalaryIndex data is refreshed <strong>monthly</strong>. The current dataset reflects <strong>May 2026</strong> market conditions, incorporating the most recent BLS OES release. Year-over-year change figures compare current data to the equivalent period in 2025.
+            Official figures use the <strong>May 2025</strong> OEWS reference period, published May 15, 2026. SalaryIndex does not report local year-over-year change from this single snapshot.
           </p>
         </section>
 
@@ -86,7 +86,7 @@ export default function MethodologyPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             <div style={{ background: 'white', border: '1px solid var(--border)', borderLeft: '4px solid var(--green)', padding: 16 }}>
               <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: 10 }}>Included</div>
-              {['Annual base salary', 'Geographic premium/discount', 'Percentile distribution (p25–p90)', 'Year-over-year change'].map(item => (
+              {['Annual base salary', 'Geographic premium/discount', 'Percentile distribution (p25–p90)'].map(item => (
                 <div key={item} style={{ fontSize: 13, color: 'var(--ink-muted)', marginBottom: 4 }}>✓ {item}</div>
               ))}
             </div>

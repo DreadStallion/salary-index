@@ -37,6 +37,10 @@ export default function EmailCapture({ role, city }: { role?: string; city?: str
     }
   }
 
+  if (process.env.NEXT_PUBLIC_SALARYINDEX_PREVIEW === 'true') {
+    return <p style={{ marginBottom: 32 }}><a href={SAMPLE_URL}>Preview the free sample on Gumroad →</a></p>
+  }
+
   if (status === 'done') {
     return (
       <div style={{

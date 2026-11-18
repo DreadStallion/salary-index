@@ -5,10 +5,10 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <div className="site-topbar" style={{ background: 'var(--navy-dark)', borderBottom: '1px solid #1e3a5f' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '6px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span style={{ color: '#8a9bb5', fontSize: 11, letterSpacing: '0.05em' }}>
-            U.S. COMPENSATION DATA · UPDATED MAY 2026 · SOURCE: BLS OES
+            U.S. COMPENSATION DATA · BLS OEWS MAY 2025 · INCLUDES LEGACY ESTIMATES
           </span>
           <span style={{ color: '#8a9bb5', fontSize: 11, letterSpacing: '0.05em' }}>
-            113 ROLES · 30 MARKETS
+            112 ROLES · 30 MARKETS
           </span>
         </div>
       </div>
@@ -39,6 +39,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             {[
               { href: '/', label: 'Roles' },
               { href: '/cities', label: 'Cities' },
+              { href: '/benchmarks', label: 'Verified data' },
               { href: '/calculator', label: 'Calculator' },
               { href: '/compare/software-engineer-vs-data-scientist', label: 'Compare' },
               { href: '/embed', label: 'Embed' },
@@ -71,7 +72,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               SALARY<span style={{ color: 'var(--gold-lt)' }}>INDEX</span>
             </div>
             <div style={{ color: '#7a90a8', fontSize: 11, marginTop: 4 }}>
-              © 2026 SalaryIndex · All data sourced from BLS OES surveys
+              © 2026 SalaryIndex · BLS OEWS and SalaryIndex estimates
             </div>
           </div>
           <div className="site-footer-links" style={{ color: '#7a90a8', fontSize: 11, textAlign: 'right', lineHeight: 1.8 }}>
@@ -86,7 +87,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             <a href="/methodology" style={{ color: '#8a9bb5', textDecoration: 'none' }}>Methodology</a>
             <br />
             <a href="/privacy-policy" style={{ color: '#8a9bb5', textDecoration: 'none' }}>Privacy Policy</a>
-            <br />Data updated monthly
+
             <br /><a href="https://dreadstallion.gumroad.com/l/tvhsz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold-lt)', textDecoration: 'none', fontWeight: 600 }}>Download Dataset →</a>
           </div>
         </div>
