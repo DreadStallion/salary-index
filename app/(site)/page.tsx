@@ -1,6 +1,8 @@
-import { ROLES, CITIES } from '@/data/salaries'
+import { getBenchmarkSlugs } from '@/data/benchmarks'
+import { ROLES, CITIES, getOewsOccupation } from '@/data/salaries'
 
 export default function HomePage() {
+  const verifiedRoles = ROLES.filter(role => getOewsOccupation(role.slug))
   return (
     <div>
       {/* Header section */}
@@ -20,9 +22,8 @@ export default function HomePage() {
         {/* Stats bar */}
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {[
-            { value: '61', label: 'Matched roles' },
+            { value: String(getBenchmarkSlugs().length), label: 'Matched roles' },
             { value: '30', label: 'Markets' },
-            { value: '3,360', label: 'Data Points' },
             { value: 'May 2025', label: 'BLS reference period' },
             { value: 'BLS OES', label: 'Source' },
           ].map(stat => (
@@ -52,7 +53,7 @@ export default function HomePage() {
             <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-            {ROLES.map((role, i) => (
+            {verifiedRoles.map((role, i) => (
               <a
                 key={role.slug}
                 href={`/role/${role.slug}`}
@@ -90,27 +91,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Calculator CTA */}
-      <div style={{ marginTop: 40, background: 'var(--navy)', padding: '24px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
-        <div>
-          <div style={{ color: 'var(--gold-lt)', fontSize: 16, fontWeight: 700, marginBottom: 4 }}>
-            How much will you actually take home?
-          </div>
-          <p style={{ color: '#8a9bb5', fontSize: 13, margin: 0 }}>
-            Calculate your net salary after federal taxes, state taxes, and FICA — across all 50 states.
-          </p>
-        </div>
-        <a href="/calculator" style={{
-          display: 'inline-block', padding: '10px 24px',
-          background: 'var(--gold)', color: 'var(--navy-dark)',
-          fontWeight: 700, fontSize: 13, letterSpacing: '0.06em',
-          textDecoration: 'none', fontFamily: 'Georgia, serif',
-          textTransform: 'uppercase', whiteSpace: 'nowrap',
-        }}>
-          Open Calculator →
-        </a>
-      </div>
-
       {/* Data note */}
       <div style={{
         marginTop: 48,
@@ -121,8 +101,8 @@ export default function HomePage() {
       }}>
         <p style={{ margin: 0, fontSize: 12.5, color: 'var(--ink-muted)', lineHeight: 1.7 }}>
           <strong style={{ color: 'var(--navy)' }}>Data Methodology:</strong> Salary figures represent
-          annual base compensation in USD. Percentiles are derived from BLS Occupational Employment
-          and Wage Statistics (OES) surveys, adjusted for metropolitan cost-of-labor indices.
+          annual wages in USD. The figures use published BLS Occupational Employment
+          and Wage Statistics (OEWS) percentiles.
           Wage estimates use the May 2025 BLS OEWS reference period. Availability varies by occupation and metro area.{' '}
           <a href="/methodology" style={{ color: 'var(--navy)', textDecoration: 'underline' }}>Read full methodology →</a>
         </p>

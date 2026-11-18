@@ -39,10 +39,6 @@
 /compare/*
   Cache-Control: public, max-age=43200
 
-# Interactive pages — shorter cache
-/calculator
-  Cache-Control: public, max-age=3600
-
 
 # Homepage
 /

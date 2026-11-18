@@ -2,9 +2,6 @@ import { getBenchmark } from '@/data/benchmarks'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { ROLES, CITIES, getSalaryData, formatSalary, getAllRoleSlugs, getOewsOccupation, getNationalBenchmark, OEWS_SOURCE } from '@/data/salaries'
-import DatasetCTA from '@/components/DatasetCTA'
-import EmailCapture from '@/components/EmailCapture'
-import AffiliateLinks from '@/components/AffiliateLinks'
 
 type Props = { params: Promise<{ role: string }> }
 
@@ -183,7 +180,6 @@ export default async function RolePage({ params }: Props) {
         ))}
       </div>
 
-      <EmailCapture role={roleData.label} />
 
       <h2 style={{
         fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase',
@@ -225,9 +221,7 @@ export default async function RolePage({ params }: Props) {
         </table>
       </div>
 
-      <AffiliateLinks role={roleData.label} city="United States" />
 
-      <DatasetCTA role={roleData!.label} />
     </>
   )
 }

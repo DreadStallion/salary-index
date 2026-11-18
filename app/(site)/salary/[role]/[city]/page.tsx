@@ -4,9 +4,6 @@ import {
   getSalaryData, getAllRoleSlugs, getAllCitySlugs,
   formatSalary, ROLES, CITIES,
 } from '@/data/salaries'
-import DatasetCTA from '@/components/DatasetCTA'
-import EmailCapture from '@/components/EmailCapture'
-import AffiliateLinks from '@/components/AffiliateLinks'
 
 type Props = { params: Promise<{ role: string; city: string }> }
 
@@ -138,7 +135,6 @@ export default async function SalaryPage({ params }: Props) {
         </p>
       </div>
 
-      <EmailCapture role={data.role} city={data.city} />
 
       {/* Compensation distribution */}
       <div style={{ marginBottom: 36 }}>
@@ -176,50 +172,6 @@ export default async function SalaryPage({ params }: Props) {
           ))}
         </div>
       </div>
-
-      {/* Job listings */}
-      <div style={{
-        padding: '16px 20px',
-        background: 'white',
-        border: '1px solid var(--border)',
-        borderLeft: '4px solid var(--navy)',
-        marginBottom: 36,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: 12,
-      }} className="job-links-row">
-        <div>
-          <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--navy)', marginBottom: 3 }}>
-            Open Positions
-          </div>
-          <div style={{ fontSize: 12.5, color: 'var(--ink-muted)' }}>
-            Find active {data.role} roles in {data.city}
-          </div>
-        </div>
-        <div className="job-links-buttons" style={{ display: 'flex', gap: 10 }}>
-          {[
-            { name: 'LinkedIn', color: '#0a66c2', href: `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(data.role)}&location=${encodeURIComponent(data.city)}` },
-            { name: 'Indeed', color: '#003a9b', href: `https://www.indeed.com/jobs?q=${encodeURIComponent(data.role)}&l=${encodeURIComponent(data.city)}` },
-            { name: 'Glassdoor', color: '#0caa41', href: `https://www.glassdoor.com/Job/jobs.htm?sc.keyword=${encodeURIComponent(data.role)}&locT=C&locName=${encodeURIComponent(data.city)}` },
-          ].map(site => (
-            <a key={site.name} href={site.href} target="_blank" rel="noopener noreferrer" style={{
-              padding: '7px 16px',
-              background: site.color,
-              color: 'white',
-              fontSize: 12,
-              fontWeight: 600,
-              textDecoration: 'none',
-              letterSpacing: '0.04em',
-            }}>
-              {site.name} →
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <AffiliateLinks role={data.role} city={data.city} />
 
       {/* FAQ */}
       <div style={{ marginBottom: 40 }}>
@@ -269,7 +221,6 @@ export default async function SalaryPage({ params }: Props) {
         </div>
       </div>
 
-      <DatasetCTA role={data.role} city={data.city} />
 
       {/* Same role, other cities */}
       <div style={{ marginBottom: 40 }}>
