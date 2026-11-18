@@ -3,14 +3,14 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Salary Data by City — 30 US Cities',
-  description: 'Browse salary data for 113 roles across 30 major US cities. ',
+  description: 'Browse salary data for 61 matched roles across 30 major US cities. ',
 }
 
 export default function CitiesPage() {
   return (
     <>
       <h1 className="text-3xl font-bold text-white mb-2">Salaries by City</h1>
-      <p className="text-gray-400 mb-8">Select a city to see salary ranges for 113 roles.</p>
+      <p className="text-gray-400 mb-8">Select a city to see salary ranges for 61 matched roles.</p>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
         {CITIES.map(city => (
           <a

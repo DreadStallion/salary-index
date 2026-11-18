@@ -2,12 +2,9 @@ import type { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
 import { getBenchmarkSlugs } from '@/data/benchmarks'
-import { getAllRoleSlugs, getAllCitySlugs, getSalaryData } from '@/data/salaries'
+import { getAllRoleSlugs, getAllCitySlugs, getSalaryData, getOewsOccupation } from '@/data/salaries'
 
 const BASE = 'https://ussalaryindex.com'
-
-// Must match TOP_CITIES in salary/[role]/[city]/page.tsx
-const SALARY_CITIES = ['san-francisco', 'new-york', 'seattle', 'los-angeles', 'chicago', 'austin', 'washington-dc', 'boston']
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const roles = getAllRoleSlugs()
@@ -15,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString()
 
   const salaryPages = roles.flatMap(role =>
-    SALARY_CITIES.filter(city => getSalaryData(role, city)?.source === 'BLS OEWS').map(city => ({
+    cities.filter(city => getSalaryData(role, city)?.source === 'BLS OEWS').map(city => ({
       url: `${BASE}/salary/${role}/${city}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
@@ -23,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   )
 
-  const rolePages = roles.map(role => ({
+  const rolePages = roles.filter(getOewsOccupation).map(role => ({
     url: `${BASE}/role/${role}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,

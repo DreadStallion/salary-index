@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const [, meta] = entry
   return {
     title: `Highest Paying Jobs in ${meta.name} — 2026 Salary Rankings`,
-    description: `See the top paying jobs in ${meta.name} ranked by median salary across 113 roles. Metro-based rankings include official and modelled estimates.`,
+    description: `See the top paying jobs in ${meta.name} ranked by median salary using BLS estimates for selected metropolitan areas.`,
   }
 }
 
@@ -34,11 +34,11 @@ export default async function StatePage({ params }: Props) {
   const ranking = getStateSalaryRanking(stateCode)
   const top = ranking[0]
   const nationalAvg = Math.round(
-    ranking.reduce((s, r) => s + r.nationalMedian, 0) / ranking.length / 5000
-  ) * 5000
+    ranking.reduce((s, r) => s + r.nationalMedian, 0) / ranking.length
+  )
   const stateAvg = Math.round(
-    ranking.reduce((s, r) => s + r.median, 0) / ranking.length / 5000
-  ) * 5000
+    ranking.reduce((s, r) => s + r.median, 0) / ranking.length
+  )
   const vsNational = stateAvg > nationalAvg ? `+${Math.round((stateAvg / nationalAvg - 1) * 100)}%` : `${Math.round((stateAvg / nationalAvg - 1) * 100)}%`
   const isAbove = stateAvg >= nationalAvg
 
@@ -61,7 +61,7 @@ export default async function StatePage({ params }: Props) {
             <span className="tag">2026</span>
           </div>
           <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-muted)' }}>
-            {cities.length} {cities.length === 1 ? 'market' : 'markets'} · {ROLES.length} roles ranked by median salary · Metro-based estimates
+            {cities.length} {cities.length === 1 ? 'market' : 'markets'} · {ranking.length} occupations ranked by median salary · Metro-based estimates
           </p>
         </div>
         <div style={{ textAlign: 'right' }}>
@@ -76,7 +76,7 @@ export default async function StatePage({ params }: Props) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, marginBottom: 28 }}>
         {[
           { label: 'Top Paying Role', value: top.role, sub: formatSalary(top.median) + ' median' },
-          { label: 'State Median (all roles)', value: formatSalary(stateAvg), sub: `${isAbove ? 'above' : 'below'} national avg` },
+          { label: 'Average of Tracked Metro Medians', value: formatSalary(stateAvg), sub: `${isAbove ? 'above' : 'below'} national avg` },
           { label: 'Available Markets', value: cities.map(c => c.label).join(', '), sub: `${cities.length} ${cities.length === 1 ? 'city' : 'cities'} tracked` },
         ].map(item => (
           <div key={item.label} style={{ background: 'white', border: '1px solid var(--border)', padding: '14px 18px' }}>

@@ -30,6 +30,7 @@ export default async function ComparePage({ params }: Props) {
   const { role1, role2 } = parsed
   const base1 = getNationalBenchmark(role1.slug)
   const base2 = getNationalBenchmark(role2.slug)
+  if (!base1 || !base2) notFound()
 
   const cityData = CITIES.map(city => {
     const s1 = getSalaryData(role1.slug, city.slug)
@@ -64,7 +65,7 @@ export default async function ComparePage({ params }: Props) {
           <span className="tag">2026</span>
         </div>
         <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-muted)' }}>
-          30 U.S. markets · Official figures and legacy estimates
+          {cityData.length} shared U.S. markets · BLS OEWS · May 2025
         </p>
       </div>
 

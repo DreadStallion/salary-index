@@ -5,10 +5,10 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <div className="site-topbar" style={{ background: 'var(--navy-dark)', borderBottom: '1px solid #1e3a5f' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '6px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span style={{ color: '#8a9bb5', fontSize: 11, letterSpacing: '0.05em' }}>
-            U.S. COMPENSATION DATA · BLS OEWS MAY 2025 · INCLUDES LEGACY ESTIMATES
+            U.S. COMPENSATION DATA · BLS OEWS · MAY 2025 REFERENCE PERIOD
           </span>
           <span style={{ color: '#8a9bb5', fontSize: 11, letterSpacing: '0.05em' }}>
-            112 ROLES · 30 MARKETS
+            61 MATCHED ROLES · 30 MARKETS
           </span>
         </div>
       </div>
@@ -72,7 +72,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               SALARY<span style={{ color: 'var(--gold-lt)' }}>INDEX</span>
             </div>
             <div style={{ color: '#7a90a8', fontSize: 11, marginTop: 4 }}>
-              © 2026 SalaryIndex · BLS OEWS and SalaryIndex estimates
+              © 2026 SalaryIndex · BLS OEWS
             </div>
           </div>
           <div className="site-footer-links" style={{ color: '#7a90a8', fontSize: 11, textAlign: 'right', lineHeight: 1.8 }}>

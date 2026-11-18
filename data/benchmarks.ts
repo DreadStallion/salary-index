@@ -7,6 +7,7 @@ export const BLS_METRO_WORKBOOK = 'https://www.bls.gov/oes/special-requests/oesm
 
 type Market = {
   area: string
+  slug: string
   market: string
   p25: number | null
   median: number | null

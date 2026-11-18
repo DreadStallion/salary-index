@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cityData) return {}
   return {
     title: `Salaries in ${cityData.label}, ${cityData.state} — 2026 Guide`,
-    description: `Compare salaries for 113 roles in ${cityData.label}. Median, P25, P75, P90 compensation data. Includes official OEWS figures and legacy estimates.`,
+    description: `Compare salaries for matched occupations in ${cityData.label}. Median, P25, P75, P90 compensation data. Includes official OEWS figures.`,
   }
 }
 
@@ -33,8 +33,8 @@ export default async function CityPage({ params }: Props) {
   const topRole = roleData[0]
   const bottomRole = roleData[roleData.length - 1]
   const cityMedian = Math.round(
-    roleData.reduce((sum, x) => sum + x.salary!.median, 0) / roleData.length / 5000
-  ) * 5000
+    roleData.reduce((sum, x) => sum + x.salary!.median, 0) / roleData.length
+  )
 
   const TOP_SALARY_CITIES = ['san-francisco', 'new-york', 'seattle', 'los-angeles', 'chicago', 'austin', 'washington-dc', 'boston']
   const isTopCity = TOP_SALARY_CITIES.includes(city)
@@ -58,7 +58,7 @@ export default async function CityPage({ params }: Props) {
             name: `What is the average salary in ${cityData.label}, ${cityData.state}?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `The median salary across ${roleData.length} tracked roles in ${cityData.label}, ${cityData.state} is ${formatSalary(cityMedian)} per year using the SalaryIndex comparison figures.`,
+              text: `The average of median wages across ${roleData.length} tracked roles in ${cityData.label}, ${cityData.state} is ${formatSalary(cityMedian)} per year using the SalaryIndex comparison figures.`,
             },
           },
           {
@@ -74,7 +74,7 @@ export default async function CityPage({ params }: Props) {
             name: `What is the median income in ${cityData.label}?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `Based on ${roleData.length} professional occupations tracked in ${cityData.label}, the median annual salary is ${formatSalary(cityMedian)}. This covers roles from technology, healthcare, finance, engineering, and more. Includes BLS OEWS and legacy model estimates.`,
+              text: `Based on ${roleData.length} professional occupations tracked in ${cityData.label}, the unweighted average of their median annual wages is ${formatSalary(cityMedian)}. This covers roles from technology, healthcare, finance, engineering, and more. Includes official BLS OEWS figures.`,
             },
           },
           {
@@ -82,7 +82,7 @@ export default async function CityPage({ params }: Props) {
             name: `Is ${cityData.label} a good city for salary growth?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `${cityData.label} offers competitive salaries across professional roles, with a tracked median of ${formatSalary(cityMedian)} per year. Top-paying roles like ${topRole?.role.label} and ${roleData[1]?.role.label} command significantly higher compensation in this market.`,
+              text: `${cityData.label} offers competitive salaries across professional roles, with an average of occupation medians of ${formatSalary(cityMedian)} per year. Top-paying roles like ${topRole?.role.label} and ${roleData[1]?.role.label} command significantly higher compensation in this market.`,
             },
           },
         ],
@@ -110,11 +110,11 @@ export default async function CityPage({ params }: Props) {
             Salaries in {cityData.label}, {cityData.state}
           </h1>
           <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-muted)' }}>
-            {roleData.length} roles tracked · Official figures and legacy estimates
+            {roleData.length} roles tracked · BLS OEWS · May 2025
           </p>
         </div>
         <div style={{ textAlign: 'right' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginBottom: 4 }}>City Median</div>
+          <div style={{ fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginBottom: 4 }}>Average of Occupation Medians</div>
           <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--navy)', fontFamily: 'Courier New, monospace' }}>
             {formatSalary(cityMedian)}
           </div>
@@ -125,7 +125,7 @@ export default async function CityPage({ params }: Props) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, marginBottom: 28 }}>
         {[
           { label: 'Highest-Paying Role', value: topRole?.role.label, sub: formatSalary(topRole?.salary?.median ?? 0) },
-          { label: 'Median Across All Roles', value: formatSalary(cityMedian), sub: `${roleData.length}-role average` },
+          { label: 'Average of Occupation Medians', value: formatSalary(cityMedian), sub: `${roleData.length}-role average` },
           { label: 'Entry-Level Role', value: bottomRole?.role.label, sub: formatSalary(bottomRole?.salary?.median ?? 0) },
         ].map(item => (
           <div key={item.label} style={{ background: 'white', border: '1px solid var(--border)', padding: '14px 18px' }}>
@@ -149,9 +149,9 @@ export default async function CityPage({ params }: Props) {
         marginBottom: 28,
       }}>
         <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)', lineHeight: 1.75 }}>
-          The median salary across all tracked roles in <strong>{cityData.label}, {cityData.state}</strong> is <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(cityMedian)}</strong> per year for the tracked markets.
+          The average of median wages across all tracked roles in <strong>{cityData.label}, {cityData.state}</strong> is <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(cityMedian)}</strong> per year for the tracked markets.
           The highest-paying tracked role is <strong>{topRole?.role.label}</strong> at a median of <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(topRole?.salary?.median ?? 0)}</strong>.
-          The tables identify official BLS figures and SalaryIndex model estimates.
+          The table includes occupations with published wage percentiles.
         </p>
       </div>
 

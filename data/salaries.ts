@@ -18,7 +18,7 @@ export function getOewsOccupation(roleSlug: string) {
 
 export function getNationalBenchmark(roleSlug: string) {
   const national = OEWS[roleSlug]?.national
-  if (!national) return { ...BASE_SALARIES[roleSlug], source: 'SalaryIndex model' }
+  if (!national) return null
   const [p25, median, p75, p90] = national
   return { median, p25, p75, p90, source: 'BLS OEWS' }
 }
@@ -206,144 +206,6 @@ export const CITIES = [
   { label: 'Detroit',        slug: 'detroit',        state: 'MI', costIndex: 0.88 },
 ] as const
 
-// Legacy SalaryIndex model inputs (annual USD).
-const BASE_SALARIES: Record<string, { median: number; p25: number; p75: number; p90: number; yoy: number }> = {
-  // Technology
-  'software-engineer':           { median: 130000, p25: 98000,  p75: 165000, p90: 210000, yoy: 3.2 },
-  'full-stack-developer':        { median: 120000, p25: 90000,  p75: 155000, p90: 195000, yoy: 4.2 },
-  'frontend-developer':          { median: 108000, p25: 80000,  p75: 142000, p90: 180000, yoy: 3.8 },
-  'backend-developer':           { median: 118000, p25: 88000,  p75: 152000, p90: 195000, yoy: 4.0 },
-  'ios-developer':               { median: 122000, p25: 92000,  p75: 158000, p90: 198000, yoy: 3.5 },
-  'android-developer':           { median: 118000, p25: 88000,  p75: 152000, p90: 192000, yoy: 3.2 },
-  'data-analyst':                { median: 82000,  p25: 62000,  p75: 108000, p90: 138000, yoy: 4.1 },
-  'data-scientist':              { median: 118000, p25: 88000,  p75: 155000, p90: 200000, yoy: 5.2 },
-  'data-engineer':               { median: 128000, p25: 96000,  p75: 165000, p90: 210000, yoy: 5.8 },
-  'ai-engineer':                 { median: 155000, p25: 118000, p75: 198000, p90: 248000, yoy: 9.2 },
-  'machine-learning-engineer':   { median: 145000, p25: 112000, p75: 185000, p90: 235000, yoy: 7.1 },
-  'devops-engineer':             { median: 125000, p25: 94000,  p75: 160000, p90: 205000, yoy: 4.5 },
-  'site-reliability-engineer':   { median: 138000, p25: 105000, p75: 175000, p90: 218000, yoy: 5.1 },
-  'platform-engineer':           { median: 135000, p25: 102000, p75: 172000, p90: 215000, yoy: 5.5 },
-  'cloud-architect':             { median: 152000, p25: 118000, p75: 195000, p90: 245000, yoy: 5.8 },
-  'solutions-architect':         { median: 148000, p25: 112000, p75: 190000, p90: 238000, yoy: 4.8 },
-  'cybersecurity-analyst':       { median: 112000, p25: 82000,  p75: 148000, p90: 188000, yoy: 6.2 },
-  'blockchain-developer':        { median: 135000, p25: 102000, p75: 175000, p90: 225000, yoy: 8.2 },
-  'embedded-systems-engineer':   { median: 105000, p25: 78000,  p75: 135000, p90: 170000, yoy: 2.8 },
-  'database-administrator':      { median: 98000,  p25: 72000,  p75: 128000, p90: 162000, yoy: 1.8 },
-  'network-engineer':            { median: 92000,  p25: 68000,  p75: 120000, p90: 152000, yoy: 2.1 },
-  'systems-administrator':       { median: 85000,  p25: 62000,  p75: 112000, p90: 140000, yoy: 1.8 },
-  'it-manager':                  { median: 118000, p25: 88000,  p75: 152000, p90: 190000, yoy: 2.5 },
-  'qa-engineer':                 { median: 85000,  p25: 62000,  p75: 112000, p90: 142000, yoy: 2.0 },
-  'technical-writer':            { median: 78000,  p25: 55000,  p75: 102000, p90: 130000, yoy: 1.5 },
-
-  // Healthcare
-  'nurse':                       { median: 82000,  p25: 65000,  p75: 102000, p90: 125000, yoy: 3.8 },
-  'nurse-practitioner':          { median: 115000, p25: 96000,  p75: 138000, p90: 162000, yoy: 4.2 },
-  'physician':                   { median: 218000, p25: 162000, p75: 298000, p90: 380000, yoy: 2.8 },
-  'surgeon':                     { median: 352000, p25: 268000, p75: 445000, p90: 550000, yoy: 2.2 },
-  'anesthesiologist':            { median: 338000, p25: 268000, p75: 418000, p90: 492000, yoy: 2.3 },
-  'radiologist':                 { median: 298000, p25: 232000, p75: 380000, p90: 452000, yoy: 2.5 },
-  'dentist':                     { median: 175000, p25: 128000, p75: 225000, p90: 290000, yoy: 2.1 },
-  'dental-hygienist':            { median: 82000,  p25: 65000,  p75: 98000,  p90: 118000, yoy: 2.4 },
-  'pharmacist':                  { median: 128000, p25: 108000, p75: 148000, p90: 168000, yoy: 1.2 },
-  'physician-assistant':         { median: 118000, p25: 98000,  p75: 142000, p90: 165000, yoy: 3.5 },
-  'physical-therapist':          { median: 95000,  p25: 78000,  p75: 115000, p90: 138000, yoy: 2.9 },
-  'occupational-therapist':      { median: 88000,  p25: 72000,  p75: 108000, p90: 128000, yoy: 2.7 },
-  'medical-laboratory-technician':{ median: 58000, p25: 45000,  p75: 72000,  p90: 88000,  yoy: 2.1 },
-  'medical-coder':               { median: 48000,  p25: 38000,  p75: 62000,  p90: 78000,  yoy: 1.8 },
-  'healthcare-administrator':    { median: 105000, p25: 75000,  p75: 138000, p90: 175000, yoy: 2.6 },
-
-  // Finance & Legal
-  'financial-analyst':           { median: 86000,  p25: 62000,  p75: 115000, p90: 148000, yoy: 2.9 },
-  'accountant':                  { median: 72000,  p25: 52000,  p75: 95000,  p90: 125000, yoy: 2.0 },
-  'auditor':                     { median: 75000,  p25: 55000,  p75: 100000, p90: 128000, yoy: 2.2 },
-  'tax-specialist':              { median: 78000,  p25: 55000,  p75: 105000, p90: 138000, yoy: 2.5 },
-  'controller':                  { median: 128000, p25: 95000,  p75: 168000, p90: 215000, yoy: 2.8 },
-  'cfo':                         { median: 235000, p25: 168000, p75: 325000, p90: 438000, yoy: 3.2 },
-  'investment-banker':           { median: 158000, p25: 112000, p75: 225000, p90: 325000, yoy: 4.5 },
-  'portfolio-manager':           { median: 138000, p25: 98000,  p75: 195000, p90: 272000, yoy: 3.8 },
-  'actuary':                     { median: 112000, p25: 82000,  p75: 148000, p90: 195000, yoy: 3.2 },
-  'risk-analyst':                { median: 88000,  p25: 64000,  p75: 118000, p90: 152000, yoy: 2.9 },
-  'compliance-officer':          { median: 92000,  p25: 66000,  p75: 122000, p90: 158000, yoy: 3.1 },
-  'management-consultant':       { median: 115000, p25: 82000,  p75: 158000, p90: 215000, yoy: 4.2 },
-  'legal-counsel':               { median: 148000, p25: 108000, p75: 198000, p90: 265000, yoy: 3.1 },
-  'corporate-attorney':          { median: 165000, p25: 118000, p75: 225000, p90: 312000, yoy: 3.5 },
-  'paralegal':                   { median: 58000,  p25: 42000,  p75: 76000,  p90: 98000,  yoy: 1.8 },
-
-  // Business & Management
-  'product-manager':             { median: 122000, p25: 92000,  p75: 158000, p90: 205000, yoy: 2.8 },
-  'project-manager':             { median: 90000,  p25: 65000,  p75: 118000, p90: 150000, yoy: 2.2 },
-  'business-analyst':            { median: 85000,  p25: 62000,  p75: 112000, p90: 142000, yoy: 2.4 },
-  'operations-manager':          { median: 88000,  p25: 62000,  p75: 118000, p90: 152000, yoy: 1.9 },
-
-  // Sales & Marketing
-  'sales-manager':               { median: 98000,  p25: 68000,  p75: 138000, p90: 195000, yoy: 2.5 },
-  'account-executive':           { median: 95000,  p25: 65000,  p75: 138000, p90: 195000, yoy: 3.2 },
-  'sales-representative':        { median: 68000,  p25: 45000,  p75: 98000,  p90: 145000, yoy: 2.5 },
-  'marketing-manager':           { median: 88000,  p25: 62000,  p75: 118000, p90: 155000, yoy: 1.8 },
-  'digital-marketing-manager':   { median: 85000,  p25: 60000,  p75: 115000, p90: 148000, yoy: 4.5 },
-  'brand-manager':               { median: 88000,  p25: 62000,  p75: 118000, p90: 152000, yoy: 2.8 },
-  'seo-specialist':              { median: 62000,  p25: 45000,  p75: 85000,  p90: 112000, yoy: 5.2 },
-  'social-media-manager':        { median: 58000,  p25: 42000,  p75: 78000,  p90: 102000, yoy: 3.8 },
-  'public-relations-manager':    { median: 82000,  p25: 58000,  p75: 108000, p90: 142000, yoy: 1.9 },
-  'market-research-analyst':     { median: 68000,  p25: 48000,  p75: 92000,  p90: 120000, yoy: 2.5 },
-  'growth-hacker':               { median: 88000,  p25: 62000,  p75: 118000, p90: 155000, yoy: 6.2 },
-  'content-writer':              { median: 52000,  p25: 38000,  p75: 70000,  p90: 90000,  yoy: 0.8 },
-
-  // Engineering
-  'mechanical-engineer':         { median: 98000,  p25: 72000,  p75: 128000, p90: 162000, yoy: 2.6 },
-  'electrical-engineer':         { median: 102000, p25: 75000,  p75: 132000, p90: 168000, yoy: 2.9 },
-  'civil-engineer':              { median: 88000,  p25: 65000,  p75: 115000, p90: 145000, yoy: 2.3 },
-  'aerospace-engineer':          { median: 112000, p25: 85000,  p75: 142000, p90: 178000, yoy: 2.4 },
-  'chemical-engineer':           { median: 105000, p25: 78000,  p75: 138000, p90: 172000, yoy: 2.6 },
-  'biomedical-engineer':         { median: 98000,  p25: 72000,  p75: 128000, p90: 162000, yoy: 3.2 },
-  'environmental-engineer':      { median: 92000,  p25: 68000,  p75: 122000, p90: 155000, yoy: 2.3 },
-  'structural-engineer':         { median: 95000,  p25: 70000,  p75: 125000, p90: 158000, yoy: 2.2 },
-  'industrial-engineer':         { median: 95000,  p25: 70000,  p75: 125000, p90: 158000, yoy: 2.3 },
-  'manufacturing-engineer':      { median: 88000,  p25: 65000,  p75: 115000, p90: 148000, yoy: 2.1 },
-  'petroleum-engineer':          { median: 135000, p25: 98000,  p75: 178000, p90: 225000, yoy: 3.8 },
-
-  // Design & Creative
-  'ux-designer':                 { median: 92000,  p25: 68000,  p75: 122000, p90: 155000, yoy: 2.1 },
-  'ui-designer':                 { median: 88000,  p25: 65000,  p75: 118000, p90: 150000, yoy: 2.5 },
-  'graphic-designer':            { median: 58000,  p25: 42000,  p75: 78000,  p90: 98000,  yoy: 1.2 },
-  'motion-designer':             { median: 72000,  p25: 52000,  p75: 98000,  p90: 128000, yoy: 2.2 },
-  'art-director':                { median: 98000,  p25: 72000,  p75: 130000, p90: 165000, yoy: 1.9 },
-  'creative-director':           { median: 118000, p25: 88000,  p75: 155000, p90: 198000, yoy: 2.1 },
-  'video-editor':                { median: 58000,  p25: 42000,  p75: 78000,  p90: 102000, yoy: 1.8 },
-  'photographer':                { median: 45000,  p25: 32000,  p75: 62000,  p90: 85000,  yoy: 0.9 },
-
-  // HR & People
-  'hr-manager':                  { median: 82000,  p25: 58000,  p75: 108000, p90: 138000, yoy: 1.5 },
-  'hr-business-partner':         { median: 92000,  p25: 66000,  p75: 122000, p90: 158000, yoy: 2.6 },
-  'recruiter':                   { median: 62000,  p25: 45000,  p75: 85000,  p90: 112000, yoy: 2.8 },
-  'talent-acquisition-specialist':{ median: 72000, p25: 52000,  p75: 98000,  p90: 128000, yoy: 3.2 },
-  'compensation-analyst':        { median: 78000,  p25: 56000,  p75: 105000, p90: 135000, yoy: 2.5 },
-  'training-specialist':         { median: 62000,  p25: 45000,  p75: 82000,  p90: 108000, yoy: 1.9 },
-
-  // Supply Chain & Operations
-  'supply-chain-manager':        { median: 95000,  p25: 68000,  p75: 128000, p90: 162000, yoy: 3.5 },
-  'logistics-manager':           { median: 88000,  p25: 62000,  p75: 118000, p90: 150000, yoy: 3.2 },
-  'purchasing-manager':          { median: 92000,  p25: 66000,  p75: 122000, p90: 155000, yoy: 2.5 },
-  'warehouse-manager':           { median: 62000,  p25: 45000,  p75: 82000,  p90: 105000, yoy: 2.1 },
-  'quality-assurance-manager':   { median: 88000,  p25: 64000,  p75: 118000, p90: 150000, yoy: 2.8 },
-  'facilities-manager':          { median: 78000,  p25: 56000,  p75: 105000, p90: 135000, yoy: 1.9 },
-
-  // Education
-  'teacher':                     { median: 62000,  p25: 48000,  p75: 78000,  p90: 96000,  yoy: 1.8 },
-  'professor':                   { median: 92000,  p25: 65000,  p75: 125000, p90: 165000, yoy: 1.5 },
-  'instructional-designer':      { median: 72000,  p25: 52000,  p75: 98000,  p90: 128000, yoy: 3.8 },
-  'school-counselor':            { median: 62000,  p25: 48000,  p75: 78000,  p90: 98000,  yoy: 1.6 },
-  'librarian':                   { median: 62000,  p25: 46000,  p75: 78000,  p90: 98000,  yoy: 1.2 },
-
-  // Trades & Skilled
-  'electrician':                 { median: 62000,  p25: 46000,  p75: 82000,  p90: 108000, yoy: 3.5 },
-  'plumber':                     { median: 62000,  p25: 46000,  p75: 85000,  p90: 112000, yoy: 3.8 },
-  'hvac-technician':             { median: 58000,  p25: 42000,  p75: 78000,  p90: 102000, yoy: 4.2 },
-  'construction-manager':        { median: 105000, p25: 78000,  p75: 138000, p90: 175000, yoy: 3.1 },
-  'real-estate-agent':           { median: 58000,  p25: 32000,  p75: 92000,  p90: 145000, yoy: 1.5 },
-}
-
-// Category map for smart compare page generation
 export const ROLE_CATEGORIES: Record<string, string> = {
   // Technology
   'software-engineer': 'tech', 'full-stack-developer': 'tech', 'frontend-developer': 'tech',
@@ -403,19 +265,12 @@ export const ROLE_CATEGORIES: Record<string, string> = {
   'construction-manager': 'trades', 'real-estate-agent': 'trades',
 }
 
-function round5k(n: number) {
-  return Math.round(n / 5000) * 5000
-}
-
 export function getSalaryData(roleSlug: string, citySlug: string): SalaryData | null {
   const role = ROLES.find(r => r.slug === roleSlug)
   const city = CITIES.find(c => c.slug === citySlug)
-  const base = BASE_SALARIES[roleSlug]
-  if (!role || !city || !base) return null
-
-  const idx = city.costIndex
   const official = OEWS[roleSlug]?.markets[citySlug]
-  const [p25, median, p75, p90] = official ?? [base.p25, base.median, base.p75, base.p90].map(wage => round5k(wage * idx))
+  if (!role || !city || !official) return null
+  const [p25, median, p75, p90] = official
   return {
     role: role.label,
     roleSlug,
@@ -423,8 +278,8 @@ export function getSalaryData(roleSlug: string, citySlug: string): SalaryData | 
     citySlug,
     state: city.state,
     median, p25, p75, p90,
-    source: official ? 'BLS OEWS' : 'SalaryIndex model',
-    updatedAt: official ? OEWS_PERIOD : 'Legacy estimate',
+    source: 'BLS OEWS',
+    updatedAt: OEWS_PERIOD,
   }
 }
 
@@ -484,11 +339,13 @@ export function getCitiesForState(stateCode: string) {
 export function getStateSalaryRanking(stateCode: string) {
   const cities = getCitiesForState(stateCode)
   if (!cities.length) return []
-  return ROLES.map(role => {
+  return ROLES.flatMap(role => {
     const salaries = cities
       .map(city => getSalaryData(role.slug, city.slug))
       .filter(Boolean) as SalaryData[]
-    const avg = (arr: number[]) => Math.round(arr.reduce((a, b) => a + b, 0) / arr.length / 5000) * 5000
+    const national = getNationalBenchmark(role.slug)
+    if (!salaries.length || !national) return []
+    const avg = (arr: number[]) => Math.round(arr.reduce((a, b) => a + b, 0) / arr.length)
     return {
       role: role.label,
       slug: role.slug,
@@ -496,7 +353,7 @@ export function getStateSalaryRanking(stateCode: string) {
       p25:    avg(salaries.map(s => s.p25)),
       p75:    avg(salaries.map(s => s.p75)),
       p90:    avg(salaries.map(s => s.p90)),
-      nationalMedian: getNationalBenchmark(role.slug).median,
+      nationalMedian: national.median,
     }
   }).sort((a, b) => b.median - a.median)
 }
@@ -504,7 +361,7 @@ export function getStateSalaryRanking(stateCode: string) {
 // Only generate compare pages for same-category pairs to stay under file limits
 export function getAllCompareSlugs() {
   const slugs: string[] = []
-  const rolesList = ROLES.map(r => r.slug)
+  const rolesList = ROLES.filter(r => getNationalBenchmark(r.slug)).map(r => r.slug)
   for (let i = 0; i < rolesList.length; i++) {
     for (let j = i + 1; j < rolesList.length; j++) {
       const cat1 = ROLE_CATEGORIES[rolesList[i]]
@@ -527,5 +384,3 @@ export function parseCompareSlug(slug: string) {
   if (!role1 || !role2) return null
   return { role1, role2 }
 }
-
-export { BASE_SALARIES }

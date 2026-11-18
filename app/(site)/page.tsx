@@ -12,7 +12,7 @@ export default function HomePage() {
           <span className="tag" style={{ marginBottom: 4 }}>2026 Edition</span>
         </div>
         <p style={{ color: 'var(--ink-muted)', fontSize: 14, margin: '0 0 16px', maxWidth: 680 }}>
-          Salary benchmarks for 113 occupational roles across 30 major U.S. metropolitan areas,
+          Salary benchmarks for 61 catalog roles matched to BLS occupations across 30 major U.S. metropolitan areas,
           derived from Bureau of Labor Statistics Occupational Employment and Wage Statistics (OES) surveys.
           Select a role or market to view the full compensation distribution.
         </p>
@@ -20,7 +20,7 @@ export default function HomePage() {
         {/* Stats bar */}
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {[
-            { value: '113', label: 'Roles' },
+            { value: '61', label: 'Matched roles' },
             { value: '30', label: 'Markets' },
             { value: '3,360', label: 'Data Points' },
             { value: 'May 2025', label: 'BLS reference period' },
@@ -123,7 +123,7 @@ export default function HomePage() {
           <strong style={{ color: 'var(--navy)' }}>Data Methodology:</strong> Salary figures represent
           annual base compensation in USD. Percentiles are derived from BLS Occupational Employment
           and Wage Statistics (OES) surveys, adjusted for metropolitan cost-of-labor indices.
-          Official wage estimates use the May 2025 BLS release. Modelled figures are identified separately.{' '}
+          Wage estimates use the May 2025 BLS OEWS reference period. Availability varies by occupation and metro area.{' '}
           <a href="/methodology" style={{ color: 'var(--navy)', textDecoration: 'underline' }}>Read full methodology →</a>
         </p>
       </div>

@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation'
+import { getBenchmark, BLS_METRO_WORKBOOK } from '@/data/benchmarks'
 import type { Metadata } from 'next'
 import {
   getSalaryData, getAllRoleSlugs, getAllCitySlugs,
@@ -10,14 +10,14 @@ import AffiliateLinks from '@/components/AffiliateLinks'
 
 type Props = { params: Promise<{ role: string; city: string }> }
 
-// Generate static pages for all 113 roles × top 8 cities to stay under Cloudflare 20k file limit
+// Preserve existing URLs in the original eight markets alongside verified detail pages.
 const TOP_CITIES = ['san-francisco', 'new-york', 'seattle', 'los-angeles', 'chicago', 'austin', 'washington-dc', 'boston']
 
 export async function generateStaticParams() {
   const pairs: { role: string; city: string }[] = []
   for (const role of getAllRoleSlugs()) {
-    for (const city of TOP_CITIES) {
-      pairs.push({ role, city })
+    for (const city of getAllCitySlugs()) {
+      if (TOP_CITIES.includes(city) || getSalaryData(role, city)) pairs.push({ role, city })
     }
   }
   return pairs
@@ -26,10 +26,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { role, city } = await params
   const data = getSalaryData(role, city)
-  if (!data) return {}
+  if (!data) return { robots: { index: false, follow: true } }
   return {
     alternates: { canonical: `https://ussalaryindex.com/salary/${role}/${city}` },
-    ...(data.source === 'SalaryIndex model' ? { robots: { index: false, follow: true } } : {}),
     title: `${data.role} Salary in ${data.city}, ${data.state} (${data.updatedAt})`,
     description: `The median ${data.role} salary in ${data.city} is ${formatSalary(data.median)}/year. Full compensation distribution: 25th percentile ${formatSalary(data.p25)}, 75th ${formatSalary(data.p75)}, 90th ${formatSalary(data.p90)}.`,
   }
@@ -38,7 +37,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function SalaryPage({ params }: Props) {
   const { role, city } = await params
   const data = getSalaryData(role, city)
-  if (!data) notFound()
+  if (!data) {
+    const details = getBenchmark(role)
+    return <section className="benchmark"><h1>{ROLES.find(item => item.slug === role)?.label ?? role} salaries</h1><p>A complete wage distribution is unavailable for this occupation and market.</p><a href={details ? `/benchmarks/${role}` : '/benchmarks'}>See available BLS benchmarks</a></section>
+  }
+  const occupation = getBenchmark(role)
+  const metro = occupation?.markets.find(item => item.slug === city)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -78,10 +82,9 @@ export default async function SalaryPage({ params }: Props) {
   const otherRoles = ROLES.filter(r => r.slug !== role).slice(0, 6)
 
   const percentiles = [
-    { label: '10th Pct.', value: Math.round(data.p25 * 0.78 / 5000) * 5000, sub: 'Junior' },
-    { label: '25th Pct.', value: data.p25, sub: 'Entry-level' },
+    { label: '25th Pct.', value: data.p25, sub: 'Lower quartile' },
     { label: '50th Pct.', value: data.median, sub: 'Median', highlight: true },
-    { label: '75th Pct.', value: data.p75, sub: 'Senior' },
+    { label: '75th Pct.', value: data.p75, sub: 'Upper quartile' },
     { label: '90th Pct.', value: data.p90, sub: 'Top earner' },
   ]
 
@@ -126,9 +129,10 @@ export default async function SalaryPage({ params }: Props) {
         marginBottom: 32,
       }}>
         <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)', lineHeight: 1.8 }}>
-          The median salary for <strong>{data.role}</strong> in <strong>{data.city}, {data.state}</strong> is{' '}
+          The median salary for <strong>{data.role}</strong> in <strong>{metro?.market ?? data.city}</strong> is{' '}
           <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(data.median)}</strong> per year ({data.source}, {data.updatedAt}).
-          {' '}Most {data.role}s in {data.city} earn between{' '}
+          {occupation && metro && <> Published for {occupation.occupation} (SOC {occupation.code}) in area {metro.area}.{' '}<a href={BLS_METRO_WORKBOOK}>BLS metropolitan source</a>.</>}
+          {' '}The middle half of wages fall between{' '}
           <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(data.p25)}</strong> and{' '}
           <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(data.p75)}</strong>.
         </p>
@@ -145,7 +149,7 @@ export default async function SalaryPage({ params }: Props) {
         }}>
           Salary Percentiles
         </h2>
-        <div className="percentile-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 2 }}>
+        <div className="percentile-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
           {percentiles.map(p => (
             <div key={p.label} style={{
               padding: '14px 12px',

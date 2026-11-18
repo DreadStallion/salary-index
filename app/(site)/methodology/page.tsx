@@ -30,7 +30,7 @@ export default function MethodologyPage() {
             All base salary figures are derived from the <strong>Bureau of Labor Statistics (BLS) Occupational Employment and Wage Statistics (OES)</strong> program. The OES survey is the most comprehensive U.S. government survey of occupational wages, covering approximately 1.2 million business establishments annually.
           </p>
           <p style={{ fontSize: 14, color: 'var(--ink-muted)', lineHeight: 1.8, margin: '12px 0 0' }}>
-            The BLS OES program provides wage estimates at the national, state, and metropolitan area levels for over 800 occupations. SalaryIndex maps these occupations to the 113 roles tracked on this site.
+            The BLS OES program provides wage estimates at the national, state, and metropolitan area levels for over 800 occupations. SalaryIndex shows the official occupation title and SOC code for matched occupations.
           </p>
         </section>
 
@@ -67,10 +67,10 @@ export default function MethodologyPage() {
         <section>
           <h2 style={{ fontSize: 16, color: 'var(--navy)', marginBottom: 12 }}>Geographic Adjustment</h2>
           <p style={{ fontSize: 14, color: 'var(--ink-muted)', lineHeight: 1.8, margin: 0 }}>
-            Rows marked BLS OEWS use published annual wage percentiles for the metropolitan area and matched occupation. The occupation category may cover more jobs than the SalaryIndex label. Where a complete match is unavailable, legacy estimates use a national base adjusted by a city index and rounded to $5,000.
+            Rows marked BLS OEWS use published annual wage percentiles for the metropolitan area and matched occupation. The occupation category may cover more jobs than the SalaryIndex label. The verified benchmarks show each percentile available as a numeric wage in the BLS tables.
           </p>
           <p style={{ fontSize: 14, color: 'var(--ink-muted)', lineHeight: 1.8, margin: '12px 0 0' }}>
-            See the <a href="https://www.bls.gov/oes/tables.htm">BLS OEWS tables</a> for original national and metropolitan estimates. A category without complete published percentiles remains labelled SalaryIndex model.
+            See the <a href="https://www.bls.gov/oes/tables.htm">BLS OEWS tables</a> for original national and metropolitan estimates. An unavailable value means the source provides no numeric wage for that percentile.
           </p>
         </section>
 

@@ -17,8 +17,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const roleData = ROLES.find(r => r.slug === role)
   if (!roleData) return {}
   return {
+    alternates: { canonical: `https://ussalaryindex.com/role/${role}` },
+    ...(!getOewsOccupation(role) ? { robots: { index: false, follow: true } } : {}),
     title: `${roleData.label} Salary by City — 2026 U.S. Data`,
-    description: `Compare ${roleData.label} salaries across 30 U.S. markets. Median, p25, p75, p90 percentile data from official OEWS tables and legacy estimates.`,
+    description: `Compare ${roleData.label} salaries across 30 U.S. markets. Median, p25, p75, p90 percentile data from official OEWS tables.`,
   }
 }
 
@@ -38,6 +40,7 @@ export default async function RolePage({ params }: Props) {
 
   const occupation = getOewsOccupation(role)
   const benchmark = getNationalBenchmark(role)
+  if (!cityData.length) return <section className="benchmark"><h1>{roleData.label} salaries</h1><p>SalaryIndex has no verified metropolitan wages for this role in this release.</p><a href="/benchmarks">Browse verified benchmarks</a></section>
 
   const topCity = cityData[0]
   const bottomCity = cityData[cityData.length - 1]
@@ -55,7 +58,7 @@ export default async function RolePage({ params }: Props) {
       {
         '@type': 'Occupation',
         name: roleData.label,
-        description: `${roleData.label} salary data across 30 major U.S. metropolitan markets. Includes official BLS OEWS figures and legacy estimates.`,
+        description: `${roleData.label} salary data across 30 major U.S. metropolitan markets. Includes official BLS OEWS figures.`,
         estimatedSalary: [
           {
             '@type': 'MonetaryAmountDistribution',
@@ -77,7 +80,7 @@ export default async function RolePage({ params }: Props) {
             name: `What is the average ${roleData.label} salary in the United States?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `The average of the market medians for ${roleData.label} across 30 major U.S. markets is ${formatSalary(marketAverage)} per year using the SalaryIndex comparison figures.`,
+              text: `The average of the market medians for ${roleData.label} across the tracked U.S. markets is ${formatSalary(marketAverage)} per year using the SalaryIndex comparison figures.`,
             },
           },
           {
@@ -125,7 +128,7 @@ export default async function RolePage({ params }: Props) {
             {roleData.label} Salary — U.S. Market Overview
           </h1>
           <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-muted)' }}>
-            30 metropolitan markets · Official figures and legacy estimates
+            {cityData.length} metropolitan markets · BLS OEWS · May 2025
           </p>
         </div>
         <div style={{ textAlign: 'right' }}>
@@ -145,12 +148,12 @@ export default async function RolePage({ params }: Props) {
         marginBottom: 28,
       }}>
         <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)', lineHeight: 1.8 }}>
-          The average of the market medians for <strong>{roleData.label}</strong> across 30 major U.S. markets is{' '}
+          The average of the market medians for <strong>{roleData.label}</strong> across the tracked U.S. markets is{' '}
           <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(marketAverage)}</strong> per year for the tracked markets.
           {' '}The highest-paying market is <strong>{topCity?.city.label}</strong> at{' '}
           <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(topCity?.salary?.median ?? 0)}</strong>.
-          {' '}The tables identify official BLS figures and SalaryIndex model estimates.
-          {occupation && benchmark.source === 'BLS OEWS' && (
+          {' '}The table shows the markets with complete published annual wage percentiles.
+          {occupation && benchmark?.source === 'BLS OEWS' && (
             <> The <a href={OEWS_SOURCE}>official U.S. median</a> for {occupation.occupation} (SOC {occupation.code}) is{' '}
               <strong>{formatSalary(benchmark.median)}</strong> for May 2025.</>
           )}
@@ -165,7 +168,7 @@ export default async function RolePage({ params }: Props) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, marginBottom: 28 }}>
         {[
           { label: 'Highest Market', value: topCity?.city.label, sub: formatSalary(topCity?.salary?.median ?? 0) },
-          { label: 'Average of Market Medians', value: formatSalary(marketAverage), sub: '30-market average' },
+          { label: 'Average of Market Medians', value: formatSalary(marketAverage), sub: 'Tracked-market average' },
           { label: 'Lowest Market', value: bottomCity?.city.label, sub: formatSalary(bottomCity?.salary?.median ?? 0) },
         ].map(item => (
           <div key={item.label} style={{ background: 'white', border: '1px solid var(--border)', padding: '14px 18px' }}>
