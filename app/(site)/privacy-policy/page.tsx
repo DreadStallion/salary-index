@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
           <p style={{ margin: '0 0 8px' }}>We collect minimal data necessary to operate the service:</p>
           <ul style={{ margin: 0, paddingLeft: 20 }}>
             <li><strong>Usage data:</strong> Pages visited, time on site, referring URLs — collected via Google Analytics 4.</li>
-            <li><strong>API registration:</strong> Email address, if you register for an API key via the /developers page.</li>
+            <li><strong>API registration:</strong> Email address, if you previously registered for an API key via SalaryIndex.</li>
             <li><strong>Technical data:</strong> IP address, browser type, device type — standard server logs retained by Cloudflare.</li>
           </ul>
           <p style={{ margin: '8px 0 0' }}>We do not collect names, payment information, or sensitive personal data unless you explicitly provide it.</p>

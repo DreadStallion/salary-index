@@ -42,8 +42,6 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               { href: '/benchmarks', label: 'Verified data' },
               { href: '/calculator', label: 'Calculator' },
               { href: '/compare/software-engineer-vs-data-scientist', label: 'Compare' },
-              { href: '/embed', label: 'Embed' },
-              { href: '/developers', label: 'API' },
             ].map(({ href, label }) => (
               <a key={href} href={href} style={{
                 color: '#c8d4e0',
@@ -80,9 +78,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=us-salary-dataset-113-roles-x-30-cities&theme=dark" alt="Featured on Product Hunt" style={{ height: 36 }} />
             </a>
             <br />
-            <a href="/embed" style={{ color: '#8a9bb5', textDecoration: 'none' }}>Embed widget</a>
             <br />
-            <a href="/developers" style={{ color: '#8a9bb5', textDecoration: 'none' }}>API for developers</a>
             <br />
             <a href="/methodology" style={{ color: '#8a9bb5', textDecoration: 'none' }}>Methodology</a>
             <br />

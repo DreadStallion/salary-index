@@ -43,8 +43,6 @@
 /calculator
   Cache-Control: public, max-age=3600
 
-/embed
-  Cache-Control: public, max-age=3600
 
 # Homepage
 /
