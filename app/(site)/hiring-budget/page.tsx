@@ -52,7 +52,7 @@ export default function HiringBudgetPage() {
           ))}</tbody>
         </table>
       </div>
-      <p><a href={HIRING_BUDGET_SAMPLE_PATH} download>Download the editable sample CSV</a> · <a href={BLS_METRO_WORKBOOK}>Original BLS metropolitan tables</a></p>
+      <p><a href={HIRING_BUDGET_SAMPLE_PATH} download>Download the editable Excel sample</a> · <a href={BLS_METRO_WORKBOOK}>Original BLS metropolitan tables</a></p>
       <p>The example covers wages only. Employer taxes, benefits, recruiting costs and other compensation are outside this pilot.</p>
     </article>
   )

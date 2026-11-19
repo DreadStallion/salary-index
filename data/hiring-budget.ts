@@ -1,7 +1,7 @@
 import { getBenchmark } from '@/data/benchmarks'
 
 export const HIRING_BUDGET_PATH = '/hiring-budget'
-export const HIRING_BUDGET_SAMPLE_PATH = '/hiring-budget-sample.csv'
+export const HIRING_BUDGET_SAMPLE_PATH = '/SalaryIndex_Hiring_Budget_Sample.xlsx'
 export const HIRING_BUDGET_PRICE = '€149'
 export const SAMPLE_BUDGET = 300000
 
