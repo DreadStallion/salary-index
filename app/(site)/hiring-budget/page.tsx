@@ -8,7 +8,7 @@ import {
 
 export const metadata: Metadata = {
   title: 'Hiring Budget Brief for U.S. Teams | SalaryIndex',
-  description: 'Compare the annual wage budget for up to three roles in three U.S. markets with a custom, source-linked SalaryIndex brief.',
+  description: 'Get a client-ready hiring recommendation, two costed alternatives and an editable model backed by BLS wage data.',
   alternates: { canonical: `https://ussalaryindex.com${HIRING_BUDGET_PATH}` },
 }
 
@@ -23,16 +23,31 @@ const inquiry = 'https://mail.google.com/mail/?' + new URLSearchParams({
 
 export default function HiringBudgetPage() {
   const sample = getHiringBudgetSample()
+  const chicago = sample.find(row => row.slug === 'chicago')
+  const austin = sample.find(row => row.slug === 'austin')
+  const analyst = chicago?.wages.find(wage => wage.code === '13-2051')
+  if (!chicago || !austin || !analyst) throw new Error('Missing wage inputs for the sample decision.')
+  const staggeredCost = chicago.total - analyst.median / 2
+  const scenarios = [
+    { label: 'Chicago · all hires start immediately', firstYear: chicago.total, annualized: chicago.total },
+    { label: 'Austin · all hires start immediately', firstYear: austin.total, annualized: austin.total },
+    { label: 'Chicago · analyst starts six months later', firstYear: staggeredCost, annualized: chicago.total },
+  ]
   return (
     <article className="benchmark">
       <nav aria-label="Breadcrumb"><a href="/benchmarks">Verified benchmarks</a> / Hiring budget brief</nav>
-      <h1>Compare what it costs to hire your team</h1>
+      <h1>Fit your hiring plan to your budget.</h1>
       <p>
-        Send us up to three roles and three U.S. metro markets. We match each role to a BLS occupation and compare annual wage costs against your budget.
+        Send us up to three roles, three U.S. metro markets and your wage budget. Get a client-ready recommendation, two costed alternatives and an editable model backed by BLS data.
       </p>
       <div className="benchmark-summary">
         <h2>Custom hiring budget brief · {HIRING_BUDGET_PRICE}</h2>
-        <p>Get a short brief and an editable spreadsheet. Both include assumptions, occupation codes, sources and the budget difference by market. We confirm data coverage, scope and timing before payment.</p>
+        <ul style={{ paddingLeft: 20, listStyle: 'disc' }}>
+          <li>A one-page recommendation with the best-fit scenario and its main trade-off.</li>
+          <li>Two costed alternatives, showing first-year wages and annualized wages separately.</li>
+          <li>An editable Excel model with assumptions, occupation codes and BLS sources.</li>
+        </ul>
+        <p>We confirm data coverage, scope and timing before payment.</p>
         <details>
           <summary style={{ cursor: 'pointer', fontWeight: 700, color: 'var(--navy)', textDecoration: 'underline' }}>
             Request a hiring budget brief
@@ -44,6 +59,27 @@ export default function HiringBudgetPage() {
 
       <h2>Sample brief with a {formatSalary(SAMPLE_BUDGET)} budget</h2>
       <p>Illustrative plan for one hire in each listed occupation. The figures are median annual wages in USD from BLS OEWS, {BENCHMARK_PERIOD}.</p>
+      <p className="benchmark-summary">
+        <strong>Sample recommendation:</strong> If the analyst role can start six months later, Chicago costs{' '}
+        <strong>{formatSalary(staggeredCost)}</strong> in the first 12 months, leaving {formatSalary(SAMPLE_BUDGET - staggeredCost)} before contingency.
+        The full team still costs {formatSalary(chicago.total)} per year after all hires start. If the analyst is needed immediately, revise the plan or increase the budget.
+      </p>
+      <div className="benchmark-scroll" role="region" aria-label="Sample hiring alternatives" tabIndex={0}>
+        <table className="data-table">
+          <caption>Decision options · wage costs at BLS medians</caption>
+          <thead><tr><th scope="col">Scenario</th><th scope="col">First 12 months</th><th scope="col">Annualized wages</th><th scope="col">First-year budget difference</th></tr></thead>
+          <tbody>{scenarios.map(row => {
+            const difference = SAMPLE_BUDGET - row.firstYear
+            return (
+              <tr key={row.label}>
+                <td>{row.label}</td><td>{formatSalary(row.firstYear)}</td><td>{formatSalary(row.annualized)}</td>
+                <td>{formatSalary(Math.abs(difference))} {difference < 0 ? 'over' : 'remaining'}</td>
+              </tr>
+            )
+          })}</tbody>
+        </table>
+      </div>
+      <p>Scenario totals exclude contingency. The linked Excel lets you adjust headcount and contingency for the full-year market comparison.</p>
       <div className="benchmark-scroll" role="region" aria-label="Sample hiring budget by market" tabIndex={0}>
         <table className="data-table">
           <caption>Annual wage budget by metro area</caption>
