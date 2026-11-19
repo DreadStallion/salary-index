@@ -13,10 +13,13 @@ export const metadata: Metadata = {
 }
 
 const contactEmail = 'dreadstalliondev@gmail.com'
-const inquiry = `mailto:${contactEmail}?` + new URLSearchParams({
-  subject: 'SalaryIndex hiring budget pilot',
+const inquiry = 'https://mail.google.com/mail/?' + new URLSearchParams({
+  view: 'cm',
+  fs: '1',
+  to: contactEmail,
+  su: 'SalaryIndex hiring budget pilot',
   body: 'Hi Dread Stallion Dev,\n\nI would like to request a hiring budget brief.\n\nRoles and headcount:\nMarkets to compare:\nAnnual wage budget (USD):\nWhen do you need to make the decision?\n',
-}).toString().replace(/\+/g, '%20')
+}).toString()
 
 export default function HiringBudgetPage() {
   const sample = getHiringBudgetSample()
@@ -35,7 +38,7 @@ export default function HiringBudgetPage() {
             Request a hiring budget brief
           </summary>
           <p>Email <strong>{contactEmail}</strong> with the roles and headcount, metro areas, annual wage budget in USD, and your decision deadline.</p>
-          <a className="verified-benchmark-link" href={inquiry}>Open a prefilled email draft →</a>
+          <a className="verified-benchmark-link" href={inquiry} target="_blank" rel="noopener noreferrer">Open prefilled draft in Gmail →</a>
         </details>
       </div>
 
