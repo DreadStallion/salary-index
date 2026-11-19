@@ -12,7 +12,8 @@ export const metadata: Metadata = {
   alternates: { canonical: `https://ussalaryindex.com${HIRING_BUDGET_PATH}` },
 }
 
-const inquiry = 'mailto:dreadstalliondev@gmail.com?' + new URLSearchParams({
+const contactEmail = 'dreadstalliondev@gmail.com'
+const inquiry = `mailto:${contactEmail}?` + new URLSearchParams({
   subject: 'SalaryIndex hiring budget pilot',
   body: 'Hi Dread Stallion Dev,\n\nI would like to request a hiring budget brief.\n\nRoles and headcount:\nMarkets to compare:\nAnnual wage budget (USD):\nWhen do you need to make the decision?\n',
 }).toString().replace(/\+/g, '%20')
@@ -29,7 +30,13 @@ export default function HiringBudgetPage() {
       <div className="benchmark-summary">
         <h2>Custom hiring budget brief · {HIRING_BUDGET_PRICE}</h2>
         <p>Get a short brief and an editable spreadsheet. Both include assumptions, occupation codes, sources and the budget difference by market. We confirm data coverage, scope and timing before payment.</p>
-        <a className="verified-benchmark-link" href={inquiry}>Request a hiring budget brief →</a>
+        <details>
+          <summary style={{ cursor: 'pointer', fontWeight: 700, color: 'var(--navy)', textDecoration: 'underline' }}>
+            Request a hiring budget brief
+          </summary>
+          <p>Email <strong>{contactEmail}</strong> with the roles and headcount, metro areas, annual wage budget in USD, and your decision deadline.</p>
+          <a className="verified-benchmark-link" href={inquiry}>Open a prefilled email draft →</a>
+        </details>
       </div>
 
       <h2>Sample brief with a {formatSalary(SAMPLE_BUDGET)} budget</h2>
