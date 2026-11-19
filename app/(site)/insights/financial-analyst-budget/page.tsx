@@ -1,3 +1,4 @@
+import { HIRING_BUDGET_PATH } from '@/data/hiring-budget'
 import type { Metadata } from 'next'
 import {
   BENCHMARK_PERIOD, BLS_METRO_WORKBOOK, FINANCIAL_ANALYST_BUDGET_PATH,
@@ -63,6 +64,7 @@ export default function FinancialAnalystBudget() {
       </ul>
       <p>The comparison covers the SalaryIndex markets with a published median. It assesses annual wages and excludes employer costs.</p>
       <p><a href="/benchmarks/financial-analyst">See every market and percentile</a> · <a href={BLS_METRO_WORKBOOK}>Download the original BLS tables</a></p>
+      <p><a href={HIRING_BUDGET_PATH}>Compare the hiring budget for your own team →</a></p>
     </article>
   )
 }

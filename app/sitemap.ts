@@ -1,3 +1,4 @@
+import { HIRING_BUDGET_PATH } from '@/data/hiring-budget'
 import type { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
@@ -31,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   return [
+    { url: `${BASE}${HIRING_BUDGET_PATH}`, lastModified: "2026-11-19" },
     { url: `${BASE}${FINANCIAL_ANALYST_BUDGET_PATH}`, lastModified: "2026-11-19" },
     { url: `${BASE}/benchmarks` },
     ...getBenchmarkSlugs().map(role => ({ url: `${BASE}/benchmarks/${role}` })),

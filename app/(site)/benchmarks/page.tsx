@@ -1,3 +1,4 @@
+import { HIRING_BUDGET_PATH } from '@/data/hiring-budget'
 import type { Metadata } from 'next'
 import { BENCHMARK_PERIOD, FINANCIAL_ANALYST_BUDGET_PATH, getBenchmark, getBenchmarkSlugs } from '@/data/benchmarks'
 
@@ -13,6 +14,7 @@ export default function BenchmarksPage() {
       <h1>Verified U.S. salary benchmarks</h1>
       <p>Compare annual wages across U.S. metro areas using the {BENCHMARK_PERIOD} BLS OEWS tables. Each comparison shows the occupation and area codes used in the original source.</p>
       <p><a href={FINANCIAL_ANALYST_BUDGET_PATH}>Hiring a financial analyst with a $95,000 budget</a></p>
+      <p><a href={HIRING_BUDGET_PATH}>Request a custom hiring budget brief</a></p>
       <ul className="benchmark-list">
         {getBenchmarkSlugs().sort((a, b) => (getBenchmark(a)?.occupation ?? a).localeCompare(getBenchmark(b)?.occupation ?? b)).map(slug => {
           const benchmark = getBenchmark(slug)
