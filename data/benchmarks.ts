@@ -24,3 +24,6 @@ export function getBenchmark(slug: string) {
 export function getBenchmarkSlugs() {
   return Object.keys(benchmarks)
 }
+
+export const FINANCIAL_ANALYST_BUDGET_PATH = '/insights/financial-analyst-budget'
+export const FINANCIAL_ANALYST_PILOT_MARKETS = ['chicago', 'denver', 'austin', 'new-york', 'san-francisco']

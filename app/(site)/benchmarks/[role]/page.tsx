@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { BENCHMARK_PERIOD, BENCHMARK_RELEASE, BLS_METRO_WORKBOOK, BLS_TABLES, getBenchmark, getBenchmarkSlugs } from '@/data/benchmarks'
+import { BENCHMARK_PERIOD, BENCHMARK_RELEASE, FINANCIAL_ANALYST_BUDGET_PATH, BLS_METRO_WORKBOOK, BLS_TABLES, getBenchmark, getBenchmarkSlugs } from '@/data/benchmarks'
 import { formatSalary } from '@/data/salaries'
 
 type Props = { params: Promise<{ role: string }> }
@@ -42,6 +42,9 @@ export default async function BenchmarkPage({ params }: Props) {
         </p>
       )}
       <p>Figures are annual wages in U.S. dollars. Area names and codes match the BLS workbook. An unavailable cell means the source does not give a numeric value for that percentile.</p>
+      {role === 'financial-analyst' && (
+        <p><a href={FINANCIAL_ANALYST_BUDGET_PATH}>See where a $95,000 hiring budget reaches the median →</a></p>
+      )}
       <div className="benchmark-scroll" role="region" aria-label="Scrollable wage table" tabIndex={0}>
         <table className="data-table">
           <caption>Annual wage percentiles, {BENCHMARK_PERIOD}</caption>

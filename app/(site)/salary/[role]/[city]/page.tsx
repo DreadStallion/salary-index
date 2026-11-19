@@ -1,4 +1,4 @@
-import { getBenchmark, BLS_METRO_WORKBOOK } from '@/data/benchmarks'
+import { getBenchmark, BLS_METRO_WORKBOOK, FINANCIAL_ANALYST_BUDGET_PATH, FINANCIAL_ANALYST_PILOT_MARKETS } from '@/data/benchmarks'
 import type { Metadata } from 'next'
 import {
   getSalaryData, getAllRoleSlugs, getAllCitySlugs,
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     alternates: { canonical: `https://ussalaryindex.com/salary/${role}/${city}` },
     title: `${data.role} Salary in ${data.city}, ${data.state} (${data.updatedAt})`,
-    description: `The median ${data.role} salary in ${data.city} is ${formatSalary(data.median)}/year. Full compensation distribution: 25th percentile ${formatSalary(data.p25)}, 75th ${formatSalary(data.p75)}, 90th ${formatSalary(data.p90)}.`,
+    description: `BLS OEWS reports a median annual wage of ${formatSalary(data.median)} for ${data.role} in ${data.city} (${data.updatedAt}). Full compensation distribution: 25th percentile ${formatSalary(data.p25)}, 75th ${formatSalary(data.p75)}, 90th ${formatSalary(data.p90)}.`,
   }
 }
 
@@ -49,18 +49,18 @@ export default async function SalaryPage({ params }: Props) {
         mainEntity: [
           {
             '@type': 'Question',
-            name: `What is the average ${data.role} salary in ${data.city}?`,
+            name: `What is the median ${data.role} salary in ${data.city}?`,
             acceptedAnswer: { '@type': 'Answer', text: `The median ${data.role} salary in ${data.city}, ${data.state} is ${formatSalary(data.median)} per year (${data.source}, ${data.updatedAt}). The middle 50% earn between ${formatSalary(data.p25)} and ${formatSalary(data.p75)}.` },
           },
           {
             '@type': 'Question',
-            name: `What is the entry-level ${data.role} salary in ${data.city}?`,
-            acceptedAnswer: { '@type': 'Answer', text: `Entry-level ${data.role} positions in ${data.city} typically pay around ${formatSalary(data.p25)} per year (25th percentile). With 2–4 years of experience, salaries climb toward the median of ${formatSalary(data.median)}.` },
+            name: `What is the 25th percentile wage in ${data.city}?`,
+            acceptedAnswer: { '@type': 'Answer', text: `The 25th percentile is ${formatSalary(data.p25)} per year. The BLS figures are grouped by occupation and area.` },
           },
           {
             '@type': 'Question',
-            name: `What do senior ${data.role}s earn in ${data.city}?`,
-            acceptedAnswer: { '@type': 'Answer', text: `Senior ${data.role}s in ${data.city} earn ${formatSalary(data.p75)} at the 75th percentile and up to ${formatSalary(data.p90)} at the 90th percentile.` },
+            name: `What are the upper wage percentiles in ${data.city}?`,
+            acceptedAnswer: { '@type': 'Answer', text: `Annual wages were ${formatSalary(data.p75)} at the 75th percentile and ${formatSalary(data.p90)} at the 90th percentile.` },
           },
         ],
       },
@@ -126,15 +126,19 @@ export default async function SalaryPage({ params }: Props) {
         marginBottom: 32,
       }}>
         <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)', lineHeight: 1.8 }}>
-          The median salary for <strong>{data.role}</strong> in <strong>{metro?.market ?? data.city}</strong> is{' '}
-          <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(data.median)}</strong> per year ({data.source}, {data.updatedAt}).
-          {occupation && metro && <> Published for {occupation.occupation} (SOC {occupation.code}) in area {metro.area}.{' '}<a href={BLS_METRO_WORKBOOK}>BLS metropolitan source</a>.</>}
+          In the {data.updatedAt} BLS OEWS estimates, the median annual wage for <strong>{occupation?.occupation ?? data.role}</strong> in <strong>{metro?.market ?? data.city}</strong> is{' '}
+          <strong style={{ fontFamily: 'Courier New, monospace', color: 'var(--navy)' }}>{formatSalary(data.median)}</strong> per year.
+          {occupation && metro && <> SOC {occupation.code}, metro code {metro.area}.{' '}<a href={BLS_METRO_WORKBOOK}>BLS metropolitan source</a>.</>}
           {' '}The middle half of wages fall between{' '}
           <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(data.p25)}</strong> and{' '}
           <strong style={{ fontFamily: 'Courier New, monospace' }}>{formatSalary(data.p75)}</strong>.
         </p>
       </div>
 
+
+      {role === 'financial-analyst' && FINANCIAL_ANALYST_PILOT_MARKETS.includes(city) && (
+        <p style={{ marginBottom: 24 }}><a className="verified-benchmark-link" href={FINANCIAL_ANALYST_BUDGET_PATH}>Compare a $95,000 hiring budget across markets →</a></p>
+      )}
 
       {/* Compensation distribution */}
       <div style={{ marginBottom: 36 }}>
@@ -186,16 +190,16 @@ export default async function SalaryPage({ params }: Props) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
           {[
             {
-              q: `What is the average ${data.role} salary in ${data.city}?`,
+              q: `What is the median ${data.role} salary in ${data.city}?`,
               a: `The median ${data.role} salary in ${data.city}, ${data.state} is ${formatSalary(data.median)} per year (${data.source}, ${data.updatedAt}). The middle 50% of earners fall between ${formatSalary(data.p25)} and ${formatSalary(data.p75)}.`,
             },
             {
-              q: `What is the entry-level ${data.role} salary in ${data.city}?`,
-              a: `Entry-level ${data.role} positions in ${data.city} typically start around ${formatSalary(data.p25)} per year (25th percentile). With 2–4 years of experience, compensation climbs toward the market median of ${formatSalary(data.median)}.`,
+              q: `What is the 25th percentile wage in ${data.city}?`,
+              a: `The 25th percentile is ${formatSalary(data.p25)} per year. The BLS figures are grouped by occupation and area.`,
             },
             {
-              q: `What do senior ${data.role}s earn in ${data.city}?`,
-              a: `Senior ${data.role}s in ${data.city} earn ${formatSalary(data.p75)} at the 75th percentile and up to ${formatSalary(data.p90)} at the 90th percentile, reflecting 6+ years of experience and management responsibilities.`,
+              q: `What are the upper wage percentiles in ${data.city}?`,
+              a: `Annual wages were ${formatSalary(data.p75)} at the 75th percentile and ${formatSalary(data.p90)} at the 90th percentile.`,
             },
           ].map(({ q, a }, i) => (
             <details key={q} style={{ background: i % 2 === 0 ? 'white' : 'var(--paper-alt)', borderBottom: '1px solid var(--border)' }}>
